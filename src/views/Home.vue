@@ -2,6 +2,11 @@
   <div class="home-container">
     <section class="hero-banner">
       <div class="hero-overlay"></div>
+      
+      <div class="hero-shape shape-1"></div>
+      <div class="hero-shape shape-2"></div>
+      <div class="hero-shape shape-3"></div>
+
       <div class="hero-content">
         <span class="school-badge">SD NEGERI PUCUNG</span>
         <h1>Pucung BerSiNerGI "Bersih, Disiplin, Visioner, Religius"</h1>
@@ -38,28 +43,40 @@
       </div>
     </section>
 
-    <section class="section-info">
+    <section class="dinamika-sekolah">
       <div class="container">
         <div class="section-header">
-          <div>
-            <span class="section-tag">Dinamika Sekolah</span>
-            <h2>Berita & Pengumuman Terbaru</h2>
+          <div class="header-left">
+            <span class="subtitle">DINAMIKA SEKOLAH</span>
+            <h2 class="main-title">Berita & Pengumuman Terbaru</h2>
           </div>
-          <router-link to="/berita" class="btn-link">Lihat Semua Berita &rarr;</router-link>
+          <router-link to="/berita" class="see-all-link">Lihat Semua Berita &rarr;</router-link>
         </div>
 
-        <div class="grid-3">
-          <div v-for="info in sekilasInfo" :key="info.id" class="info-card">
-            <div class="card-badge" :class="info.kategori.toLowerCase()">{{ info.kategori }}</div>
-            <div class="card-image">
-              <img :src="info.foto" :alt="info.judul" />
+        <div class="news-grid">
+          <div v-for="item in beritaData" :key="item.id" class="news-card">
+            
+            <div class="card-image-wrapper">
+              <img 
+                :src="item.foto && item.foto.length > 0 ? item.foto[0] : 'https://via.placeholder.com/400x250'" 
+                :alt="item.judul" 
+                class="card-image"
+              />
+              
+              <div :class="['title-badge-ribbon', getCategoryClass(item.kategori)]">
+                <h3 class="ribbon-text">{{ item.judul }}</h3>
+              </div>
             </div>
+
             <div class="card-body">
-              <span class="card-date">{{ info.tanggal }}</span>
-              <h3>{{ info.judul }}</h3>
-              <p>{{ info.ringkasan }}</p>
-              <router-link :to="'/berita/' + info.id" class="read-more">Baca Selengkapnya</router-link>
+              <span class="card-date">{{ item.tanggal }}</span>
+              <p class="card-description">{{ truncateText(item.ringkasan, 110) }}</p>
+              
+              <router-link :to="'/berita/' + item.id" class="continue-reading">
+                Continue Reading <span>&rarr;</span>
+              </router-link>
             </div>
+
           </div>
         </div>
       </div>
@@ -67,44 +84,32 @@
   </div>
 </template>
 
-<script>
-import { ref } from 'vue';
+<script setup>
+import { computed } from 'vue'
+// 1. Impor data asli langsung dari file beritaData.js Anda
+import { daftarArtikelSdn } from '../data/beritaData.js' // Sesuaikan path folder jika berbeda
 
-export default {
-  name: 'HomeView',
-  setup() {
-    // Data dummy untuk Sekilas Info sebelum dihubungkan ke Google Sheets API
-    const sekilasInfo = ref([
-      {
-        id: 1,
-        kategori: 'Pengumuman',
-        tanggal: '25 Mei 2026',
-        judul: 'Jadwal Penilaian Akhir Tahun (PAT) Semester Genap',
-        ringkasan: 'Pelaksanaan PAT akan dimulai tanggal 2 Juni hingga 9 Juni 2026. Diharapkan seluruh siswa mempersiapkan diri...',
-        foto: 'https://via.placeholder.com/400x250'
-      },
-      {
-        id: 2,
-        kategori: 'Berita',
-        tanggal: '20 Mei 2026',
-        judul: 'Siswa SDN Kota Jaya Raih Juara 1 FLS2N Tingkat Provinsi',
-        ringkasan: 'Prestasi gemilang kembali ditorehkan oleh Ananda Naura dari kelas V dalam bidang seni tari tradisional pada ajang...',
-        foto: 'https://via.placeholder.com/400x250'
-      },
-      {
-        id: 3,
-        kategori: 'PPDB',
-        tanggal: '15 Mei 2026',
-        judul: 'Alur & Kuota Pendaftaran Siswa Baru Tahun Ajaran 2026/2027',
-        ringkasan: 'Penerimaan Peserta Didik Baru (PPDB) resmi dibuka. Simak syarat dokumen dan jalur zonasi yang berlaku tahun ini...',
-        foto: 'https://via.placeholder.com/400x250'
-      }
-    ]);
+// 2. Ambil 3 data teratas dan sesuaikan pemetaan kategorinya untuk Ribbon UI
+const beritaData = computed(() => {
+  // Mengambil 3 artikel teratas dari array Anda
+  return daftarArtikelSdn.slice(0, 3)
+})
 
-    return {
-      sekilasInfo
-    };
+// 3. Menyesuaikan class warna ribbon berdasarkan 'item.kategori' data Anda
+const getCategoryClass = (kategori) => {
+  if (kategori === 'Pengumuman') return 'ribbon-pengumuman'
+  if (kategori === 'Berita') return 'ribbon-berita'
+  if (kategori === 'Agenda') return 'ribbon-ppdb' // Menggunakan warna oranye milik class PPDB untuk Agenda
+  return ''
+}
+
+// Pembatas jumlah huruf ringkasan agar tinggi box tetap seimbang
+const truncateText = (text, length) => {
+  if (!text) return ''
+  if (text.length > length) {
+    return text.substring(0, length) + '...'
   }
+  return text
 }
 </script>
 
@@ -120,11 +125,6 @@ export default {
   grid-template-columns: 1fr 2fr;
   gap: 50px;
   align-items: center;
-}
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
 }
 .section-tag {
   color: #2563eb;
@@ -146,24 +146,69 @@ export default {
 /* --- 1. HERO BANNER --- */
 .hero-banner {
   position: relative;
-  background-image: url('https://via.placeholder.com/1920x800'); /* Ganti dengan foto sekolah asli */
+  background-image: url('https://via.placeholder.com/1920x800');
   background-size: cover;
   background-position: center;
-  height: 80vh;
+  height: 85vh;
   display: flex;
   align-items: center;
   color: white;
+  overflow: hidden;
 }
 .hero-overlay {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(to right, rgba(30, 58, 138, 0.9), rgba(30, 58, 138, 0.4));
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.95), rgba(37, 99, 235, 0.75));
+  z-index: 1;
 }
 .hero-content {
   position: relative;
-  max-width: 800px;
+  max-width: 850px;
   padding: 0 40px;
-  z-index: 1;
+  z-index: 3;
+}
+.hero-shape {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+}
+.shape-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+  top: -150px;
+  right: -100px;
+}
+.shape-2 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, rgba(245, 158, 11, 0) 70%);
+  bottom: -50px;
+  right: 15%;
+}
+.shape-3 {
+  width: 200px;
+  height: 200px;
+  border-radius: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.2) 1.5px, transparent 1.5px);
+  background-size: 15px 15px;
+  bottom: 40px;
+  left: 30px;
+  opacity: 0.8;
+}
+.hero-content h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  margin: 20px 0;
+  line-height: 1.25;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 35px;
+  opacity: 0.95;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 }
 .school-badge {
   background-color: #f59e0b;
@@ -172,16 +217,6 @@ export default {
   font-weight: bold;
   border-radius: 4px;
   font-size: 0.9rem;
-}
-.hero-content h1 {
-  font-size: 3rem;
-  margin: 20px 0;
-  line-height: 1.2;
-}
-.hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  opacity: 0.9;
 }
 .hero-buttons {
   display: flex;
@@ -232,10 +267,11 @@ export default {
 .kepsek-text h2 { color: #1e3a8a; font-size: 2rem; margin: 0; }
 .kepsek-text p { color: #4b5563; line-height: 1.6; margin-bottom: 15px; }
 
-/* --- 3. SEKILAS INFO / CARD --- */
-.section-info {
+/* --- 3. DINAMIKA SEKOLAH --- */
+.dinamika-sekolah {
   padding: 80px 0;
   background-color: #f8fafc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .section-header {
   display: flex;
@@ -243,47 +279,141 @@ export default {
   align-items: flex-end;
   margin-bottom: 40px;
 }
-.section-header h2 { color: #1e3a8a; margin: 0; font-size: 2rem; }
-.btn-link {
+.subtitle {
+  color: #2563eb;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+.main-title {
+  color: #1e3a8a;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+.see-all-link {
   color: #2563eb;
   text-decoration: none;
   font-weight: bold;
+  font-size: 0.95rem;
+  transition: color 0.2s;
 }
-.info-card {
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
+.see-all-link:hover {
+  color: #1d4ed8;
+}
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.news-card {
+  background: #ffffff;
+  border-radius: 4px;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  position: relative;
   transition: transform 0.3s;
 }
-.info-card:hover {
+.news-card:hover {
   transform: translateY(-5px);
 }
-.card-badge {
-  position: absolute;
-  top: 15px; left: 15px;
-  padding: 4px 10px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  font-weight: bold;
-  color: white;
+.card-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  background-color: #e2e8f0;
 }
-.card-badge.pengumuman { background-color: #ef4444; }
-.card-badge.berita { background-color: #10b981; }
-.card-badge.ppdb { background-color: #f59e0b; }
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.title-badge-ribbon {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  background-color: #0f172a;
+  padding: 10px 15px;
+  max-width: 90%;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+.ribbon-text {
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0;
+display: -webkit-box;
+-webkit-line-clamp: 1;
+line-clamp: 1; /* tambahkan baris standar ini di bawahnya */
+-webkit-box-orient: vertical;
+overflow: hidden;
+}
+.title-badge-ribbon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 5px;
+}
+.ribbon-pengumuman::before { background-color: #ef4444; }
+.ribbon-berita::before     { background-color: #10b981; }
+.ribbon-ppdb::before       { background-color: #f59e0b; }
 
-.card-image img { width: 100%; height: 200px; object-fit: cover; }
-.card-body { padding: 20px; }
-.card-date { font-size: 0.85rem; color: #9ca3af; display: block; margin-bottom: 8px; }
-.card-body h3 { font-size: 1.2rem; color: #1e3a8a; margin: 0 0 10px 0; line-height: 1.4; }
-.card-body p { color: #4b5563; font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px; }
-.read-more { color: #2563eb; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
+.card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.card-date {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-bottom: 10px;
+  display: block;
+}
+.card-description {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+.continue-reading {
+  color: #0f172a;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: gap 0.2s, color 0.2s;
+  align-self: flex-start;
+}
+.continue-reading:hover {
+  color: #0284c7;
+  gap: 10px;
+}
 
 /* RESPONSIVE DESIGN */
+@media (max-width: 968px) {
+  .news-grid { grid-template-columns: repeat(2, 1fr); }
+  .section-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
 @media (max-width: 768px) {
   .grid-2 { grid-template-columns: 1fr; gap: 30px; }
-  .hero-content h1 { font-size: 2rem; }
-  .section-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .hero-content h1 { font-size: 2.2rem; }
+}
+@media (max-width: 640px) {
+  .news-grid { grid-template-columns: 1fr; }
+  .main-title { font-size: 1.6rem; }
+  .hero-content h1 { font-size: 1.8rem; }
+  .shape-1, .shape-2, .shape-3 { display: none; }
 }
 </style>

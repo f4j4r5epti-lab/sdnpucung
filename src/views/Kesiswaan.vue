@@ -1,5 +1,6 @@
 <template>
   <div class="kesiswaan-container">
+    <!-- --- 1. HERO SECTION --- -->
     <section class="kesiswaan-hero">
       <div class="hero-overlay"></div>
       <div class="hero-content">
@@ -8,6 +9,7 @@
       </div>
     </section>
 
+    <!-- --- 2. SECTION EKSTRAKURIKULER (KONSEP RIBBON) --- -->
     <section class="section-kesiswaan white-bg">
       <div class="container">
         <div class="text-center-heading">
@@ -17,21 +19,35 @@
           <p>Kami menyediakan berbagai pilihan organisasi untuk mengasah kepemimpinan dan keterampilan non-akademik siswa.</p>
         </div>
 
-        <div class="grid-ekstra">
-          <div class="ekstra-card" v-for="item in daftarEkstra" :key="item.nama">
-            <div class="ekstra-icon">
-              <i :class="item.icon"></i>
+        <div class="grid-3-kolom">
+          <div class="custom-card" v-for="item in daftarEkstra" :key="item.nama">
+            <!-- Bagian Atas: Gambar & Ribbon Judul -->
+            <div class="card-image-wrapper">
+              <img 
+                :src="item.foto && item.foto.length > 0 ? item.foto[0] : 'https://via.placeholder.com/400x250'" 
+                :alt="item.nama" 
+                class="card-image"
+              />
+              <div class="title-badge-ribbon ribbon-blue">
+                <div class="ribbon-inner-content">
+                  <i :class="item.icon"></i>
+                  <h3 class="ribbon-text">{{ item.nama }}</h3>
+                </div>
+              </div>
             </div>
-            <div class="ekstra-info">
-              <h3>{{ item.nama }}</h3>
-              <p>{{ item.deskripsi }}</p>
-              <span class="jadwal">Jadwal: {{ item.jadwal }}</span>
+            <!-- Bagian Bawah: Deskripsi -->
+            <div class="card-body">
+              <p class="card-description">{{ item.deskripsi }}</p>
+              <div class="card-footer-info">
+                <span class="jadwal-tag">Jadwal: {{ item.jadwal }}</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- --- 3. SECTION PRESTASI TINGKATAN --- -->
     <section class="section-kesiswaan gray-bg">
       <div class="container">
         <div class="text-center-heading">
@@ -55,25 +71,38 @@
       </div>
     </section>
 
+    <!-- --- 4. SECTION DOKUMENTASI GALERI (SINKRON DENGAN KONSEP RIBBON) --- -->
     <section class="section-kesiswaan white-bg">
       <div class="container">
         <div class="text-center-heading">
           <span class="section-tag">Dokumentasi</span>
           <h2>Galeri Kegiatan</h2>
           <hr class="line-decor mx-auto" />
+          <p>Potret keseruan, kolaborasi, dan antusiasme siswa dalam berbagai agenda sekolah.</p>
         </div>
 
-        <div class="grid-galeri">
-          <div class="galeri-item" v-for="(img, index) in galeriFoto" :key="index">
-            <img :src="img.src" :alt="img.alt" />
-            <div class="galeri-overlay">
-              <p>{{ img.caption }}</p>
+        <div class="grid-3-kolom">
+          <div class="custom-card" v-for="(img, index) in galeriFoto" :key="index">
+            <!-- Bagian Atas: Gambar & Ribbon Keterangan (Menggunakan aksen Orange khas Berita/Agenda) -->
+            <div class="card-image-wrapper">
+              <img :src="img.src" :alt="img.alt" class="card-image" />
+              <div class="title-badge-ribbon ribbon-orange">
+                <div class="ribbon-inner-content">
+                  <i class="fas fa-camera"></i>
+                  <h3 class="ribbon-text">{{ img.caption }}</h3>
+                </div>
+              </div>
+            </div>
+            <!-- Bagian Bawah: Deskripsi Tambahan Galeri -->
+            <div class="card-body">
+              <span class="card-date-meta">Kategori: Kegiatan Sekolah</span>
+              <p class="card-description">Dokumentasi pelaksanaan {{ img.caption }} yang diikuti oleh segenap warga SD Negeri Pucung dengan khidmat dan ceria.</p>
             </div>
           </div>
         </div>
         
         <div class="text-center-btn">
-          <button class="btn-more">Lihat Galeri Video di YouTube &rarr;</button>
+          <button class="btn-more"><i class="fab fa-youtube"></i> Lihat Galeri Video di YouTube &rarr;</button>
         </div>
       </div>
     </section>
@@ -92,37 +121,43 @@ export default {
         nama: 'Pramuka (Wajib)',
         icon: 'fas fa-campground',
         deskripsi: 'Membentuk karakter mandiri, disiplin, dan cinta tanah air melalui kegiatan kepanduan.',
-        jadwal: 'Jumat, 13.00 WIB'
+        jadwal: 'Jumat, 13.00 WIB',
+        foto: ['/images/pramuka.jpg']
       },
       {
         nama: 'Seni Tari',
         icon: 'fas fa-child',
         deskripsi: 'Melestarikan budaya daerah melalui latihan tari tradisional nusantara.',
-        jadwal: 'Rabu, 13.30 WIB'
+        jadwal: 'Rabu, 13.30 WIB',
+        foto: ['/images/tari.jpg']
       },
       {
         nama: 'BTAQ',
-        icon: 'fas fa-futbol',
-        deskripsi: 'Wadah pembinaan bagi siswa untuk belajar membaca dan menulis Al-Quran dengan  baik dan tartil  sesuai dengan kaidah ilmu tajwid.',
-        jadwal: 'Selasa, 13.30 WIB'
+        icon: 'fas fa-book-open',
+        deskripsi: 'Wadah pembinaan bagi siswa untuk belajar membaca dan menulis Al-Quran dengan baik dan tartil sesuai dengan kaidah ilmu tajwid.',
+        jadwal: 'Selasa, 13.30 WIB',
+        foto: ['/images/btaq.jpg']
       },
       {
         nama: 'TIK',
         icon: 'fas fa-laptop-code',
         deskripsi: 'Literasi digital dasar, pengenalan office, dan desain grafis untuk anak.',
-        jadwal: 'Rabu dan Kamis, 13.30 WIB'
+        jadwal: 'Rabu dan Kamis, 13.30 WIB',
+        foto: ['/images/tik.jpg']
       },
       {
         nama: 'Karawitan',
         icon: 'fas fa-music',
-        deskripsi: 'Kegiatan seni  budaya yang memfokuskan pada pelestarian, pembelajaran, dan pengembangan seni musik tradisional jawa, khususnya dalam memainkan seperangkat alat musik gamelan ',
-        jadwal: 'Selasa, 14.30 WIB'
+        deskripsi: 'Kegiatan seni budaya yang memfokuskan pada pelestarian, pembelajaran, dan pengembangan seni musik tradisional jawa, khususnya dalam memainkan seperangkat alat musik gamelan.',
+        jadwal: 'Selasa, 14.30 WIB',
+        foto: ['/images/karawitan.jpg']
       },
       {
         nama: 'Hadroh',
-        icon: 'fas fa-user-md',
-        deskripsi: 'wadah minat dan bakat siswa dalam bidang seni musik islam dan syar keagamaan.',
-        jadwal: 'Senin, 13.30 WIB'
+        icon: 'fas fa-star-and-crescent',
+        deskripsi: 'Wadah minat dan bakat siswa dalam bidang seni musik islam dan syiar keagamaan.',
+        jadwal: 'Senin, 13.30 WIB',
+        foto: ['/images/hadroh.jpg']
       }
     ]);
 
@@ -146,9 +181,9 @@ export default {
         pemenang: 'Etsa Clearetsa (kelas 4)',
         tingkat: 'Tingkat Kapanewon Kalasan'
       }
-      ]);
+    ]);
 
-    // Data Galeri
+    // Data Galeri Kegiatan
     const galeriFoto = ref([
       { src: 'https://via.placeholder.com/400x300', alt: 'Upacara', caption: 'Upacara Bendera Senin Pagi' },
       { src: 'https://via.placeholder.com/400x300', alt: 'Pramuka', caption: 'Persami Penggalang 2025' },
@@ -168,11 +203,11 @@ export default {
 </script>
 
 <style scoped>
-/* --- UTILITIES --- */
+/* --- STYLING DASAR & UTILITAS --- */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-.white-bg { background: #fff; }
+.white-bg { background: #ffffff; }
 .gray-bg { background: #f8fafc; }
-.section-kesiswaan { padding: 80px 0; }
+.section-kesiswaan { padding: 80px 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
 .text-center-heading { text-align: center; margin-bottom: 50px; }
 .mx-auto { margin-left: auto; margin-right: auto; }
 .section-tag { color: #2563eb; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; display: block; margin-bottom: 5px; }
@@ -187,22 +222,128 @@ export default {
 }
 .hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(30, 58, 138, 0.85); }
 .hero-content { position: relative; z-index: 1; }
-.hero-content h1 { font-size: 2.5rem; margin: 0; }
+.hero-content h1 { font-size: 2.5rem; margin: 0; font-weight: 800; }
+.hero-content p { font-size: 1.1rem; opacity: 0.9; margin-top: 10px; }
 
-/* --- EKSTRAKURIKULER CARDS --- */
-.grid-ekstra { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; }
-.ekstra-card {
-  display: flex; gap: 20px; padding: 25px; background: white; border-radius: 12px;
-  border: 1px solid #e2e8f0; transition: 0.3s;
+/* --- GRID STRUKTUR GLOBAL (SINKRON DENGAN BERITA HOME) --- */
+.grid-3-kolom { 
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 30px; 
 }
-.ekstra-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border-color: #2563eb; }
-.ekstra-icon {
-  width: 60px; height: 60px; background: #dbeafe; color: #2563eb;
-  display: flex; align-items: center; justify-content: center; border-radius: 10px; font-size: 1.5rem; flex-shrink: 0;
+
+/* KARTU SPESIFIKASI BARU (DIPAKAI OLEH EKSTRA & GALERI) */
+.custom-card {
+  background: #ffffff;
+  border-radius: 4px;
+  overflow: visible; /* Penting agar bayangan ribbon tidak terpotong */
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid #e2e8f0;
 }
-.ekstra-info h3 { margin: 0 0 8px 0; color: #1e3a8a; font-size: 1.2rem; }
-.ekstra-info p { color: #64748b; font-size: 0.9rem; line-height: 1.5; margin-bottom: 10px; }
-.jadwal { font-size: 0.8rem; font-weight: 700; color: #10b981; text-transform: uppercase; }
+.custom-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+  border-color: #2563eb;
+}
+
+/* KOTAK WRAPPER FOTO */
+.card-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  background-color: #e2e8f0;
+}
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- DESAIN RIBBON MENYILANG UNGGULAN --- */
+.title-badge-ribbon {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  padding: 10px 15px;
+  max-width: 90%;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+.title-badge-ribbon::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 5px;
+}
+
+/* Varian Warna Ribbon Ekstrakurikuler (Biru bergaris Oranye) */
+.ribbon-blue { background-color: #1e3a8a; }
+.ribbon-blue::before { background-color: #f59e0b; }
+
+/* Varian Warna Ribbon Dokumentasi Galeri (Hitam Gelap bergaris Hijau/Oranye) */
+.ribbon-orange { background-color: #0f172a; }
+.ribbon-orange::before { background-color: #ef4444; }
+
+.ribbon-inner-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+}
+.ribbon-inner-content i {
+  font-size: 1rem;
+  color: #f59e0b; /* Warna icon emas kontras */
+}
+/* KODE BARU (BERSIH DARI WARNING) */
+.ribbon-text {
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1; /* Selesai! Baris ini yang menyelesaikan masalah */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* --- ISI BODY KARTU --- */
+.card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.card-date-meta {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block;
+}
+.card-description {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+.card-footer-info {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 12px;
+  margin-top: auto;
+}
+.jadwal-tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #10b981;
+  text-transform: uppercase;
+}
 
 /* --- TIMELINE PRESTASI --- */
 .timeline-prestasi { max-width: 800px; margin: 0 auto; position: relative; padding-left: 30px; border-left: 2px solid #e2e8f0; }
@@ -217,25 +358,21 @@ export default {
 .prestasi-winner { color: #10b981; font-weight: 600; margin: 5px 0; font-size: 0.95rem; }
 .prestasi-desc { color: #64748b; font-size: 0.9rem; }
 
-/* --- GALERI GRID --- */
-.grid-galeri { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
-.galeri-item { position: relative; border-radius: 10px; overflow: hidden; height: 200px; cursor: pointer; }
-.galeri-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-.galeri-overlay {
-  position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8));
-  padding: 20px; color: white; opacity: 0; transition: 0.3s;
-}
-.galeri-item:hover img { transform: scale(1.1); }
-.galeri-item:hover .galeri-overlay { opacity: 1; }
+/* --- TOMBOL AKSES YOUTUBE --- */
 .text-center-btn { text-align: center; margin-top: 40px; }
 .btn-more {
   background: #1e3a8a; color: white; border: none; padding: 12px 25px; border-radius: 6px;
-  font-weight: 600; cursor: pointer; transition: 0.3s;
+  font-weight: 600; cursor: pointer; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px;
 }
 .btn-more:hover { background: #2563eb; }
 
+/* --- RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 968px) {
+  .grid-3-kolom { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 768px) {
-  .grid-ekstra { grid-template-columns: 1fr; }
+  .grid-3-kolom { grid-template-columns: 1fr; }
   .kesiswaan-hero h1 { font-size: 1.8rem; }
+  .timeline-prestasi { padding-left: 20px; }
 }
 </style>

@@ -4,7 +4,7 @@
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <h1>Hubungi Kami</h1>
-        <p>Hubungi layanan administrasi atau kunjungi lokasi kampus SD Negeri Kota Jaya.</p>
+        <p>Hubungi layanan administrasi atau kunjungi lokasi SD Negeri Pucung.</p>
       </div>
     </section>
 
@@ -16,7 +16,7 @@
           <h2>Kontak Tata Usaha</h2>
           <hr class="line-decor" />
           <p class="kontak-desc">
-            Mempunyai pertanyaan terkait dokumen akademik, PPDB, atau administrasi sekolah? Silakan hubungi kami melalui saluran resmi di bawah ini pada jam kerja (Senin - Jumat, 07.00 - 14.00 WIB).
+            Mempunyai pertanyaan terkait dokumen akademik, PPDB, atau administrasi sekolah? Silakan hubungi kami melalui saluran resmi di bawah ini pada jam kerja (Senin - Jumat, 07.00 - 15.00 WIB).
           </p>
 
           <div class="info-list">
@@ -24,7 +24,7 @@
               <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
               <div class="info-text">
                 <h3>Alamat Fisik</h3>
-                <p>Jl. Pendidikan Utama No. 45, Kecamatan Kota Jaya, Kabupaten Jayakarta, Kode Pos 12345</p>
+                <p>Pucung, Tamanmartani, Kalasan, Sleman, Kode Pos 53381</p>
               </div>
             </div>
 
@@ -32,7 +32,7 @@
               <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
               <div class="info-text">
                 <h3>Nomor Telepon / TU</h3>
-                <p>(021) 555-1234</p>
+                <p></p>
               </div>
             </div>
 
@@ -40,7 +40,7 @@
               <div class="info-icon"><i class="fas fa-envelope"></i></div>
               <div class="info-text">
                 <h3>Email Resmi</h3>
-                <p>info@sdnkotajaya.sch.id</p>
+                <p>sdn.pucung@gmail.com</p>
               </div>
             </div>
           </div>
@@ -62,18 +62,18 @@
         </div>
 
         <div class="kontak-map">
-          <div class="map-wrapper">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.56347862248!2d107.57311648757053!3d-6.903444341620448!2m3!1f0!2f0!3f0!3m2!1i1024!2i1026!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a16b4e628e554!2sBandung%2C%20Bandung%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1716800000000!5m2!1sen!2sid" 
-              width="100%" 
-              height="450" 
-              style="border:0;" 
-              allowfullscreen="" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-        </div>
+  <div class="map-wrapper">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.731724146684!2d110.48106627591606!3d-7.711909276400158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5b7c92956f47%3A0xf519dae698d86508!2sSD%20Negeri%20Pucung!5e0!3m2!1sen!2sid!4v1781711703009!5m2!1sen!2sid" 
+      width="100%" 
+      height="450" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+</div>
 
       </div>
     </section>

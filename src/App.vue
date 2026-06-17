@@ -1,34 +1,28 @@
 <template>
-  <div id="app">
-    <nav class="navbar">
-      <div class="nav-container">
-        <router-link to="/" class="nav-logo">SD NEGERI PUCUNG</router-link>
-        <ul class="nav-links">
-          <li><router-link to="/">Beranda</router-link></li>
-          <li><router-link to="/profil">Profil</router-link></li>
-          <li><router-link to="/akademik">Akademik</router-link></li>
-          <li><router-link to="/kesiswaan">Kesiswaan</router-link></li>
-          <li><router-link to="/berita">Berita & Agenda</router-link></li> 
-          <li><router-link to="/PPDB">PPDB</router-link></li>
-          <li><router-link to="/Kontak">Hubungi Kami / Kontak</router-link></li>
-          </ul>
-      </div>
-    </nav>
+  <div class="app-layout">
+    <Navbar />
 
-    <div class="main-content">
-      <router-view />
-    </div>
+    <main class="main-content">
+      <router-view v-slot="{ Component }">
+        <transition name="page-fade" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
+    </main>
+
+    <footer class="footer">
+      &copy; 2026 SD NEGERI PUCUNG. All Rights Reserved.
+    </footer>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'App'
-}
+<script setup>
+// Mengimpor file Navbar yang baru saja kita buat di folder components
+import Navbar from './components/Navbar.vue'
 </script>
 
 <style>
-/* --- RESET STYLE DASAR --- */
+/* --- RESET STYLE DASAR & LAYOUT --- */
 * {
   margin: 0;
   padding: 0;
@@ -41,65 +35,47 @@ body {
   color: #333333;
 }
 
-/* --- STYLING NAVBAR --- */
-.navbar {
-  background-color: #1e3a8a; /* Warna biru tua khas sekolah */
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 70px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  z-index: 1000;
-}
-
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+.app-layout {
   display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Memperbaiki typo 'min-h' menjadi 'min-height' agar valid */
   justify-content: space-between;
-  align-items: center;
-  height: 100%;
-}
-
-.nav-logo {
-  color: #ffffff;
-  font-weight: bold;
-  font-size: 1.4rem;
-  text-decoration: none;
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-}
-
-.nav-links a {
-  color: #e2e8f0;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 8px 16px;
-  border-radius: 4px;
-  transition: 0.3s;
-}
-
-/* Efek tombol menu saat didekati mouse */
-.nav-links a:hover {
-  background-color: #2563eb;
-  color: #ffffff;
-}
-
-/* Warna tombol aktif saat halaman tersebut dibuka */
-.nav-links a.router-link-active {
-  background-color: #f59e0b; /* Warna kuning emas */
-  color: #1e3a8a;
-  font-weight: bold;
 }
 
 /* --- JARAK KONTEN AGAR TIDAK TERTUTUP NAVBAR --- */
 .main-content {
   margin-top: 70px; 
+  flex-grow: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+
+/* --- STYLE FOOTER --- */
+.footer {
+  background-color: #1e3a8a;
+  color: #ffffff;
+  text-align: center;
+  padding: 16px;
+  font-size: 0.875rem;
+  margin-top: 40px;
+}
+
+/* --- ANIMASI TRANSISI HALAMAN (FADE-SLIDE) --- */
+.page-fade-enter-active,
+.page-fade-leave-active {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.page-fade-enter-from {
+  opacity: 0;
+  transform: translateY(15px); /* Efek meluncur lembut dari bawah saat masuk */
+}
+
+.page-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-15px); /* Efek menghilang naik sedikit saat keluar */
 }
 </style>

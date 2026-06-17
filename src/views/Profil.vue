@@ -22,10 +22,10 @@
           <h2>Sejarah Singkat Sekolah</h2>
           <hr class="line-decor" />
           <p>
-            SD Negeri Kota Jaya didirikan pada tahun 1985 di atas tanah hibah masyarakat seluas 4.000 meter persegi. Pada awal berdirinya, sekolah ini hanya memiliki 3 ruang kelas dengan fasilitas yang sangat terbatas.
+            SD Negeri Pucung didirikan pada tahun di atas tanah kelurahan 4.000 meter persegi. Pada awal berdirinya, sekolah ini hanya memiliki bangunan depan dengan fasilitas yang sangat terbatas.
           </p>
           <p>
-            Seiring berjalannya waktu dan meningkatnya kepercayaan masyarakat, pada tahun 2010 sekolah ini mengalami renovasi besar-besaran dari pemerintah. Kini, SD Negeri Kota Jaya telah berkembang menjadi salah satu sekolah dasar model dan percontohan dalam penerapan kurikulum berbasis karakter dan digitalisasi pembelajaran di tingkat daerah.
+            Seiring berjalannya waktu dan meningkatnya kepercayaan masyarakat, pada tahun 2008 sekolah ini mengalami renovasi besar-besaran dari pemerintah. Kini, SD Negeri Pucung telah berkembang menjadi salah satu sekolah piilihan masyarakat dengan kurikulum berbasis karakter, lingkungan dan digitalisasi pembelajaran.
           </p>
         </div>
         <div class="sejarah-image">
@@ -216,7 +216,6 @@ export default {
   display: flex;
   justify-content: center;
   background-color: #1e3a8a;
-  sticky: top;
   position: sticky;
   top: 0;
   z-index: 10;
