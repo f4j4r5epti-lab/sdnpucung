@@ -3,16 +3,16 @@
     <Navbar />
 
     <main class="main-content">
-      <router-view v-slot="{ Component }">
-        <transition name="page-fade" mode="out-in">
-          <component :is="Component" />
-        </transition>
-      </router-view>
-    </main>
+  <router-view v-slot="{ Component }">
+    <transition name="page-fade" mode="out-in">
+      <component :is="Component" />
+    </transition>
+  </router-view>
+</main>
 
-    <footer class="footer">
-      &copy; 2026 SD NEGERI PUCUNG. All Rights Reserved.
-    </footer>
+<footer class="footer">
+  &copy; 2026 SD NEGERI PUCUNG. All Rights Reserved.
+</footer>
   </div>
 </template>
 

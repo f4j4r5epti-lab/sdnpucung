@@ -4,7 +4,8 @@
       
       <!-- Tombol Kembali Bergaya Tombol Memphis -->
       <router-link to="/berita" class="btn-kembali">
-        🡨 Kembali ke Berita
+        <svg style="display:inline-block; vertical-align:middle; margin-right:5px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Kembali ke Berita
       </router-link>
 
       <h1 class="judul-utama">{{ artikel.judul }}</h1>
@@ -33,10 +34,10 @@
         <!-- Tombol Kontrol Navigasi (Jika foto lebih dari 1) -->
         <template v-if="artikel.foto && artikel.foto.length > 1">
           <button @click="prevSlide" class="carousel-btn btn-prev" aria-label="Slide Sebelumnya">
-            🡨
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
           </button>
           <button @click="nextSlide" class="carousel-btn btn-next" aria-label="Slide Berikutnya">
-            🡪
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </button>
 
           <!-- Titik Indikator Dots Navigasi Carousel -->
@@ -55,13 +56,6 @@
       <!-- Kertas Artikel Isi Cerita -->
       <div class="artikel-konten">
         <p class="paragraf-isi ringkasan-highlight">{{ artikel.ringkasan }}</p>
-        
-        <p class="paragraf-isi desc-detail">
-          Kegiatan ini diselenggarakan sebagai bagian dari upaya peningkatan mutu pendidikan, optimalisasi potensi bakat siswa, serta keterbukaan arus informasi publik di lingkungan internal maupun eksternal SD Negeri Pucung.
-        </p>
-        <p class="paragraf-isi desc-detail">
-          Diharapkan melalui publikasi agenda ini, seluruh elemen ekosistem sekolah, baik jajaran guru, tenaga kependidikan, komite, para siswa, hingga wali murid dapat senantiasa bersinergi, mendukung, dan berkolaborasi aktif demi menjamin kelancaran mutu pencapaian target akademik maupun non-akademik di masa depan.
-        </p>
       </div>
 
     </div>
@@ -220,7 +214,6 @@ export default {
   font-weight: 500;
 }
 
-/* --- STREAMING_CHUNK: Styling the carousel elements... --- */
 /* --- CAROUSEL SLIDESHOW CONTAINER --- */
 .wrapper-foto-utama {
   position: relative;
@@ -266,7 +259,7 @@ export default {
   background-color: #ffffff;
   border: 2px solid #000000;
   border-radius: 50%;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 900;
   color: #000000;
   cursor: pointer;
@@ -333,9 +326,6 @@ export default {
   margin-bottom: 20px;
   text-align: justify;
 }
-.desc-detail {
-  font-weight: 500;
-}
 .ringkasan-highlight {
   font-size: 1.15rem;
   font-weight: 600;
@@ -379,7 +369,7 @@ export default {
   .container-isi { padding: 25px 20px; border-radius: 16px; }
   .judul-utama { font-size: 1.65rem; }
   .wrapper-foto-utama { height: 260px; }
-  .carousel-btn { width: 36px; height: 36px; font-size: 0.9rem; }
+  .carousel-btn { width: 36px; height: 36px; font-size: 1.1rem; }
   .artikel-konten { font-size: 0.95rem; }
   .detail-berita-container { padding-top: 100px; }
 }

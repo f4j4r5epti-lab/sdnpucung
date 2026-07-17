@@ -86,7 +86,7 @@
           </div>
           <!-- Badge Estetik Melayang -->
           <div class="history-badge">
-            <span>Since 2008</span>
+            <span></span>
           </div>
         </div>
 
