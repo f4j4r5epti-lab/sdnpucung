@@ -34,19 +34,21 @@
 <script setup>
 import { ref } from 'vue'
 
-// Sakelar reaktif menggunakan Script Setup modern untuk buka-tutup menu
 const isMenuOpen = ref(false)
 </script>
 
 <style scoped>
-/* --- STYLING UTAMA NAVBAR --- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&display=swap');
+
+/* --- STYLING UTAMA NAVBAR (Tema Memphis Playful) --- */
 .navbar {
-  background-color: #1e3a8a;
-  position: fixed; /* Tetap menggunakan fixed agar menempel di atas saat di-scroll */
+  background-color: #fffbef; /* Menggunakan warna dasar krem senada dengan layout utama */
+  position: fixed; 
   top: 0; left: 0; right: 0;
-  height: 70px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  height: 80px; /* Sedikit diperlebar agar proporsi garis hitam pas */
+  border-bottom: 3px solid #000000; /* Garis pembatas hitam tebal khas Memphis */
   z-index: 1000;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .nav-container {
@@ -60,47 +62,54 @@ const isMenuOpen = ref(false)
 }
 
 .nav-logo a, .nav-logo :deep(a) {
-  color: #ffffff;
-  font-weight: bold;
+  color: #000000;
+  font-weight: 800;
   font-size: 1.4rem;
   text-decoration: none;
   white-space: nowrap;
+  letter-spacing: -0.5px;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
 .nav-links a {
-  color: #e2e8f0;
+  color: #000000;
   text-decoration: none;
-  font-weight: 500;
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: 0.3s;
-  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 30px; /* Tombol bulat lonjong sesuai tema */
+  border: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
+  font-size: 0.9rem;
 }
 
+/* Hover Menu */
 .nav-links a:hover {
-  background-color: #2563eb;
-  color: #ffffff;
+  background-color: #f5d061; /* Warna kuning hangat di-hover */
+  border: 2px solid #000000;
+  box-shadow: 2px 2px 0px #000000;
 }
 
-/* Penanda halaman aktif menggunakan warna emas elegan khas SD Negeri Pucung */
+/* Penanda Halaman Aktif (Ungu Pastel dengan Border & Bayangan Hitam) */
 .nav-links a.router-link-active {
-  background-color: #f59e0b;
-  color: #1e3a8a;
+  background-color: #dfb2f4; /* Warna ungu pastel yang pas */
+  color: #000000;
   font-weight: bold;
+  border: 2px solid #000000;
+  box-shadow: 3px 3px 0px #000000;
 }
 
-/* Tombol Kontak Spesifik */
+/* Tombol Hubungi Kami / Kontak Spesifik */
 .btn-kontak {
-  border: 1px solid #e2e8f0;
+  border: 2px solid #000000 !important;
+  background-color: #ffffff;
 }
 
-/* --- TOMBOL HAMBURGER (Disembunyikan di Desktop) --- */
+/* --- TOMBOL HAMBURGER MOBILE (Hitam) --- */
 .hamburger-btn {
   display: none;
   flex-direction: column;
@@ -117,7 +126,7 @@ const isMenuOpen = ref(false)
 .hamburger-btn .bar {
   width: 100%;
   height: 3px;
-  background-color: white;
+  background-color: #000000; /* Diubah ke warna hitam */
   border-radius: 2px;
   transition: all 0.3s ease-in-out;
 }
@@ -125,26 +134,26 @@ const isMenuOpen = ref(false)
 /* --- RESPONSIVE MOBILE (LAYAR HP & TABLET) --- */
 @media (max-width: 968px) {
   .hamburger-btn {
-    display: flex; /* Aktifkan hamburger di perangkat mobile */
+    display: flex; 
   }
 
-  /* Mengubah Nav Links Menjadi Tirai Geser Keluar dari Sisi Kanan */
+  /* Tirai Geser Keluar Menyesuaikan Palet Kuning/Krem */
   .nav-links {
     position: fixed;
     top: 0;
-    right: -100%; /* Tersembunyi penuh di luar kanan layar */
-    width: 70%;
+    right: -100%; 
+    width: 280px;
     height: 100vh;
-    background-color: #0f172a; /* Menggunakan latar gelap eksklusif saat menu mobile terbuka */
+    background-color: #fffbef; 
+    border-left: 3px solid #000000;
     flex-direction: column;
     justify-content: center;
-    gap: 25px;
+    gap: 20px;
     padding: 0;
     transition: 0.4s cubic-bezier(0.1, 1, 0.1, 1);
-    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    box-shadow: -5px 0 0px rgba(0,0,0,1); /* Bayangan solid */
   }
 
-  /* Ketika isMenuOpen bernilai true, geser menu masuk ke dalam layar (right: 0) */
   .nav-links-active {
     right: 0;
   }
@@ -154,11 +163,11 @@ const isMenuOpen = ref(false)
     width: 80%;
     text-align: center;
     padding: 12px 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   
   .nav-links a.router-link-active {
-    color: #1e3a8a !important;
+    box-shadow: 3px 3px 0px #000000 !important;
   }
 
   /* --- ANIMASI TRANSISI HAMBURGER JADI HURUF 'X' --- */

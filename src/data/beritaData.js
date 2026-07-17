@@ -1,5 +1,5 @@
-// src/data/beritaData.js
-export const daftarArtikelSdn = [
+// Data mentah berita
+const rawData = [
   {
     id: 5,
     kategori: 'Berita',
@@ -33,11 +33,31 @@ export const daftarArtikelSdn = [
     tanggal: '3 Juni 2026',
     judul: 'Revitalisasi SD Negeri Pucung',
     ringkasan: 'Program pembenahan, perbaikan, dan peningkatan mutu sarana dan prasarana sekolah. Tujuan utama kegiatan ini untuk menciptakan suasana  belajar yang nyaman',
-    foto: 
-    [
+    foto: [
       '/images/revsatu.jpg',
       '/images/revdua.jpeg'
     ],
     waktu_agenda: ''
+  },
+  {
+    id: 7,
+    kategori: 'Berita',
+    tanggal: '18 Juli 2026',
+    judul: 'MPLS Ramah SD Negeri Pucung Tahun AJaran 2026/2027',
+    ringkasan: 'Serunya MPLS Ramah Anak di SD Negeri Pucung! Hadirkan suasana belajar yang menyenangkan dan edukatif, SD Negeri Pucung sambut siswa baru dengan kegiatan orientasi yang penuh kasih sayang, bebas perpeloncoan, dan bikin betah di sekolah.',
+    foto: ['/images/mpls1.jpeg', '/images/mpls2.jpeg','/images/mpls3.jpeg', '/images/mpls4.jpeg', '/images/mpls5.jpeg', '/images/mpls6.jpeg', '/images/mpls7.jpeg', '/images/mpls8.jpeg', '/images/mpls9.jpeg'],
+    waktu_agenda: '13 - 18 Juli 2026'
+  },
+   {
+    id: 6,
+    kategori: 'Berita',
+    tanggal: '18 Juli 2026',
+    judul: 'Perpustakaan Keliling SD Negeri Pucung',
+    ringkasan: 'Guna memperluas akses bahan bacaan berkualitas bagi para siswa, SD Negeri Pucung bekerja sama dengan Dinas Perpustakaan Sleman menggelar layanan Perpustakaan Keliling (Pusling). Kegiatan ini menghadirkan ratusan koleksi buku mulai dari cerita rakyat, sains populer, hingga buku pengetahuan umum. Program jemput bola ini diharapkan dapat mendukung proses belajar mengajar serta menumbuhkan kebiasaan membaca di lingkungan sekolah.',
+    foto: ['/images/puslingj1.jpeg', '/images/puslingj2.jpeg','/images/puslingj3.jpeg'],
+    waktu_agenda: '15 Juli 2026'
   }
 ];
+
+// // Mengurutkan otomatis berdasarkan ID dari yang terbesar (terbaru) ke terkecil
+export const daftarArtikelSdn = [...rawData].sort((a, b) => b.id - a.id);

@@ -2,41 +2,75 @@
   <div class="detail-berita-container">
     <div v-if="artikel" class="container-isi">
       
+      <!-- Tombol Kembali Bergaya Tombol Memphis -->
       <router-link to="/berita" class="btn-kembali">
-        &larr; Kembali ke Berita
+        🡨 Kembali ke Berita
       </router-link>
 
       <h1 class="judul-utama">{{ artikel.judul }}</h1>
 
+      <!-- Metadata Atas Lembar Pengumuman -->
       <div class="meta-detail">
         <span class="badge-kategori" :class="artikel.kategori.toLowerCase()">
           {{ artikel.kategori }}
         </span>
-        <span class="tanggal-post">Diterbitkan pada: <strong>{{ artikel.tanggal }}</strong></span>
-        <span v-if="artikel.waktu_agenda" class="agenda-time">| Jadwal: {{ artikel.waktu_agenda }}</span>
+        <span class="tanggal-post">📅 Diterbitkan: <strong>{{ artikel.tanggal }}</strong></span>
+        <span v-if="artikel.waktu_agenda" class="agenda-time">🕒 Jadwal: <strong>{{ artikel.waktu_agenda }}</strong></span>
       </div>
 
+      <!-- Frame Foto Utama dengan Konstruksi Ganda Tebal & Fungsi Carousel Interaktif -->
       <div class="wrapper-foto-utama">
-        <img 
-          :src="Array.isArray(artikel.foto) ? artikel.foto[0] : artikel.foto" 
-          :alt="artikel.judul" 
-          class="foto-detail"
-        />
+        <div class="photo-shadow-layer"></div>
+        
+        <div class="carousel-inner">
+          <img 
+            :src="artikel.foto[currentSlide]" 
+            :alt="artikel.judul" 
+            class="foto-detail"
+          />
+        </div>
+
+        <!-- Tombol Kontrol Navigasi (Jika foto lebih dari 1) -->
+        <template v-if="artikel.foto && artikel.foto.length > 1">
+          <button @click="prevSlide" class="carousel-btn btn-prev" aria-label="Slide Sebelumnya">
+            🡨
+          </button>
+          <button @click="nextSlide" class="carousel-btn btn-next" aria-label="Slide Berikutnya">
+            🡪
+          </button>
+
+          <!-- Titik Indikator Dots Navigasi Carousel -->
+          <div class="carousel-dots">
+            <span 
+              v-for="(gambar, idx) in artikel.foto" 
+              :key="idx"
+              class="carousel-dot"
+              :class="{ active: currentSlide === idx }"
+              @click="setSlide(idx)"
+            ></span>
+          </div>
+        </template>
       </div>
 
+      <!-- Kertas Artikel Isi Cerita -->
       <div class="artikel-konten">
-        <p class="paragraf-isi">{{ artikel.ringkasan }}</p>
-        <p class="paragraf-isi">
-          Kegiatan ini diselenggarakan sebagai bagian dari upaya peningkatan mutu pendidikan dan keterbukaan informasi di lingkungan SD Negeri Pucung. Diharapkan seluruh elemen sekolah, baik guru, siswa, maupun wali murid dapat terus bersinergi demi kelancaran agenda ini.
+        <p class="paragraf-isi ringkasan-highlight">{{ artikel.ringkasan }}</p>
+        
+        <p class="paragraf-isi desc-detail">
+          Kegiatan ini diselenggarakan sebagai bagian dari upaya peningkatan mutu pendidikan, optimalisasi potensi bakat siswa, serta keterbukaan arus informasi publik di lingkungan internal maupun eksternal SD Negeri Pucung.
+        </p>
+        <p class="paragraf-isi desc-detail">
+          Diharapkan melalui publikasi agenda ini, seluruh elemen ekosistem sekolah, baik jajaran guru, tenaga kependidikan, komite, para siswa, hingga wali murid dapat senantiasa bersinergi, mendukung, dan berkolaborasi aktif demi menjamin kelancaran mutu pencapaian target akademik maupun non-akademik di masa depan.
         </p>
       </div>
 
     </div>
 
-    <div v-else class="not-found-container">
-      <h2>Berita Tidak Ditemukan</h2>
-      <p>Maaf, detail informasi yang Anda cari tidak tersedia atau telah dihapus.</p>
-      <router-link to="/berita" class="btn-error-kembali">Kembali ke Halaman Berita</router-link>
+    <!-- Error State Box -->
+    <div v-else class="not-found-container card-error-memphis">
+      <h2>Berita Tidak Ditemukan! ❌</h2>
+      <p>Maaf, berkas berita atau tautan detail informasi yang Anda cari tidak tersedia dalam arsip sistem data sekolah.</p>
+      <router-link to="/berita" class="btn-error-kembali">Kembali ke Indeks Berita</router-link>
     </div>
   </div>
 </template>
@@ -44,7 +78,6 @@
 <script>
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
-// Mengambil sumber data dari file beritaData.js Anda
 import { daftarArtikelSdn } from '../data/beritaData.js';
 
 export default {
@@ -52,124 +85,302 @@ export default {
   setup() {
     const route = useRoute();
     const artikel = ref(null);
+    const currentSlide = ref(0);
 
     onMounted(() => {
-      // Mengubah ID dari parameter URL link menjadi tipe Angka (Number)
       const idBerita = Number(route.params.id);
-      
-      // Mencari data di beritaData.js yang ID-nya cocok dengan link URL
       const dataCocok = daftarArtikelSdn.find(item => Number(item.id) === idBerita);
       
       if (dataCocok) {
-        artikel.value = dataCocok;
+        // Memastikan foto selalu berbentuk array
+        const normalizedArtikel = {
+          ...dataCocok,
+          foto: Array.isArray(dataCocok.foto) ? dataCocok.foto : [dataCocok.foto]
+        };
+        artikel.value = normalizedArtikel;
       }
     });
 
+    const nextSlide = () => {
+      if (artikel.value && artikel.value.foto) {
+        if (currentSlide.value === artikel.value.foto.length - 1) {
+          currentSlide.value = 0;
+        } else {
+          currentSlide.value++;
+        }
+      }
+    };
+
+    const prevSlide = () => {
+      if (artikel.value && artikel.value.foto) {
+        if (currentSlide.value === 0) {
+          currentSlide.value = artikel.value.foto.length - 1;
+        } else {
+          currentSlide.value--;
+        }
+      }
+    };
+
+    const setSlide = (idx) => {
+      currentSlide.value = idx;
+    };
+
     return {
-      artikel
+      artikel,
+      currentSlide,
+      nextSlide,
+      prevSlide,
+      setSlide
     };
   }
 }
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* --- LAYOUT UTAMA --- */
 .detail-berita-container {
-  min-height: 80vh;
-  background-color: #f8fafc;
-  padding: 40px 20px;
+  min-height: 85vh;
+  background-color: #fffbef; /* Krem hangat */
+  padding: 120px 20px 80px 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #111111;
 }
+
+/* --- KERTAS KONTEN UTAMA --- */
 .container-isi {
-  max-width: 800px;
+  max-width: 850px;
   margin: 0 auto;
   background: #ffffff;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+  padding: 50px;
+  border: 2px solid #000000;
+  border-radius: 24px;
+  box-shadow: 8px 8px 0px #000000;
 }
+
+/* Tombol Kembali Memphis Style */
 .btn-kembali {
   display: inline-block;
-  color: #2563eb;
+  color: #000000;
+  background-color: #fffbef;
   text-decoration: none;
-  font-weight: 600;
-  margin-bottom: 25px;
-  transition: color 0.2s;
+  font-weight: 800;
+  font-size: 0.9rem;
+  padding: 8px 16px;
+  border: 2px solid #000;
+  border-radius: 8px;
+  box-shadow: 3px 3px 0px #000;
+  margin-bottom: 35px;
+  transition: all 0.1s ease-in-out;
 }
-.btn-kembali:hover { color: #1d4ed8; }
+.btn-kembali:hover {
+  background-color: #dfb2f4;
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px #000;
+}
 
 .judul-utama {
-  color: #1e3a8a;
-  font-size: 2.2rem;
-  line-height: 1.3;
+  font-family: 'Playfair Display', serif;
+  color: #000000;
+  font-size: 2.4rem;
+  line-height: 1.25;
   margin: 0 0 20px 0;
 }
 
+/* Metadata Bar */
 .meta-detail {
   display: flex;
   align-items: center;
   gap: 15px;
-  font-size: 0.9rem;
-  color: #64748b;
-  margin-bottom: 30px;
+  font-size: 0.85rem;
+  color: #2b2b2b;
+  margin-bottom: 35px;
   flex-wrap: wrap;
 }
 .badge-kategori {
-  padding: 4px 10px;
-  border-radius: 4px;
-  color: white;
-  font-weight: bold;
-  font-size: 0.75rem;
+  padding: 5px 12px;
+  border: 2px solid #000;
+  border-radius: 6px;
+  color: #000000;
+  font-weight: 800;
   text-transform: uppercase;
+  font-size: 0.75rem;
+  box-shadow: 2px 2px 0px #000;
 }
-.badge-kategori.berita { background-color: #10b981; }
-.badge-kategori.pengumuman { background-color: #ef4444; }
-.badge-kategori.agenda { background-color: #f59e0b; }
+.badge-kategori.berita { background-color: #b5e2fa; }
+.badge-kategori.pengumuman { background-color: #ff9f68; }
+.badge-kategori.agenda { background-color: #dfb2f4; }
 
+.tanggal-post, .agenda-time {
+  background-color: #ffffff;
+  border: 1px solid #000;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* --- STREAMING_CHUNK: Styling the carousel elements... --- */
+/* --- CAROUSEL SLIDESHOW CONTAINER --- */
 .wrapper-foto-utama {
+  position: relative;
   width: 100%;
-  height: 400px;
-  border-radius: 8px;
+  height: 450px;
+  margin-bottom: 40px;
+}
+.photo-shadow-layer {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 100%;
+  height: 100%;
+  background-color: #f5d061; /* Kuning Memphis */
+  border: 2px solid #000;
+  border-radius: 16px;
+  z-index: 1;
+}
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #000000;
+  border-radius: 16px;
   overflow: hidden;
-  margin-bottom: 30px;
+  z-index: 2;
+  background-color: #fffbef;
 }
 .foto-detail {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
+/* Tombol Panah Navigasi Carousel */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #000000;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 3px 3px 0px #000000;
+  transition: all 0.15s ease-in-out;
+}
+.carousel-btn:hover {
+  background-color: #dfb2f4; /* Ungu pop */
+  transform: translateY(-50%) translate(-1px, -1px);
+  box-shadow: 4px 4px 0px #000000;
+}
+.carousel-btn:active {
+  transform: translateY(-50%) translate(1px, 1px);
+  box-shadow: 1px 1px 0px #000000;
+}
+.btn-prev {
+  left: 20px;
+}
+.btn-next {
+  right: 20px;
+}
+
+/* Dots Indikator Carousel */
+.carousel-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  padding: 6px 12px;
+  border-radius: 30px;
+  box-shadow: 3px 3px 0px #000000;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #cbd5e1;
+  border: 1px solid #000000;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.carousel-dot.active {
+  background-color: #000000;
+  width: 18px;
+  border-radius: 4px;
+}
+
+/* --- BADAN BACAAN ARTIKEL --- */
 .artikel-konten {
   line-height: 1.8;
-  color: #334155;
-  font-size: 1.1rem;
+  color: #1f2937;
+  font-size: 1.05rem;
 }
 .paragraf-isi {
   margin-bottom: 20px;
   text-align: justify;
 }
-
-/* Tampilan Error */
-.not-found-container {
-  text-align: center;
-  padding: 60px 20px;
-  color: #64748b;
+.desc-detail {
+  font-weight: 500;
 }
-.not-found-container h2 { color: #1e3a8a; margin-bottom: 10px; }
+.ringkasan-highlight {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #000000;
+  line-height: 1.7;
+  border-left: 4px solid #dfb2f4;
+  padding-left: 15px;
+}
+
+/* --- ERROR PANEL STATE --- */
+.card-error-memphis {
+  max-width: 550px;
+  margin: 60px auto;
+  background-color: #ffffff;
+  border: 2px solid #000;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 6px 6px 0px #000;
+}
+.card-error-memphis h2 { margin-bottom: 12px; font-size: 1.6rem; }
+.card-error-memphis p { color: #374151; font-size: 0.95rem; margin-bottom: 25px; }
+
 .btn-error-kembali {
   display: inline-block;
-  margin-top: 20px;
-  background-color: #2563eb;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 6px;
+  background-color: #f5d061;
+  color: #000;
+  border: 2px solid #000;
+  padding: 12px 24px;
+  border-radius: 30px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 800;
+  box-shadow: 3px 3px 0px #000;
+}
+.btn-error-kembali:hover {
+  background-color: #ffdac1;
 }
 
-/* RESPONSIVE LAYOUT UNTUK HP */
+/* --- RESPONSIF HP --- */
 @media (max-width: 768px) {
-  .container-isi { padding: 20px; }
-  .judul-utama { font-size: 1.6rem; }
-  .wrapper-foto-utama { height: 230px; }
-  .artikel-konten { font-size: 1rem; }
+  .container-isi { padding: 25px 20px; border-radius: 16px; }
+  .judul-utama { font-size: 1.65rem; }
+  .wrapper-foto-utama { height: 260px; }
+  .carousel-btn { width: 36px; height: 36px; font-size: 0.9rem; }
+  .artikel-konten { font-size: 0.95rem; }
+  .detail-berita-container { padding-top: 100px; }
 }
 </style>

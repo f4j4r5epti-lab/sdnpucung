@@ -1,419 +1,633 @@
 <template>
   <div class="home-container">
-    <section class="hero-banner">
-      <div class="hero-overlay"></div>
-      
-      <div class="hero-shape shape-1"></div>
-      <div class="hero-shape shape-2"></div>
-      <div class="hero-shape shape-3"></div>
-
-      <div class="hero-content">
-        <span class="school-badge">SD NEGERI PUCUNG</span>
-        <h1>Pucung BerSiNerGI "Bersih, Disiplin, Visioner, Religius"</h1>
-        <p>Selamat datang di portal resmi informasi dan pelayanan akademik sekolah kami.</p>
-        <div class="hero-buttons">
-          <router-link to="/ppdb" class="btn-primary">Daftar PPDB Online</router-link>
-          <router-link to="/profil" class="btn-secondary">Jelajahi Profil</router-link>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-sambutan">
-      <div class="container grid-2">
-        <div class="kepsek-photo">
-          <img src="/images/ks.jpg" alt="Foto Kepala Sekolah" />
-          <div class="kepsek-title">
-            <h3>Suyatmiyatun, S.Pd</h3>
-            <p>Kepala Sekolah SD Negeri Pucung</p>
+    
+    <!-- SECTION 1: HERO BANNER (Murni Ilustrasi Geometris Kuning, Tanpa Foto Orang) -->
+    <section class="hero-section">
+      <div class="container grid-hero">
+        
+        <!-- Sisi Kiri: Teks & Tombol -->
+        <div class="hero-text-content">
+          <span class="top-tag">SD NEGERI PUCUNG • BerSiNerGI</span>
+          <h1>
+            Bersih, Disiplin, <br />
+            <em>Visioner,</em> <br />
+            Religius.
+          </h1>
+          <p>Selamat datang di portal resmi informasi, berita, agenda kegiatan, dan pelayanan akademik sekolah kami.</p>
+          <div class="hero-buttons">
+            <router-link to="/ppdb" class="btn-purple">Daftar PPDB Online</router-link>
+            <router-link to="/profil" class="btn-outline-dark">Jelajahi Profil</router-link>
           </div>
         </div>
-        <div class="kepsek-text">
-          <span class="section-tag">Sambutan Pimpinan</span>
-          <h2>Membangun Masa Depan Lewat Pendidikan Berkualitas</h2>
-          <hr class="line-decor" />
-          <p><em>Assalamu’alaikum Warahmatullahi Wabarakatuh,</em></p>
-          <p>
-            Puji syukur kita panjatkan kehadirat Allah SWT atas terwujudnya website resmi SD Negeri Pucung. Di era digital ini, kami berkomitmen untuk menyediakan wadah informasi yang transparan, akuntabel, dan mudah diakses oleh seluruh wali murid, siswa, dan masyarakat luas.
-          </p>
-          <p>
-            Pendidikan bukan sekadar transfer ilmu, melainkan proses menanamkan nilai luhur dan karakter. Bersama jajaran guru yang berkompeten, kami siap membimbing putra-putri Anda menuju gerbang kesuksesan yang berlandaskan iman, ilmu, dan amal.
-          </p>
-          <p><em>Wassalamu’alaikum Warahmatullahi Wabarakatuh.</em></p>
+
+        <!-- Sisi Kanan: Pure CSS Memphis Illustration -->
+        <div class="hero-illustration-wrapper">
+          <div class="illustration-artboard">
+            <!-- Lingkaran Biru Belakang -->
+            <div class="art-circle-blue"></div>
+            <!-- Setengah Lingkaran Ungu -->
+            <div class="art-semicircle-purple"></div>
+            <!-- Smiley Bergerak/Miring -->
+            <div class="art-smiley-badge">🙂</div>
+            <!-- Tangga Orange Bawah -->
+            <div class="art-stairs-orange">
+              <span></span><span></span><span></span>
+            </div>
+            <!-- Kubah Arch Utama (Hanya Warna Krem Solid dengan Border Hitam Tebal) -->
+            <div class="art-arch-solid">
+              <div class="inner-pattern">
+                <span class="star-icon">✦</span>
+                <span class="star-icon large">✦</span>
+              </div>
+            </div>
+          </div>
         </div>
+
       </div>
     </section>
 
-    <section class="dinamika-sekolah">
+    <!-- SECTION 2: DINAMIKA SEKOLAH (Menggunakan Foto dalam Bingkai Kubah) -->
+    <section class="dinamika-section">
       <div class="container">
-        <div class="section-header">
-          <div class="header-left">
-            <span class="subtitle">DINAMIKA SEKOLAH</span>
-            <h2 class="main-title">Berita & Pengumuman Terbaru</h2>
-          </div>
-          <router-link to="/berita" class="see-all-link">Lihat Semua Berita &rarr;</router-link>
+        <div class="section-title-center">
+          <h2>Dinamika terbaru di SD Negeri Pucung</h2>
+          <hr class="short-line" />
         </div>
 
         <div class="news-grid">
           <div v-for="item in beritaData" :key="item.id" class="news-card">
             
-            <div class="card-image-wrapper">
+            <!-- Mengembalikan Tampilan FOTO dengan Bingkai Kubah (Arch Portal) -->
+            <div class="card-arch-wrapper">
               <img 
                 :src="item.foto && item.foto.length > 0 ? item.foto[0] : 'https://via.placeholder.com/400x250'" 
                 :alt="item.judul" 
                 class="card-image"
               />
-              
-              <div :class="['title-badge-ribbon', getCategoryClass(item.kategori)]">
-                <h3 class="ribbon-text">{{ item.judul }}</h3>
-              </div>
             </div>
 
+            <!-- Badge Kategori Bulat -->
+            <div class="category-badge-wrapper">
+              <span :class="['category-badge', getCategoryClass(item.kategori)]">
+                {{ item.kategori }}
+              </span>
+            </div>
+
+            <!-- Konten Tulisan -->
             <div class="card-body">
               <span class="card-date">{{ item.tanggal }}</span>
-              <p class="card-description">{{ truncateText(item.ringkasan, 110) }}</p>
+              <h3 class="card-title">{{ item.judul }}</h3>
+              <p class="card-description">{{ truncateText(item.ringkasan, 90) }}</p>
               
-              <router-link :to="'/berita/' + item.id" class="continue-reading">
-                Continue Reading <span>&rarr;</span>
+              <router-link :to="'/berita/' + item.id" class="read-more-link">
+                Selengkapnya <span>&rarr;</span>
               </router-link>
             </div>
 
           </div>
         </div>
+
+        <div class="text-center-action">
+          <router-link to="/berita" class="btn-purple">Lihat Semua Berita & Agenda</router-link>
+        </div>
       </div>
     </section>
+
+    <!-- SECTION 3: PORTOFOLIO / MOTIVASI -->
+    <section class="portfolio-section">
+      <div class="ornament-flower flower-left">✿</div>
+      <div class="ornament-flower flower-right">✿</div>
+      <div class="container text-center">
+        <span class="top-tag">AKTIVITAS & KREATIVITAS</span>
+        <h2>
+          Lingkungan belajar yang menyenangkan <br />
+          membantu siswa tumbuh aktif dan berprestasi.
+        </h2>
+        <router-link to="/kesiswaan" class="btn-purple">Tengok Kegiatan Siswa</router-link>
+      </div>
+    </section>
+
+    <!-- SECTION 4: CALL TO ACTION -->
+    <section class="cta-section">
+      <div class="container text-center">
+        <div class="cta-smiley">🙂</div>
+        <h2>Kami senang menyambut Anda bergabung di keluarga besar kami.</h2>
+        <router-link to="/kontak" class="btn-purple-large">Hubungi Kami Sekarang</router-link>
+      </div>
+    </section>
+
+    <!-- SECTION 5: FOOTER PLAYFUL -->
+    <footer class="playful-footer">
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <h3>Alamat Sekolah</h3>
+          <p>
+            Pucung, Tamanmartani,<br />
+            Kapanewon Kalasan, Sleman, DIY.
+          </p>
+          <p class="copyright">Copyright © 2026 SDN Pucung. All Rights Reserved.</p>
+        </div>
+
+        <div class="footer-col">
+          <h3>Kontak Kami</h3>
+          <p>
+            Email: <a href="mailto:sdnpucung@sch.id">sdn.pucung@gmail.com</a><br />
+            Jam Operasional:  <br />
+            Senin - Kamis (07.00 - 15.00 WIB)<br />
+            Jumat (07.00 - 14.00 WIB)
+
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h3>Hubungkan Sosial</h3>
+          <div class="social-links">
+            <a href="#">📸 Instagram</a>
+            <a href="#">📹 YouTube</a>
+            <a href="#">🌐 Facebook</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
   </div>
 </template>
 
 <script setup>
 import { computed } from 'vue'
-// 1. Impor data asli langsung dari file beritaData.js Anda
-import { daftarArtikelSdn } from '../data/beritaData.js' // Sesuaikan path folder jika berbeda
+import { daftarArtikelSdn } from '../data/beritaData.js' // Sesuaikan path berkas jika berbeda
 
-// 2. Ambil 3 data teratas dan sesuaikan pemetaan kategorinya untuk Ribbon UI
 const beritaData = computed(() => {
-  // Mengambil 3 artikel teratas dari array Anda
   return daftarArtikelSdn.slice(0, 3)
 })
 
-// 3. Menyesuaikan class warna ribbon berdasarkan 'item.kategori' data Anda
 const getCategoryClass = (kategori) => {
-  if (kategori === 'Pengumuman') return 'ribbon-pengumuman'
-  if (kategori === 'Berita') return 'ribbon-berita'
-  if (kategori === 'Agenda') return 'ribbon-ppdb' // Menggunakan warna oranye milik class PPDB untuk Agenda
-  return ''
+  if (kategori === 'Pengumuman') return 'badge-pink'
+  if (kategori === 'Berita') return 'badge-blue'
+  if (kategori === 'Agenda') return 'badge-yellow'
+  return 'badge-purple'
 }
 
-// Pembatas jumlah huruf ringkasan agar tinggi box tetap seimbang
 const truncateText = (text, length) => {
   if (!text) return ''
-  if (text.length > length) {
-    return text.substring(0, length) + '...'
-  }
-  return text
+  return text.length > length ? text.substring(0, length) + '...' : text
 }
 </script>
 
 <style scoped>
-/* --- STYLING DASAR & UTILITAS --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+/* --- TEMA GLOBAL --- */
+.home-container {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #111111;
+  background-color: #fffbef;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 800;
+  color: #000000;
+}
+
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 20px;
 }
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 50px;
-  align-items: center;
-}
-.section-tag {
-  color: #2563eb;
+
+/* --- TOMBOL PASTEL MEMPHIS --- */
+.btn-purple {
+  background-color: #dfb2f4;
+  color: #111;
+  padding: 12px 28px;
+  border-radius: 50px;
   font-weight: 700;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  letter-spacing: 1px;
-  display: block;
-  margin-bottom: 5px;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-block;
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0px #000;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-.line-decor {
-  width: 60px;
-  height: 4px;
-  background-color: #2563eb;
-  border: none;
-  margin: 15px 0 20px 0;
+.btn-purple:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px #000;
 }
 
-/* --- 1. HERO BANNER --- */
-.hero-banner {
-  position: relative;
-  background-image: url('https://via.placeholder.com/1920x800');
-  background-size: cover;
-  background-position: center;
-  height: 85vh;
-  display: flex;
-  align-items: center;
-  color: white;
-  overflow: hidden;
+.btn-purple-large {
+  background-color: #dfb2f4;
+  color: #111;
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  display: inline-block;
+  border: 2px solid #000;
+  box-shadow: 4px 4px 0px #000;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-.hero-overlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(135deg, rgba(30, 58, 138, 0.95), rgba(37, 99, 235, 0.75));
-  z-index: 1;
+.btn-purple-large:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #000;
 }
-.hero-content {
-  position: relative;
-  max-width: 850px;
-  padding: 0 40px;
-  z-index: 3;
+
+.btn-outline-dark {
+  background-color: transparent;
+  color: #111;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-block;
+  border: 2px solid #000;
+  transition: background-color 0.2s;
 }
-.hero-shape {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 2;
+.btn-outline-dark:hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }
-.shape-1 {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
-  top: -150px;
-  right: -100px;
-}
-.shape-2 {
-  width: 350px;
-  height: 350px;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, rgba(245, 158, 11, 0) 70%);
-  bottom: -50px;
-  right: 15%;
-}
-.shape-3 {
-  width: 200px;
-  height: 200px;
-  border-radius: 0;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.2) 1.5px, transparent 1.5px);
-  background-size: 15px 15px;
-  bottom: 40px;
-  left: 30px;
-  opacity: 0.8;
-}
-.hero-content h1 {
-  font-size: 3.2rem;
+
+.top-tag {
+  font-size: 0.8rem;
   font-weight: 800;
-  margin: 20px 0;
-  line-height: 1.25;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #4b5563;
+  display: block;
+  margin-bottom: 15px;
 }
-.hero-content p {
-  font-size: 1.25rem;
+
+/* --- 1. HERO SECTION (Kuning Hangat Tanpa Foto) --- */
+.hero-section {
+  background-color: #f5d061;
+  padding: 100px 0 120px 0;
+  border-bottom: 2px solid #000;
+}
+.grid-hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+}
+.hero-text-content h1 {
+  font-size: 3.5rem;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+.hero-text-content h1 em {
+  font-style: italic;
+  font-weight: 600;
+}
+.hero-text-content p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #1f2937;
   margin-bottom: 35px;
-  opacity: 0.95;
-  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-}
-.school-badge {
-  background-color: #f59e0b;
-  color: #1e3a8a;
-  padding: 6px 12px;
-  font-weight: bold;
-  border-radius: 4px;
-  font-size: 0.9rem;
+  max-width: 540px;
 }
 .hero-buttons {
   display: flex;
   gap: 15px;
 }
-.btn-primary, .btn-secondary {
-  padding: 12px 24px;
-  border-radius: 6px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: 0.3s;
-}
-.btn-primary {
-  background-color: #2563eb;
-  color: white;
-}
-.btn-primary:hover { background-color: #1d4ed8; }
-.btn-secondary {
-  background-color: white;
-  color: #1e3a8a;
-}
-.btn-secondary:hover { background-color: #f3f4f6; }
 
-/* --- 2. SAMBUTAN KEPALA SEKOLAH --- */
-.section-sambutan {
-  padding: 80px 0;
-  background-color: #ffffff;
-}
-.kepsek-photo {
-  text-align: center;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  background: #f3f4f6;
-}
-.kepsek-photo img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.kepsek-title {
-  padding: 15px;
-  background-color: #1e3a8a;
-  color: white;
-}
-.kepsek-title h3 { margin: 0; font-size: 1.1rem; }
-.kepsek-title p { margin: 5px 0 0 0; font-size: 0.85rem; opacity: 0.8; }
-.kepsek-text h2 { color: #1e3a8a; font-size: 2rem; margin: 0; }
-.kepsek-text p { color: #4b5563; line-height: 1.6; margin-bottom: 15px; }
-
-/* --- 3. DINAMIKA SEKOLAH --- */
-.dinamika-sekolah {
-  padding: 80px 0;
-  background-color: #f8fafc;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.section-header {
+/* --- ILUSTRASI CSS BELAKANG KANAN (HERO) --- */
+.hero-illustration-wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+}
+.illustration-artboard {
+  position: relative;
+  width: 320px;
+  height: 440px;
+}
+
+.art-arch-solid {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  width: 280px;
+  height: 380px;
+  border-top-left-radius: 140px;
+  border-top-right-radius: 140px;
+  border: 2px solid #000;
+  background-color: #fffbef;
+  box-shadow: 8px 8px 0px #000;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inner-pattern {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.star-icon {
+  font-size: 2.5rem;
+  color: #dfb2f4;
+  text-shadow: 2px 2px 0px #000;
+  -webkit-text-stroke: 1.5px #000;
+}
+.star-icon.large {
+  font-size: 4rem;
+  color: #ff9f68;
+}
+
+.art-circle-blue {
+  position: absolute;
+  top: 10px;
+  left: -20px;
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  background-color: #b5e2fa;
+  z-index: 2;
+}
+
+.art-semicircle-purple {
+  position: absolute;
+  bottom: 40px;
+  right: -15px;
+  width: 70px;
+  height: 35px;
+  background-color: #dfb2f4;
+  border-top-left-radius: 70px;
+  border-top-right-radius: 70px;
+  border: 2px solid #000;
+  transform: rotate(40deg);
+  z-index: 6;
+}
+
+.art-smiley-badge {
+  position: absolute;
+  top: 70px;
+  right: -10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  background-color: #f5d061;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  box-shadow: 3px 3px 0px #000;
+  transform: rotate(15deg);
+  z-index: 6;
+}
+
+.art-stairs-orange {
+  position: absolute;
+  bottom: -10px;
+  left: -15px;
+  display: flex;
+  flex-direction: column;
   align-items: flex-end;
-  margin-bottom: 40px;
+  z-index: 6;
 }
-.subtitle {
-  color: #2563eb;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 1px;
+.art-stairs-orange span {
+  height: 25px;
+  border: 2px solid #000;
+  background-color: #ff9f68;
   display: block;
-  margin-bottom: 5px;
-  text-transform: uppercase;
 }
-.main-title {
-  color: #1e3a8a;
-  font-size: 2rem;
-  font-weight: bold;
-  margin: 0;
+.art-stairs-orange span:nth-child(1) { width: 35px; border-bottom: none; }
+.art-stairs-orange span:nth-child(2) { width: 70px; border-bottom: none; }
+.art-stairs-orange span:nth-child(3) { width: 105px; }
+
+
+/* --- 2. DINAMIKA SECTION (Kubah Isi Foto Asli) --- */
+.dinamika-section {
+  background-color: #fffbef;
+  padding: 100px 0;
+  border-bottom: 2px solid #000;
 }
-.see-all-link {
-  color: #2563eb;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 0.95rem;
-  transition: color 0.2s;
+.section-title-center {
+  text-align: center;
+  margin-bottom: 60px;
 }
-.see-all-link:hover {
-  color: #1d4ed8;
+.section-title-center h2 {
+  font-size: 2.5rem;
 }
+.short-line {
+  width: 80px;
+  height: 4px;
+  background-color: #dfb2f4;
+  border: 2px solid #000;
+  border-radius: 10px;
+  margin: 15px auto 0 auto;
+}
+
+/* Grid Kartu Berita */
 .news-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 40px;
+  margin-bottom: 50px;
 }
 .news-card {
-  background: #ffffff;
-  border-radius: 4px;
-  overflow: visible;
+  background: transparent;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s;
+  align-items: center;
+  text-align: center;
 }
-.news-card:hover {
-  transform: translateY(-5px);
-}
-.card-image-wrapper {
-  position: relative;
+
+/* Kubah yang Membungkus Foto Asli */
+.card-arch-wrapper {
   width: 100%;
-  height: 220px;
+  height: 300px;
+  border-top-left-radius: 150px;
+  border-top-right-radius: 150px;
+  border: 2px solid #000;
+  overflow: hidden;
   background-color: #e2e8f0;
+  box-shadow: 4px 4px 0px #000;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.news-card:hover .card-arch-wrapper {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #000;
 }
 .card-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.title-badge-ribbon {
-  position: absolute;
-  bottom: 15px;
-  left: 0;
-  background-color: #0f172a;
-  padding: 10px 15px;
-  max-width: 90%;
-  box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
-  z-index: 2;
+
+/* Badge Kategori Bulat */
+.category-badge-wrapper {
+  margin-top: -18px;
+  z-index: 10;
 }
-.ribbon-text {
-  color: #ffffff;
-  font-size: 0.95rem;
-  font-weight: 600;
-  line-height: 1.3;
-  margin: 0;
-display: -webkit-box;
--webkit-line-clamp: 1;
-line-clamp: 1; /* tambahkan baris standar ini di bawahnya */
--webkit-box-orient: vertical;
-overflow: hidden;
+.category-badge {
+  padding: 6px 18px;
+  border-radius: 45px;
+  border: 2px solid #000;
+  font-weight: 700;
+  font-size: 0.8rem;
+  display: inline-block;
+  box-shadow: 2px 2px 0px #000;
 }
-.title-badge-ribbon::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 5px;
-}
-.ribbon-pengumuman::before { background-color: #ef4444; }
-.ribbon-berita::before     { background-color: #10b981; }
-.ribbon-ppdb::before       { background-color: #f59e0b; }
+.badge-pink { background-color: #ffb7b2; }
+.badge-blue { background-color: #b5e2fa; }
+.badge-yellow { background-color: #ffdac1; }
+.badge-purple { background-color: #e8aeff; }
 
 .card-body {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+  padding: 20px 10px;
 }
 .card-date {
-  font-size: 0.85rem;
-  color: #94a3b8;
-  margin-bottom: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #4b5563;
   display: block;
+  margin-bottom: 8px;
+}
+.card-title {
+  font-size: 1.3rem;
+  margin: 0 0 10px 0;
+  line-height: 1.35;
 }
 .card-description {
   font-size: 0.9rem;
-  color: #64748b;
-  line-height: 1.6;
+  color: #374151;
+  line-height: 1.5;
   margin-bottom: 15px;
-  flex-grow: 1;
 }
-.continue-reading {
-  color: #0f172a;
-  text-decoration: none;
+.read-more-link {
   font-weight: 700;
   font-size: 0.9rem;
+  color: #000;
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  transition: gap 0.2s, color 0.2s;
-  align-self: flex-start;
+  transition: gap 0.2s;
 }
-.continue-reading:hover {
-  color: #0284c7;
+.read-more-link:hover {
   gap: 10px;
 }
+.text-center-action {
+  text-align: center;
+}
 
-/* RESPONSIVE DESIGN */
-@media (max-width: 968px) {
+/* --- 3. PORTFOLIO SECTION --- */
+.portfolio-section {
+  background-color: #d0e1f9;
+  padding: 100px 0;
+  position: relative;
+  border-bottom: 2px solid #000;
+}
+.portfolio-section h2 {
+  font-size: 2.5rem;
+  line-height: 1.3;
+  margin: 15px 0 35px 0;
+}
+.ornament-flower {
+  position: absolute;
+  font-size: 3rem;
+  color: #fff;
+  font-family: sans-serif;
+  z-index: 1;
+}
+.flower-left { top: 60px; left: 8%; transform: rotate(-15deg); }
+.flower-right { bottom: 60px; right: 8%; transform: rotate(20deg); }
+
+/* --- 4. CALL TO ACTION --- */
+.cta-section {
+  background-color: #fffbef;
+  padding: 90px 0;
+  border-bottom: 2px solid #000;
+}
+.cta-smiley {
+  font-size: 3.5rem;
+  background-color: #f5d061;
+  width: 80px;
+  height: 80px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px auto;
+  box-shadow: 3px 3px 0 #000;
+}
+.cta-section h2 {
+  font-size: 2.2rem;
+  max-width: 650px;
+  margin: 0 auto 40px auto;
+  line-height: 1.3;
+}
+
+/* --- 5. FOOTER --- */
+.playful-footer {
+  background-color: #cbe896;
+  padding: 70px 0;
+  border-bottom: 6px solid #111;
+  color: #111;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.footer-col h3 {
+  font-size: 1.30rem;
+  margin: 0 0 15px 0;
+}
+.footer-col p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.footer-col a {
+  color: #000;
+  font-weight: 700;
+}
+.copyright {
+  margin-top: 25px;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.social-links a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.social-links a:hover {
+  text-decoration: underline;
+}
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 992px) {
+  .grid-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-text-content h1 { font-size: 2.8rem; }
+  .hero-text-content p { margin-left: auto; margin-right: auto; }
+  .hero-buttons { justify-content: center; }
+  .hero-illustration-wrapper { margin-top: 50px; }
   .news-grid { grid-template-columns: repeat(2, 1fr); }
-  .section-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .footer-grid { grid-template-columns: 1fr; text-align: center; }
+  .social-links { align-items: center; }
+  .ornament-flower { display: none; }
 }
-@media (max-width: 768px) {
-  .grid-2 { grid-template-columns: 1fr; gap: 30px; }
-  .hero-content h1 { font-size: 2.2rem; }
-}
+
 @media (max-width: 640px) {
   .news-grid { grid-template-columns: 1fr; }
-  .main-title { font-size: 1.6rem; }
-  .hero-content h1 { font-size: 1.8rem; }
-  .shape-1, .shape-2, .shape-3 { display: none; }
+  .hero-text-content h1 { font-size: 2.2rem; }
+  .section-title-center h2 { font-size: 1.8rem; }
+  .portfolio-section h2 { font-size: 1.6rem; }
+  .cta-section h2 { font-size: 1.4rem; }
 }
 </style>
