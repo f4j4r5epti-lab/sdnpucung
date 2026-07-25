@@ -1,21 +1,32 @@
 <template>
   <div class="akademik-container">
     
-    <!-- HERO SECTION (Kuning Hangat Khas Memphis) -->
+    <!-- BACKGROUND MESH GLOW FLOATING BALLS -->
+    <div class="mesh-background">
+      <div class="glow-ball glow-yellow-1"></div>
+      <div class="glow-ball glow-purple-1"></div>
+      <div class="glow-ball glow-pink-1"></div>
+      <div class="glow-ball glow-cyan-1"></div>
+      <div class="glow-ball glow-yellow-2"></div>
+    </div>
+
+    <!-- HERO SECTION -->
     <section class="akademik-hero">
-      <div class="hero-content">
-        <span class="top-tag">INFORMASI UTAMA</span>
-        <h1>Data Akademik & Direktori</h1>
-        <p>Akses informasi transparan mengenai kurikulum, data pengajar, dan statistik siswa secara interaktif.</p>
+      <div class="container hero-content text-center">
+        <div class="top-tag-pill">
+          <span class="sparkle">✨</span> INFORMASI UTAMA
+        </div>
+        <h1 class="hero-title">
+          Data Akademik & <span class="gradient-text-vibrant">Direktori</span>
+        </h1>
+        <p class="hero-subtitle">
+          Akses informasi transparan mengenai kurikulum, data pengajar, dan statistik siswa secara interaktif.
+        </p>
       </div>
-      <!-- Ornamen Geometris Bebas khas Memphis -->
-      <div class="hero-shape shape-circle"></div>
-      <div class="hero-shape shape-triangle">▲</div>
-      <div class="hero-shape shape-zigzag">⚡</div>
     </section>
 
-    <!-- TABS MENU SYSTEM (Gaya Tombol Memphis dengan Bayangan Tebal) -->
-    <div class="tabs-container">
+    <!-- TABS NAVIGATION SYSTEM (Glass Accent) -->
+    <div class="tabs-nav-wrapper">
       <div class="tabs-menu">
         <button 
           :class="{ active: activeTab === 'kurikulum' }" 
@@ -46,91 +57,96 @@
         <div class="grid-2">
           
           <!-- Sisi Kiri: Info Kurikulum -->
-          <div class="kurikulum-info card-memphis color-peach">
-            <span class="section-tag">Sistem Belajar</span>
-            <h2>Kurikulum Merdeka</h2>
-            <hr class="line-decor" />
-            <p>
-              SD Negeri Pucung telah sepenuhnya menerapkan <strong>Kurikulum Merdeka</strong> untuk seluruh jenjang kelas (I sampai VI). Pendekatan ini berfokus pada pembelajaran intrakurikuler yang beragam, optimalisasi bakat anak, serta penguatan Profil Pelajar Pancasila.
-            </p>
-            <div class="mapel-unggulan">
-              <h3>Mata Pelajaran Pokok:</h3>
-              <ul class="mapel-list">
-                <li>Pendidikan Agama & Budi Pekerti</li>
-                <li>Pendidikan Pancasila</li>
-                <li>Bahasa Indonesia & Bahasa Inggris</li>
-                <li>Matematika</li>
-                <li>IPAS (Ilmu Pengetahuan Alam & Sosial)</li>
-                <li>Seni Rupa & Seni Musik</li>
-                <li>PJOK</li>
-                <li>Bahasa Jawa</li>
-              </ul>
+          <div class="vibrant-card-wrapper yellow-purple-grad">
+            <div class="glass-card-content">
+              <span class="sub-heading badge-yellow">SISTEM BELAJAR</span>
+              <h2 class="card-heading">Kurikulum Merdeka</h2>
+              <div class="heading-line-vibrant"></div>
+              <p class="card-desc">
+                SD Negeri Pucung telah sepenuhnya menerapkan <strong>Kurikulum Merdeka</strong> untuk seluruh jenjang kelas (I sampai VI). Pendekatan ini berfokus pada pembelajaran intrakurikuler yang beragam, optimalisasi bakat anak, serta penguatan Profil Pelajar Pancasila.
+              </p>
+              
+              <div class="mapel-wrapper">
+                <h3>Mata Pelajaran Pokok:</h3>
+                <ul class="mapel-list">
+                  <li>Pendidikan Agama & Budi Pekerti</li>
+                  <li>Pendidikan Pancasila</li>
+                  <li>Bahasa Indonesia & Bahasa Inggris</li>
+                  <li>Matematika</li>
+                  <li>IPAS (Ilmu Pengetahuan Alam & Sosial)</li>
+                  <li>Seni Rupa & Seni Musik</li>
+                  <li>PJOK</li>
+                  <li>Bahasa Jawa</li>
+                </ul>
+              </div>
             </div>
           </div>
           
-          <!-- Sisi Kanan: Kalender Akademik (Tabel Bergaris Hitam Tebal) -->
-          <div class="kalender-info card-memphis color-blue">
-            <span class="section-tag">Waktu Akademik</span>
-            <h2>Kalender Akademik</h2>
-            <hr class="line-decor" />
-            <p>Berikut adalah ringkasan agenda besar sekolah untuk semester berjalan:</p>
-            
-            <div class="table-wrapper">
-              <table class="table-akademik">
-                <thead>
-                  <tr>
-                    <th>Kegiatan</th>
-                    <th>Waktu pelaksanaan</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>Penilaian Akhir Tahun (PAT)</strong></td>
-                    <td>8 - 12 Juni 2026</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Rapat Pleno Kenaikan Kelas</strong></td>
-                    <td>24 Juni 2026</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Pembagian Rapor Semester Genap</strong></td>
-                    <td>26 Juni 2026</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Libur Akhir Tahun Ajaran</strong></td>
-                    <td>27 Juni - 12 Juli 2026</td>
-                  </tr>
-                </tbody>
-              </table>
+          <!-- Sisi Kanan: Kalender Akademik -->
+          <div class="vibrant-card-wrapper cyan-blue-grad">
+            <div class="glass-card-content">
+              <span class="sub-heading badge-cyan">WAKTU AKADEMIK</span>
+              <h2 class="card-heading">Kalender Akademik</h2>
+              <div class="heading-line-vibrant"></div>
+              <p class="card-desc">Berikut adalah ringkasan agenda besar sekolah untuk semester berjalan:</p>
+              
+              <div class="table-wrapper-glass">
+                <table class="table-akademik">
+                  <thead>
+                    <tr>
+                      <th>Kegiatan</th>
+                      <th>Waktu Pelaksanaan</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Penilaian Akhir Tahun (PAT)</strong></td>
+                      <td>8 - 12 Juni 2026</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Rapat Pleno Kenaikan Kelas</strong></td>
+                      <td>24 Juni 2026</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Pembagian Rapor Semester Genap</strong></td>
+                      <td>26 Juni 2026</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Libur Akhir Tahun Ajaran</strong></td>
+                      <td>27 Juni - 12 Juli 2026</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
 
         </div>
       </div>
 
-      <!-- TAB 2: DIREKTORI GURU & STAF (Menjaga Foto Asli dengan Bingkai Kubah) -->
+      <!-- TAB 2: DIREKTORI GURU & STAF -->
       <div v-if="activeTab === 'guru'" class="tab-panel animate-fade">
-        <div class="text-center-heading">
-          <span class="section-tag">Tenaga Pendidik</span>
-          <h2>Profil Pendidik & Tenaga Kependidikan</h2>
-          <p>Sekolah kami didukung oleh guru-guru bersertifikasi profesi dan kompeten di bidangnya.</p>
-          <hr class="line-decor mx-auto" />
+        <div class="section-title-center text-center">
+          <span class="sub-heading badge-purple">TENAGA PENDIDIK</span>
+          <h2 class="section-heading">Profil Pendidik & Tenaga Kependidikan</h2>
+          <div class="heading-line-vibrant center"></div>
+          <p class="subtitle">Sekolah kami didukung oleh guru-guru bersertifikasi profesi dan kompeten di bidangnya.</p>
         </div>
 
         <div class="grid-guru">
-          <div class="guru-card" v-for="guru in daftarGuru" :key="guru.nip">
+          <div class="guru-card-glass" v-for="(guru, idx) in daftarGuru" :key="guru.nip || idx">
             
-            <!-- Bingkai Kubah / Arch Untuk Menjaga Estetika Foto Asli -->
+            <!-- Bingkai Foto dengan Akses Gradien Modern -->
             <div class="guru-avatar-wrapper">
               <img :src="guru.foto" :alt="guru.nama" class="guru-img" />
             </div>
 
             <div class="guru-details">
               <h3>{{ guru.nama }}</h3>
-              <div class="badge-jabatan">{{ guru.jabatan }}</div>
-              <hr class="card-divider" />
+              <div class="badge-jabatan-vibrant">{{ guru.jabatan }}</div>
+              <div class="card-divider"></div>
               <div class="guru-meta">
-                <p v-if="guru.nip"><strong>NIP:</strong> {{ guru.nip }}</p>
+                <p v-if="guru.nip && guru.nip !== '-'"><strong>NIP:</strong> {{ guru.nip }}</p>
                 <p v-if="guru.mapel"><strong>Mengampu:</strong> {{ guru.mapel }}</p>
               </div>
             </div>
@@ -141,15 +157,15 @@
 
       <!-- TAB 3: STATISTIK SISWA -->
       <div v-if="activeTab === 'siswa'" class="tab-panel animate-fade">
-        <div class="text-center-heading">
-          <span class="section-tag">Rekap Data</span>
-          <h2>Jumlah Total Siswa Per Rombel</h2>
-          <p>Transparansi kapasitas ruang kelas dan sebaran murid putra-putri pada tahun ajaran aktif.</p>
-          <hr class="line-decor mx-auto" />
+        <div class="section-title-center text-center">
+          <span class="sub-heading badge-pink">REKAP DATA</span>
+          <h2 class="section-heading">Jumlah Total Siswa Per Rombel</h2>
+          <div class="heading-line-vibrant center"></div>
+          <p class="subtitle">Transparansi kapasitas ruang kelas dan sebaran murid putra-putri pada tahun ajaran aktif.</p>
         </div>
 
         <div class="grid-statistik">
-          <div class="stat-card" v-for="stat in statistikSiswa" :key="stat.kelas">
+          <div class="stat-card-glass" v-for="stat in statistikSiswa" :key="stat.kelas">
             
             <div class="stat-header">
               <h3>Kelas {{ stat.kelas }}</h3>
@@ -157,17 +173,17 @@
 
             <div class="stat-body">
               <div class="stat-row">
-                <span class="gender-tag putra">👦 Putra</span>
+                <span class="gender-pill putra">👦 Putra</span>
                 <strong>{{ stat.putra }} siswa</strong>
               </div>
               <div class="stat-row">
-                <span class="gender-tag putri">👧 Putri</span>
+                <span class="gender-pill putri">👧 Putri</span>
                 <strong>{{ stat.putri }} siswa</strong>
               </div>
-              <hr class="stat-divider" />
+              <div class="stat-divider"></div>
               <div class="stat-row total">
                 <span>Total Kelas:</span>
-                <span class="total-badge">{{ stat.putra + stat.putri }} Murid</span>
+                <span class="total-badge-vibrant">{{ stat.putra + stat.putri }} Murid</span>
               </div>
             </div>
 
@@ -279,376 +295,509 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
-/* --- LAYOUT DASAR MEMPHIS PLAYFUL --- */
+/* --- LAYOUT UTAMA & VIBRANT MESH BACKGROUND --- */
 .akademik-container {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  color: #111111;
-  background-color: #fffbef; /* Warna dasar krem hangat */
-  padding-top: 80px;
+  color: #1e293b;
+  position: relative;
+  background: #f8fafc;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
-h1, h2, h3, h4 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 800;
-  color: #000000;
+/* Background Glowing Balls */
+.mesh-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.glow-ball {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.55;
+}
+
+.glow-yellow-1 {
+  width: 450px;
+  height: 450px;
+  background: #ffb703;
+  top: 2%;
+  right: -5%;
+}
+
+.glow-purple-1 {
+  width: 500px;
+  height: 500px;
+  background: #a855f7;
+  top: 18%;
+  left: -10%;
+}
+
+.glow-pink-1 {
+  width: 400px;
+  height: 400px;
+  background: #ec4899;
+  top: 45%;
+  right: -8%;
+}
+
+.glow-cyan-1 {
+  width: 450px;
+  height: 450px;
+  background: #06b6d4;
+  top: 70%;
+  left: -5%;
+}
+
+.glow-yellow-2 {
+  width: 400px;
+  height: 400px;
+  background: #fbbf24;
+  bottom: 2%;
+  right: 10%;
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 1140px;
   margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
 }
+
+.text-center { text-align: center; }
 
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
+  align-items: stretch;
 }
 
-.section-tag {
+/* --- BADGES & HEADINGS VIBRANT --- */
+.sub-heading {
   font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: #4b5563;
-  display: block;
-  margin-bottom: 8px;
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 99px;
+  margin-bottom: 15px;
 }
 
-.line-decor {
-  width: 70px;
-  height: 4px;
-  background-color: #dfb2f4; /* Ungu pastel */
-  border: 2px solid #000;
-  border-radius: 10px;
-  margin: 10px 0 25px 0;
+.badge-cyan { background: #cff4fc; color: #055160; }
+.badge-pink { background: #fce7f3; color: #9d174d; }
+.badge-purple { background: #f3e8ff; color: #6b21a8; }
+.badge-yellow { background: #fef3c7; color: #92400e; }
+
+.section-heading {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.3;
 }
-.line-decor.mx-auto {
-  margin: 10px auto 25px auto;
+
+.card-heading {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.heading-line-vibrant {
+  width: 80px;
+  height: 5px;
+  background: linear-gradient(90deg, #ffb703, #ec4899, #8b5cf6, #06b6d4);
+  border-radius: 10px;
+  margin: 15px 0 25px 0;
+}
+.heading-line-vibrant.center {
+  margin: 15px auto 25px auto;
+}
+
+.gradient-text-vibrant {
+  background: linear-gradient(135deg, #ffb703 0%, #ec4899 50%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  color: #475569;
+  max-width: 600px;
+  margin: 12px auto 0 auto;
+  font-size: 1rem;
 }
 
 /* --- HERO ACADEMIC --- */
 .akademik-hero {
   position: relative;
-  background-color: #f5d061; /* Kuning Memphis */
-  height: 35vh;
-  display: flex;
+  padding: 120px 0 50px 0;
+}
+
+.top-tag-pill {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  color: #000000;
-  text-align: center;
-  border-bottom: 3px solid #000000;
-  overflow: hidden;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 8px 20px;
+  border-radius: 99px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #4f46e5;
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
 }
-.hero-content {
-  position: relative;
-  z-index: 5;
-  padding: 0 20px;
+
+.hero-title {
+  font-size: 3.4rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 15px;
 }
-.hero-content h1 { 
-  font-size: 3rem; 
-  margin: 0 0 10px 0; 
-}
-.hero-content p { 
-  font-size: 1.1rem; 
-  color: #2b2b2b;
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: #475569;
   max-width: 600px;
   margin: 0 auto;
-  font-weight: 500;
-}
-.top-tag {
-  font-weight: 800;
-  letter-spacing: 2px;
-  font-size: 0.85rem;
-  display: block;
-  margin-bottom: 5px;
 }
 
-/* Ornamen Mengambang */
-.hero-shape {
-  position: absolute;
-  color: rgba(0, 0, 0, 0.08);
-  font-weight: bold;
-  user-select: none;
-}
-.shape-circle {
-  width: 120px;
-  height: 120px;
-  border: 15px solid rgba(0, 0, 0, 0.04);
-  border-radius: 50%;
-  top: -20px;
-  left: 5%;
-}
-.shape-triangle {
-  font-size: 6rem;
-  bottom: 10px;
-  right: 8%;
-  transform: rotate(15deg);
-}
-.shape-zigzag {
-  font-size: 5rem;
-  top: 20px;
-  right: 12%;
-  transform: rotate(-15deg);
-}
-
-/* --- SYSTEM TAB NAVIGATION --- */
-.tabs-container {
-  background-color: #fffbef;
-  border-bottom: 3px solid #000000;
+/* --- STICKY TABS NAVIGATION --- */
+.tabs-nav-wrapper {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
   position: sticky;
-  top: 80px;
-  z-index: 90;
+  top: 0;
+  z-index: 99;
 }
+
 .tabs-menu {
   display: flex;
   justify-content: center;
   gap: 15px;
-  max-width: 1100px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 15px 20px;
+  padding: 12px 20px;
 }
+
 .tabs-menu button {
-  background-color: #ffffff;
-  border: 2px solid #000;
+  background: transparent;
+  border: none;
   padding: 12px 24px;
   font-size: 0.95rem;
   font-weight: 700;
-  color: #000000;
+  color: #475569;
   cursor: pointer;
-  border-radius: 30px;
-  box-shadow: 3px 3px 0px #000;
-  transition: all 0.15s ease-in-out;
+  border-radius: 99px;
+  transition: all 0.3s ease;
 }
+
 .tabs-menu button:hover {
-  background-color: #f5d061;
-  transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0px #000;
+  color: #ec4899;
+  background: rgba(236, 72, 153, 0.08);
 }
+
 .tabs-menu button.active {
-  background-color: #dfb2f4; /* Ungu pastel aktif */
-  box-shadow: 1px 1px 0px #000;
-  transform: translate(2px, 2px);
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(168, 85, 247, 0.35);
 }
 
 .tab-content {
-  padding: 80px 20px;
+  padding: 60px 20px 100px 20px;
 }
 
-/* --- TAB 1: KARTU MEMPHIS (KURIKULUM & TIMELINE) --- */
-.card-memphis {
-  background-color: #ffffff;
-  border: 2px solid #000;
-  border-radius: 20px;
-  padding: 40px;
-  box-shadow: 6px 6px 0px #000;
+/* --- VIBRANT GRADIENT CARDS & GLASS CONTENT --- */
+.vibrant-card-wrapper {
+  padding: 4px;
+  border-radius: 32px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+  height: 100%;
+  box-sizing: border-box;
 }
-.color-peach { background-color: #ffdac1; }
-.color-blue { background-color: #b5e2fa; }
 
-.kurikulum-info h2, .kalender-info h2 { 
-  font-size: 2.2rem; 
-  margin: 0;
+.vibrant-card-wrapper:hover {
+  transform: translateY(-5px);
 }
-.kurikulum-info p, .kalender-info p {
-  line-height: 1.65;
-  color: #1f2937;
+
+.yellow-purple-grad {
+  background: linear-gradient(135deg, #ffc800 0%, #ec4899 50%, #8b5cf6 100%);
+}
+
+.cyan-blue-grad {
+  background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+}
+
+.glass-card-content {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  border-radius: 28px;
+  padding: 35px;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-desc {
+  color: #334155;
+  line-height: 1.7;
   font-size: 1rem;
+  margin-bottom: 20px;
 }
 
-.mapel-unggulan h3 {
-  font-size: 1.15rem;
-  margin-top: 25px;
+.mapel-wrapper h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-top: 10px;
   margin-bottom: 12px;
 }
+
 .mapel-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
-  padding-left: 15px;
-}
-.mapel-list li {
-  font-weight: 600;
-  color: #000000;
-  font-size: 0.95rem;
+  padding-left: 20px;
+  margin: 0;
 }
 
-/* Tabel Klasik Bergaris Hitam Tebal */
-.table-wrapper {
-  margin-top: 25px;
-  border: 2px solid #000;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 4px 4px 0px #000;
+.mapel-list li {
+  font-weight: 600;
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
+
+/* --- TABLE STYLING MODERN GLASS --- */
+.table-wrapper-glass {
+  margin-top: 15px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
 .table-akademik {
   width: 100%;
   border-collapse: collapse;
   background-color: #ffffff;
 }
+
 .table-akademik th, .table-akademik td {
   padding: 14px 18px;
   text-align: left;
-  border-bottom: 2px solid #000;
-  color: #000;
-}
-.table-akademik th {
-  background-color: #f5d061;
-  font-weight: 800;
+  border-bottom: 1px solid #f1f5f9;
   font-size: 0.95rem;
 }
+
+.table-akademik th {
+  background: #f8fafc;
+  color: #0f172a;
+  font-weight: 800;
+}
+
+.table-akademik td {
+  color: #334155;
+}
+
 .table-akademik tr:last-child td {
   border-bottom: none;
 }
+
 .table-akademik tr:nth-child(even) {
-  background-color: #fffbef;
+  background-color: #fafafa;
 }
 
-/* --- TAB 2: DIREKTORI GURU (Bingkai Foto Kubah) --- */
-.text-center-heading {
-  text-align: center;
-  margin-bottom: 60px;
-}
-.text-center-heading p {
-  color: #374151;
-  max-width: 600px;
-  margin: 8px auto 0 auto;
-  font-size: 1.05rem;
+/* --- TAB 2: DIREKTORI GURU --- */
+.section-title-center {
+  margin-bottom: 50px;
 }
 
 .grid-guru {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
 }
-.guru-card {
-  background: #ffffff;
-  border: 2px solid #000;
-  border-radius: 20px;
+
+.guru-card-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 28px;
   padding: 30px 20px;
-  box-shadow: 6px 6px 0px #000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  position: relative;
+  transition: all 0.3s ease;
 }
 
-/* Mempertahankan Foto Guru Asli dalam Portal Kubah */
+.guru-card-glass:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.95);
+}
+
 .guru-avatar-wrapper {
-  width: 150px;
-  height: 190px;
-  border-top-left-radius: 75px;
-  border-top-right-radius: 75px;
-  border: 2px solid #000;
+  width: 140px;
+  height: 175px;
+  border-top-left-radius: 70px;
+  border-top-right-radius: 70px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   overflow: hidden;
-  background-color: #dfb2f4; /* Background kubah sebelum gambar load */
-  box-shadow: 4px 4px 0px #000;
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  padding: 3px;
+  box-shadow: 0 10px 20px rgba(168, 85, 247, 0.2);
   margin-bottom: 20px;
 }
+
 .guru-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-top-left-radius: 67px;
+  border-top-right-radius: 67px;
+  border-bottom-left-radius: 17px;
+  border-bottom-right-radius: 17px;
 }
 
 .guru-details h3 {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
   margin: 0;
 }
-.badge-jabatan {
-  background-color: #ff9f68; /* Oranye pastel */
-  border: 2px solid #000;
-  padding: 4px 14px;
-  border-radius: 30px;
-  font-weight: 800;
+
+.badge-jabatan-vibrant {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 6px 16px;
+  border-radius: 99px;
+  font-weight: 700;
   font-size: 0.8rem;
-  margin: 10px auto;
+  margin: 12px auto;
   display: inline-block;
+  border: 1px solid #e2e8f0;
 }
+
 .card-divider {
   width: 100%;
-  border: none;
-  border-top: 2px dashed #000000;
+  height: 1px;
+  background: #f1f5f9;
   margin: 15px 0;
 }
+
 .guru-meta p {
   font-size: 0.85rem;
-  color: #374151;
+  color: #64748b;
   margin: 4px 0;
 }
 
-/* --- TAB 3: STATISTIK SISWA (Gaya Kartu Folder Memphis) --- */
+/* --- TAB 3: STATISTIK SISWA --- */
 .grid-statistik {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
-.stat-card {
-  background: #ffffff;
-  border: 2px solid #000;
-  border-radius: 16px;
+
+.stat-card-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 24px;
   overflow: hidden;
-  box-shadow: 5px 5px 0px #000;
-  display: flex;
-  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
 }
+
+.stat-card-glass:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.95);
+}
+
 .stat-header {
-  background-color: #f5d061;
-  border-bottom: 2px solid #000;
-  padding: 15px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-bottom: 1px solid #e2e8f0;
+  padding: 16px;
   text-align: center;
 }
+
 .stat-header h3 {
   margin: 0;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0f172a;
 }
+
 .stat-body {
   padding: 25px;
-  background-color: #fffbef;
 }
+
 .stat-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
+  color: #334155;
 }
-.gender-tag {
-  border: 2px solid #000;
-  padding: 4px 12px;
-  border-radius: 20px;
+
+.gender-pill {
+  padding: 6px 14px;
+  border-radius: 99px;
   font-weight: 700;
   font-size: 0.85rem;
 }
-.gender-tag.putra { background-color: #b5e2fa; }
-.gender-tag.putri { background-color: #ffdac1; }
+
+.gender-pill.putra { background-color: #e0f2fe; color: #0369a1; }
+.gender-pill.putri { background-color: #fce7f3; color: #be185d; }
 
 .stat-divider {
-  border: none;
-  border-top: 2px solid #000;
+  height: 1px;
+  background-color: #f1f5f9;
   margin: 15px 0;
 }
+
 .stat-row.total {
   font-weight: 800;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  color: #0f172a;
 }
-.total-badge {
-  background-color: #dfb2f4;
-  border: 2px solid #000;
-  padding: 6px 14px;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  box-shadow: 2px 2px 0px #000;
+
+.total-badge-vibrant {
+  background: linear-gradient(135deg, #ffc800 0%, #f97316 100%);
+  color: #ffffff;
+  padding: 6px 16px;
+  border-radius: 99px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
 }
 
 /* ANIMASI HALUS PERALIHAN TAB */
 .animate-fade {
-  animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: fadeIn 0.4s ease-out;
 }
+
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
+  from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -658,34 +807,38 @@ h1, h2, h3, h4 {
     grid-template-columns: 1fr;
     gap: 30px;
   }
-  .tabs-menu {
+  .tabs-nav-wrapper {
     overflow-x: auto;
+  }
+  .tabs-menu {
     justify-content: flex-start;
-    padding-bottom: 10px;
+    padding: 10px 15px;
   }
   .tabs-menu button {
     flex-shrink: 0;
+  }
+  .hero-title {
+    font-size: 2.6rem;
   }
 }
 
 @media (max-width: 640px) {
   .akademik-hero {
-    height: auto;
-    padding: 60px 20px;
+    padding: 80px 0 40px 0;
   }
-  .hero-content h1 {
-    font-size: 2.2rem;
+  .hero-title {
+    font-size: 2.1rem;
   }
   .tab-content {
-    padding: 40px 10px;
+    padding: 30px 15px 60px 15px;
   }
-  .card-memphis {
+  .glass-card-content {
     padding: 25px 20px;
   }
   .mapel-list {
     grid-template-columns: 1fr;
   }
-  .grid-guru {
+  .grid-guru, .grid-statistik {
     grid-template-columns: 1fr;
   }
 }

@@ -1,11 +1,16 @@
 <template>
-  <nav class="navbar">
+  <nav class="navbar-glass">
     <div class="nav-container">
       
+      <!-- LOGO DENGAN AKSEN GRADIENT -->
       <div class="nav-logo">
-        <router-link to="/">SD NEGERI PUCUNG</router-link>
+        <router-link to="/">
+          <span class="logo-icon">🏫</span>
+          <span class="logo-text">SD NEGERI <span class="highlight">PUCUNG</span></span>
+        </router-link>
       </div>
 
+      <!-- HAMBURGER MENU (MOBILE) -->
       <button 
         class="hamburger-btn" 
         @click="isMenuOpen = !isMenuOpen" 
@@ -17,6 +22,7 @@
         <span class="bar"></span>
       </button>
 
+      <!-- NAVIGATION LINKS -->
       <div class="nav-links" :class="{ 'nav-links-active': isMenuOpen }">
         <router-link to="/" @click="isMenuOpen = false">Beranda</router-link>
         <router-link to="/profil" @click="isMenuOpen = false">Profil</router-link>
@@ -24,7 +30,7 @@
         <router-link to="/kesiswaan" @click="isMenuOpen = false">Kesiswaan</router-link>
         <router-link to="/berita" @click="isMenuOpen = false">Berita & Agenda</router-link>
         <router-link to="/ppdb" @click="isMenuOpen = false">PPDB</router-link>
-        <router-link to="/kontak" @click="isMenuOpen = false" class="btn-kontak">Hubungi Kami / Kontak</router-link>
+        <router-link to="/kontak" @click="isMenuOpen = false" class="btn-kontak">Hubungi Kami</router-link>
       </div>
 
     </div>
@@ -38,17 +44,24 @@ const isMenuOpen = ref(false)
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
 
-/* --- STYLING UTAMA NAVBAR (Tema Memphis Playful) --- */
-.navbar {
-  background-color: #fffbef; /* Menggunakan warna dasar krem senada dengan layout utama */
+/* --- NAVBAR GLASSMORPHISM TRANSPARAN --- */
+.navbar-glass {
   position: fixed; 
-  top: 0; left: 0; right: 0;
-  height: 80px; /* Sedikit diperlebar agar proporsi garis hitam pas */
-  border-bottom: 3px solid #000000; /* Garis pembatas hitam tebal khas Memphis */
+  top: 0; 
+  left: 0; 
+  right: 0;
+  height: 76px;
+  /* Background transparan dengan efek buram halus */
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.03);
   z-index: 1000;
   font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: all 0.3s ease;
 }
 
 .nav-container {
@@ -57,65 +70,96 @@ const isMenuOpen = ref(false)
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 24px;
   height: 100%;
 }
 
+/* --- LOGO STYLING --- */
 .nav-logo a, .nav-logo :deep(a) {
-  color: #000000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #0f172a;
   font-weight: 800;
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   text-decoration: none;
   white-space: nowrap;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.3px;
 }
 
+.logo-icon {
+  font-size: 1.3rem;
+}
+
+.logo-text .highlight {
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- NAV LINKS & HOVER EFFECT --- */
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
 }
 
 .nav-links a {
-  color: #000000;
+  color: #475569;
   text-decoration: none;
-  font-weight: 700;
-  padding: 10px 16px;
-  border-radius: 30px; /* Tombol bulat lonjong sesuai tema */
-  border: 2px solid transparent;
-  transition: all 0.2s ease-in-out;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 99px;
+  transition: all 0.25s ease;
   font-size: 0.9rem;
 }
 
 /* Hover Menu */
 .nav-links a:hover {
-  background-color: #f5d061; /* Warna kuning hangat di-hover */
-  border: 2px solid #000000;
-  box-shadow: 2px 2px 0px #000000;
+  color: #0f172a;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* Penanda Halaman Aktif (Ungu Pastel dengan Border & Bayangan Hitam) */
+/* Penanda Halaman Aktif (Ungu Soft Pill Shape) */
 .nav-links a.router-link-active {
-  background-color: #dfb2f4; /* Warna ungu pastel yang pas */
-  color: #000000;
-  font-weight: bold;
-  border: 2px solid #000000;
-  box-shadow: 3px 3px 0px #000000;
+  background: #f3e8ff;
+  color: #7e22ce;
+  font-weight: 700;
 }
 
-/* Tombol Hubungi Kami / Kontak Spesifik */
+/* Tombol Aksi Hubungi Kami (Pill Shape Gradient) */
 .btn-kontak {
-  border: 2px solid #000000 !important;
-  background-color: #ffffff;
+  margin-left: 10px;
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05) !important;
+  font-weight: 700 !important;
 }
 
-/* --- TOMBOL HAMBURGER MOBILE (Hitam) --- */
+.btn-kontak:hover {
+  background: linear-gradient(135deg, #f3e8ff 0%, #fce7f3 100%) !important;
+  color: #a855f7 !important;
+  border-color: #f3e8ff !important;
+  transform: translateY(-1px);
+}
+
+.btn-kontak.router-link-active {
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 8px 20px rgba(168, 85, 247, 0.25) !important;
+}
+
+/* --- HAMBURGER BUTTON (MOBILE) --- */
 .hamburger-btn {
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 30px;
-  height: 21px;
+  width: 26px;
+  height: 18px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -125,33 +169,34 @@ const isMenuOpen = ref(false)
 
 .hamburger-btn .bar {
   width: 100%;
-  height: 3px;
-  background-color: #000000; /* Diubah ke warna hitam */
-  border-radius: 2px;
-  transition: all 0.3s ease-in-out;
+  height: 2.5px;
+  background-color: #0f172a;
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
-/* --- RESPONSIVE MOBILE (LAYAR HP & TABLET) --- */
+/* --- RESPONSIVE MOBILE --- */
 @media (max-width: 968px) {
   .hamburger-btn {
     display: flex; 
   }
 
-  /* Tirai Geser Keluar Menyesuaikan Palet Kuning/Krem */
   .nav-links {
     position: fixed;
     top: 0;
     right: -100%; 
     width: 280px;
     height: 100vh;
-    background-color: #fffbef; 
-    border-left: 3px solid #000000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-left: 1px solid rgba(255, 255, 255, 0.8);
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
-    padding: 0;
-    transition: 0.4s cubic-bezier(0.1, 1, 0.1, 1);
-    box-shadow: -5px 0 0px rgba(0,0,0,1); /* Bayangan solid */
+    gap: 16px;
+    padding: 30px;
+    transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.08);
   }
 
   .nav-links-active {
@@ -159,20 +204,19 @@ const isMenuOpen = ref(false)
   }
 
   .nav-links a {
-    display: block;
-    width: 80%;
+    width: 100%;
     text-align: center;
     padding: 12px 0;
     font-size: 1rem;
   }
   
-  .nav-links a.router-link-active {
-    box-shadow: 3px 3px 0px #000000 !important;
+  .btn-kontak {
+    margin-left: 0;
+    margin-top: 10px;
   }
 
-  /* --- ANIMASI TRANSISI HAMBURGER JADI HURUF 'X' --- */
   .hamburger-btn.is-active .bar:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
   }
   
   .hamburger-btn.is-active .bar:nth-child(2) {
@@ -180,7 +224,7 @@ const isMenuOpen = ref(false)
   }
   
   .hamburger-btn.is-active .bar:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
+    transform: translateY(-8px) rotate(-45deg);
   }
 }
 </style>

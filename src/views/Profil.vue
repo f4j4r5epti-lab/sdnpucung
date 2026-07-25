@@ -1,19 +1,31 @@
 <template>
   <div class="profil-container">
     
-    <!-- HERO PROFILE SECTION (Kuning Hangat khas Memphis) -->
+    <!-- BACKGROUND MESH GLOW FLOATING BALLS -->
+    <div class="mesh-background">
+      <div class="glow-ball glow-yellow-1"></div>
+      <div class="glow-ball glow-purple-1"></div>
+      <div class="glow-ball glow-pink-1"></div>
+      <div class="glow-ball glow-cyan-1"></div>
+      <div class="glow-ball glow-yellow-2"></div>
+    </div>
+
+    <!-- SECTION 1: HERO PROFILE -->
     <section class="profil-hero">
-      <div class="hero-content">
-        <span class="top-tag">TENTANG KAMI</span>
-        <h1>Profil Sekolah</h1>
-        <p>Kenali lebih dekat sejarah, visi misi, dan lingkungan belajar SD Negeri Pucung</p>
+      <div class="container hero-content text-center">
+        <div class="top-tag-pill">
+          <span class="sparkle">✨</span> TENTANG KAMI
+        </div>
+        <h1 class="hero-title">
+          Profil <span class="gradient-text-vibrant">Sekolah</span>
+        </h1>
+        <p class="hero-subtitle">
+          Kenali lebih dekat sejarah, visi misi, dan lingkungan belajar SD Negeri Pucung.
+        </p>
       </div>
-      <!-- Ornamen Geometris Khas Memphis -->
-      <div class="hero-shape shape-circle"></div>
-      <div class="hero-shape shape-flower">✿</div>
     </section>
 
-    <!-- MINI NAVIGATION TABS (Kuning & Border Hitam Tebal) -->
+    <!-- MINI NAVIGATION TABS (Glass Rainbow Accent) -->
     <div class="profile-nav-wrapper">
       <div class="profile-nav">
         <a href="#sambutan">Sambutan</a>
@@ -24,32 +36,29 @@
       </div>
     </div>
 
-    <!-- SEKSI 1: Sambutan Kepala Sekolah (Dengan Bingkai Foto Kubah Memphis Playful) -->
-    <section id="sambutan" class="section-profil white-bg">
+    <!-- SEKSI 1: Sambutan Kepala Sekolah -->
+    <section id="sambutan" class="section-profil">
       <div class="container grid-2">
         
-        <!-- Sisi Kiri: Bingkai Foto Kubah Kepala Sekolah -->
+        <!-- Sisi Kiri: Foto Kepala Sekolah dengan Gradient Card Modern -->
         <div class="kepsek-photo-wrapper">
-          <div class="kepsek-arch">
-            <!-- Foto Asli diletakkan di dalam Arch Portal -->
-            <img src="/images/ks.jpg" alt="Foto Kepala Sekolah" class="kepsek-img" />
-          </div>
-          <!-- Label Nama Gantung Khas Memphis -->
-          <div class="kepsek-label">
-            <h3>Suyatmiyatun, S.Pd</h3>
-            <p>Kepala Sekolah SD Negeri Pucung</p>
-          </div>
-          <!-- Ornamen Tangga Bawah -->
-          <div class="art-stairs">
-            <span></span><span></span><span></span>
+          <div class="vibrant-card-wrapper yellow-purple-grad">
+            <div class="glass-photo-card">
+              <img src="/images/ks.jpg" alt="Foto Kepala Sekolah" class="kepsek-img" />
+              <div class="kepsek-label">
+                <h3>Suyatmiyatun, S.Pd</h3>
+                <p>Kepala Sekolah SD Negeri Pucung</p>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- Sisi Kanan: Teks Sambutan -->
         <div class="kepsek-text">
-          <span class="section-tag">Sambutan Pimpinan</span>
-          <h2>Membangun Masa Depan Lewat Pendidikan Berkualitas</h2>
-          <hr class="line-decor" />
+          <span class="sub-heading badge-cyan">SAMBUTAN PIMPINAN</span>
+          <h2 class="section-heading">Membangun Masa Depan Lewat Pendidikan Berkualitas</h2>
+          <div class="heading-line-vibrant"></div>
+          
           <p class="greeting-highlight"><em>Assalamu’alaikum Warahmatullahi Wabarakatuh,</em></p>
           <p>
             Puji syukur kita panjatkan kehadirat Allah SWT atas terwujudnya website resmi SD Negeri Pucung. Di era digital ini, kami berkomitmen untuk menyediakan wadah informasi yang transparan, akuntabel, dan mudah diakses oleh seluruh wali murid, siswa, dan masyarakat luas.
@@ -63,88 +72,108 @@
       </div>
     </section>
 
-    <!-- SEKSI 2: Sejarah Singkat (Dengan Bingkai Foto Kubah Sejarah) -->
-    <section id="sejarah" class="section-profil gray-bg">
+    <!-- SEKSI 2: Sejarah Singkat -->
+    <section id="sejarah" class="section-profil">
       <div class="container grid-2 reverse-mobile">
         
         <div class="sejarah-text">
-          <span class="section-tag">Asal Usul</span>
-          <h2>Sejarah Singkat Sekolah</h2>
-          <hr class="line-decor" />
+          <span class="sub-heading badge-pink">ASAL USUL</span>
+          <h2 class="section-heading">Sejarah Singkat Sekolah</h2>
+          <div class="heading-line-vibrant"></div>
+          
           <p>
             SD Negeri Pucung didirikan di atas tanah kelurahan seluas 4.000 meter persegi. Pada awal berdirinya, sekolah ini hanya memiliki bangunan depan dengan fasilitas yang sangat terbatas.
           </p>
           <p>
-            Seiring berjalannya waktu dan meningkatnya kepercayaan masyarakat, pada tahun 2008 sekolah ini mengalami renovasi besar-besaran dari pemerintah. Kini, SD Negeri Pucung telah berkembang menjadi salah satu sekolah pilihan masyarakat dengan kurikulum berbasis karakter, lingkungan dan digitalisasi pembelajaran.
+            Seiring berjalannya waktu dan meningkatnya kepercayaan masyarakat, pada tahun 2008 sekolah ini mengalami renovasi besar-besaran dari pemerintah. Kini, SD Negeri Pucung telah berkembang menjadi salah satu sekolah pilihan masyarakat dengan kurikulum berbasis karakter, lingkungan, dan digitalisasi pembelajaran.
           </p>
         </div>
 
-        <!-- Sisi Kanan: Foto Sejarah Berbingkai Kubah Memphis -->
+        <!-- Sisi Kanan: Foto Sejarah Card -->
         <div class="sejarah-photo-wrapper">
-          <div class="sejarah-arch">
-            <img src="/images/profil_sejarah.jpg" alt="Foto Sejarah SD Negeri Pucung" class="sejarah-img" />
-          </div>
-          <!-- Badge Estetik Melayang -->
-          <div class="history-badge">
-            <span></span>
+          <div class="vibrant-card-wrapper cyan-blue-grad">
+            <div class="glass-photo-card">
+              <img src="/images/profil_sejarah.jpg" alt="Foto Sejarah SD Negeri Pucung" class="sejarah-img" />
+            </div>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- SEKSI 3: Visi & Misi (Ungu Pastel & Border Hitam) -->
-    <section id="visimisi" class="section-profil white-bg">
-      <div class="container text-center">
-        <span class="section-tag">Arah & Tujuan</span>
-        <h2>Visi dan Misi</h2>
-        <hr class="line-decor mx-auto" />
-        
-        <div class="visi-box">
-          <h3>VISI</h3>
-          <p class="visi-text">"Terwujudnya insan religius, unggul dalam prestasi, berkarakter, dan berwawasan global"</p>
-        </div>
-
-        <div class="misi-container">
-          <h3>MISI</h3>
-          <ol class="misi-list">
-            <li>Merancang kegiatan keagamaan di sekolah melalui kegiatan rutin dan penerapan pembelajaran keagamaan di sekolah.</li>
-            <li>Merancang pembelajaran yang berdiferensiasi, menarik dan menyenangkan yang mampu memotivasi peserta didik untuk selalu belajar dan menemukan pembelajaran.</li>
-            <li>Menyelenggarakan Pembelajaran Aktif, Inovatif, Kreatif, Efektif, dan Menyenangkan.</li>
-            <li>Membangun lingkungan sekolah yang bertoleransi dalam kebhinekaan global, mencintai budaya lokal dan menjunjung nilai gotong royong.</li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <!-- SEKSI 4: Struktur Organisasi (Desain Kartu Frame Memphis) -->
-    <section id="struktur" class="section-profil gray-bg">
-      <div class="container text-center">
-        <span class="section-tag">Manajemen</span>
-        <h2>Struktur Organisasi</h2>
-        <hr class="line-decor mx-auto" />
-        <p class="subtitle">Bagan garis kepemimpinan dan pembagian tugas kerja di SD Negeri Pucung</p>
-        
-        <div class="bagan-organisasi">
-          <img src="https://via.placeholder.com/900x500" alt="Bagan Struktur Organisasi Sekolah" class="img-fluid" />
-        </div>
-      </div>
-    </section>
-
-    <!-- SEKSI 5: Fasilitas (Bingkai Kubah / Arch Portal dengan Foto) -->
-    <section id="fasilitas" class="section-profil white-bg">
+    <!-- SEKSI 3: Visi & Misi -->
+    <section id="visimisi" class="section-profil">
       <div class="container">
-        <div class="text-center">
-          <span class="section-tag">Lingkungan Belajar</span>
-          <h2>Fasilitas Sekolah</h2>
-          <hr class="line-decor mx-auto" />
+        <div class="section-title-center">
+          <span class="sub-heading badge-purple">ARAH & TUJUAN</span>
+          <h2 class="section-heading">Visi dan Misi</h2>
+          <div class="heading-line-vibrant center"></div>
+        </div>
+        
+        <div class="visimisi-grid">
+          <!-- VISI CARD -->
+          <div class="vibrant-card-wrapper card-visi-grad">
+            <div class="visi-card-glass">
+              <div class="card-badge btn-yellow-glow">VISI</div>
+              <p class="visi-text">
+                "Terwujudnya insan religius, unggul dalam prestasi, berkarakter, dan berwawasan global"
+              </p>
+            </div>
+          </div>
+
+          <!-- MISI CARD -->
+          <div class="vibrant-card-wrapper card-misi-grad">
+            <div class="misi-card-glass">
+              <div class="card-badge btn-purple-glow">MISI</div>
+              <ol class="misi-list">
+                <li>Merancang kegiatan keagamaan di sekolah melalui kegiatan rutin dan penerapan pembelajaran keagamaan.</li>
+                <li>Merancang pembelajaran yang berdiferensiasi, menarik, dan menyenangkan yang mampu memotivasi peserta didik.</li>
+                <li>Menyelenggarakan Pembelajaran Aktif, Inovatif, Kreatif, Efektif, dan Menyenangkan.</li>
+                <li>Membangun lingkungan sekolah yang bertoleransi dalam kebhinekaan global, mencintai budaya lokal, dan menjunjung nilai gotong royong.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEKSI 4: Struktur Organisasi -->
+    <section id="struktur" class="section-profil">
+      <div class="container">
+        <div class="section-title-center">
+          <span class="sub-heading badge-yellow">MANAJEMEN</span>
+          <h2 class="section-heading">Struktur Organisasi</h2>
+          <div class="heading-line-vibrant center"></div>
+          <p class="subtitle">Bagan garis kepemimpinan dan pembagian tugas kerja di SD Negeri Pucung</p>
+        </div>
+        
+        <div class="bagan-organisasi-wrapper text-center">
+          <div class="vibrant-card-wrapper bagan-grad">
+            <div class="bagan-card-glass">
+              <img src="https://via.placeholder.com/900x500" alt="Bagan Struktur Organisasi Sekolah" class="img-fluid" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEKSI 5: Fasilitas -->
+    <section id="fasilitas" class="section-profil">
+      <div class="container">
+        <div class="section-title-center">
+          <span class="sub-heading badge-cyan">LINGKUNGAN BELAJAR</span>
+          <h2 class="section-heading">Fasilitas Sekolah</h2>
+          <div class="heading-line-vibrant center"></div>
           <p class="subtitle">Sarana pendukung kenyamanan belajar dan perkembangan potensi siswa.</p>
         </div>
 
         <div class="grid-fasilitas">
-          <div class="fasilitas-card" v-for="fasi in daftarFasilitas" :key="fasi.nama">
-            
-            <!-- Foto Asli ditampilkan dengan bingkai kubah -->
+          <div 
+            class="fasilitas-card-glass" 
+            v-for="(fasi, idx) in daftarFasilitas" 
+            :key="fasi.nama"
+            :class="'card-border-gradient-' + (idx % 3)"
+          >
             <div class="fasilitas-img-wrapper">
               <img :src="fasi.foto" :alt="fasi.nama" class="fasilitas-img" />
             </div>
@@ -153,11 +182,11 @@
               <h3>{{ fasi.nama }}</h3>
               <p>{{ fasi.deskripsi }}</p>
             </div>
-
           </div>
         </div>
       </div>
     </section>
+
   </div>
 </template>
 
@@ -175,27 +204,27 @@ export default {
       },
       {
         nama: 'Laboratorium Komputer',
-        deskripsi: 'Laboratorium modern dengan 30 unit komputer terkoneksi internet untuk menunjang ujian berbasis komputer (TKA/D) dan literasi digital.',
+        deskripsi: 'Laboratorium modern dengan 30 unit komputer terkoneksi internet untuk menunjang ujian berbasis komputer dan literasi digital.',
         foto: 'https://via.placeholder.com/400x250'
       },
       {
         nama: 'Perpustakaan',
-        deskripsi: 'Menyediakan ribuan koleksi buku fisik dan e-book.',
+        deskripsi: 'Menyediakan ribuan koleksi buku fisik dan e-book dengan area baca santai.',
         foto: 'https://via.placeholder.com/400x250'
       },
       {
-        nama: 'Lapangan Olahraga dan halaman yang luas',
-        deskripsi: 'Area lapangan luas multifungsi untuk kegiatan upacara bendera sepakbola, voli, dan latihan pramuka.',
+        nama: 'Lapangan Olahraga & Halaman',
+        deskripsi: 'Area lapangan luas multifungsi untuk kegiatan upacara bendera, olahraga, dan latihan pramuka.',
         foto: 'https://via.placeholder.com/400x250'
       },
       {
         nama: 'Unit Kesehatan Sekolah (UKS)',
-        deskripsi: 'Fasilitas kesehatan pertama siswa yang lengkap dengan obat-obatan dasar, tempat tidur, dan didampingi tenaga medis berkala.',
+        deskripsi: 'Fasilitas kesehatan pertama siswa yang lengkap dengan obat-obatan dasar dan tempat tidur.',
         foto: 'https://via.placeholder.com/400x250'
       },
       {
         nama: 'Mushola Sekolah',
-        deskripsi: 'Sarana ibadah bersama yang bersih dan nyaman guna mendukung pembiasaan salat berjamaah dan pendidikan karakter religi.',
+        deskripsi: 'Sarana ibadah bersama yang bersih dan nyaman guna mendukung pembiasaan ibadah.',
         foto: 'https://via.placeholder.com/400x250'
       }
     ]);
@@ -208,440 +237,439 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
-/* --- STYLING UTAMA & LAYOUT (Tema Playful Memphis) --- */
+/* --- LAYOUT UTAMA & VIBRANT MESH BACKGROUND --- */
 .profil-container {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  color: #111111;
-  background-color: #fffbef;
-  padding-top: 80px;
+  color: #1e293b;
+  position: relative;
+  background: #f8fafc;
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 800;
-  color: #000000;
+/* Background Glowing Balls */
+.mesh-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.glow-ball {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.55;
+}
+
+.glow-yellow-1 {
+  width: 450px;
+  height: 450px;
+  background: #ffb703;
+  top: 2%;
+  right: -5%;
+}
+
+.glow-purple-1 {
+  width: 500px;
+  height: 500px;
+  background: #a855f7;
+  top: 15%;
+  left: -10%;
+}
+
+.glow-pink-1 {
+  width: 400px;
+  height: 400px;
+  background: #ec4899;
+  top: 45%;
+  right: -8%;
+}
+
+.glow-cyan-1 {
+  width: 450px;
+  height: 450px;
+  background: #06b6d4;
+  top: 70%;
+  left: -5%;
+}
+
+.glow-yellow-2 {
+  width: 400px;
+  height: 400px;
+  background: #fbbf24;
+  bottom: 2%;
+  right: 10%;
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 0 20px;
+  position: relative;
+  z-index: 2;
 }
+
 .text-center { text-align: center; }
-.mx-auto { margin-left: auto; margin-right: auto; }
 
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 50px;
+  gap: 60px;
   align-items: center;
 }
 
 .section-profil {
-  padding: 100px 0;
-  border-bottom: 2px solid #000000;
+  padding: 80px 0;
 }
-.white-bg { background-color: #fffbef; }
-.gray-bg { background-color: #f5f0df; }
 
-.section-tag {
+/* --- BADGES & HEADINGS VIBRANT --- */
+.sub-heading {
   font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: #4b5563;
-  display: block;
-  margin-bottom: 10px;
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 99px;
+  margin-bottom: 15px;
 }
 
-.line-decor {
-  width: 70px;
-  height: 4px;
-  background-color: #dfb2f4;
-  border: 2px solid #000;
-  border-radius: 10px;
-  margin: 15px 0 30px 0;
+.badge-cyan { background: #cff4fc; color: #055160; }
+.badge-pink { background: #fce7f3; color: #9d174d; }
+.badge-purple { background: #f3e8ff; color: #6b21a8; }
+.badge-yellow { background: #fef3c7; color: #92400e; }
+
+.section-heading {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.3;
 }
-.line-decor.mx-auto {
-  margin: 15px auto 30px auto;
+
+/* Garis Gradien Warna-warni */
+.heading-line-vibrant {
+  width: 80px;
+  height: 5px;
+  background: linear-gradient(90deg, #ffb703, #ec4899, #8b5cf6, #06b6d4);
+  border-radius: 10px;
+  margin: 15px 0 25px 0;
+}
+.heading-line-vibrant.center {
+  margin: 15px auto 0 auto;
+}
+
+.gradient-text-vibrant {
+  background: linear-gradient(135deg, #ffb703 0%, #ec4899 50%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
-  color: #374151;
+  color: #475569;
   max-width: 600px;
-  margin: -10px auto 40px auto;
+  margin: 12px auto 0 auto;
   font-size: 1rem;
 }
 
-/* --- HERO PROFILE (Kuning Hangat) --- */
+/* --- HERO PROFILE SECTION --- */
 .profil-hero {
   position: relative;
-  background-color: #f5d061;
-  height: 35vh;
-  display: flex;
+  padding: 120px 0 60px 0;
+}
+
+.top-tag-pill {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  color: #000000;
-  text-align: center;
-  border-bottom: 2px solid #000000;
-  overflow: hidden;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 8px 20px;
+  border-radius: 99px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #4f46e5;
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
 }
-.hero-content {
-  position: relative;
-  z-index: 5;
+
+.hero-title {
+  font-size: 3.4rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 15px;
 }
-.hero-content h1 { 
-  font-size: 3.2rem; 
-  margin: 0 0 10px 0; 
-}
-.hero-content p { 
-  font-size: 1.15rem; 
-  color: #1f2937;
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: #475569;
   max-width: 600px;
   margin: 0 auto;
 }
-.hero-shape {
-  position: absolute;
-  color: rgba(0, 0, 0, 0.08);
-  font-weight: bold;
-}
-.shape-circle {
-  width: 150px;
-  height: 150px;
-  border: 15px solid rgba(0, 0, 0, 0.05);
-  border-radius: 50%;
-  top: -30px;
-  left: 5%;
-}
-.shape-flower {
-  font-size: 8rem;
-  bottom: -20px;
-  right: 5%;
-  transform: rotate(20deg);
-}
 
-/* --- MINI NAVIGATION TABS --- */
+/* --- STICKY NAV TABS (PERBAIKAN SINTAKS DENGAN BORDER-TOP DAN BORDER-BOTTOM) --- */
 .profile-nav-wrapper {
-  background-color: #fffbef;
-  border-bottom: 2px solid #000;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
   position: sticky;
-  top: 80px;
+  top: 0;
   z-index: 99;
 }
 .profile-nav {
   display: flex;
   justify-content: center;
-  max-width: 800px;
+  gap: 10px;
+  max-width: 900px;
   margin: 0 auto;
 }
 .profile-nav a {
-  color: #000000;
+  color: #475569;
   text-decoration: none;
-  padding: 18px 24px;
+  padding: 18px 22px;
   font-weight: 700;
   font-size: 0.95rem;
-  transition: all 0.2s;
+  transition: all 0.3s ease;
   border-bottom: 3px solid transparent;
 }
 .profile-nav a:hover {
-  background-color: #f5d061;
-  color: #000;
+  color: #ec4899;
+  border-bottom-color: #ec4899;
 }
 
-/* --- SAMBUTAN KEPALA SEKOLAH (Bingkai Kubah Foto Asli) --- */
-.kepsek-photo-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 320px;
-  height: 480px;
-  margin: 0 auto;
+/* --- VIBRANT GRADIENT CARD WRAPPERS --- */
+.vibrant-card-wrapper {
+  padding: 4px;
+  border-radius: 32px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
 }
-.kepsek-arch {
-  width: 280px;
-  height: 350px;
-  border-top-left-radius: 140px;
-  border-top-right-radius: 140px;
-  border: 2px solid #000;
+.vibrant-card-wrapper:hover {
+  transform: translateY(-5px);
+}
+
+.yellow-purple-grad {
+  background: linear-gradient(135deg, #ffc800 0%, #ec4899 50%, #8b5cf6 100%);
+}
+.cyan-blue-grad {
+  background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+}
+.card-visi-grad {
+  background: linear-gradient(135deg, #ffc800 0%, #f97316 100%);
+}
+.card-misi-grad {
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+}
+.bagan-grad {
+  background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+}
+
+.glass-photo-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  border-radius: 28px;
+  padding: 15px;
   overflow: hidden;
-  background-color: #dfb2f4; /* Ungu Pastel */
-  box-shadow: 8px 8px 0px #000;
-  position: relative;
-  z-index: 5;
 }
-.kepsek-img {
+
+.kepsek-img, .sejarah-img {
   width: 100%;
-  height: 100%;
+  border-radius: 22px;
   object-fit: cover;
-}
-
-/* Label nama melayang di bawah foto */
-.kepsek-label {
-  position: absolute;
-  bottom: 40px;
-  left: -20px;
-  right: 10px;
-  background: #ffffff;
-  border: 2px solid #000;
-  padding: 12px;
-  border-radius: 10px;
-  box-shadow: 4px 4px 0px #000;
-  z-index: 10;
-  text-align: center;
-}
-.kepsek-label h3 {
-  font-size: 1.15rem;
-  margin: 0 0 4px 0;
-}
-.kepsek-label p {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #6b7280;
-  margin: 0;
-}
-
-/* Ornamen Tangga Bawah */
-.art-stairs {
-  position: absolute;
-  bottom: 10px;
-  right: -10px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  z-index: 4;
-}
-.art-stairs span {
-  height: 16px;
-  border: 2px solid #000;
-  background-color: #ff9f68; /* Orange */
   display: block;
 }
-.art-stairs span:nth-child(1) { width: 25px; border-bottom: none; }
-.art-stairs span:nth-child(2) { width: 50px; border-bottom: none; }
-.art-stairs span:nth-child(3) { width: 75px; }
 
-.kepsek-text h2 { 
-  font-size: 2.3rem; 
-  line-height: 1.25;
-  margin: 0; 
+.kepsek-label {
+  margin-top: 15px;
+  text-align: center;
+  padding: 10px;
 }
-.greeting-highlight {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #000;
-}
-.kepsek-text p { 
-  color: #1f2937; 
-  line-height: 1.65; 
-  margin-bottom: 15px; 
-}
-
-/* --- SEJARAH (Bingkai Kubah Foto Asli) --- */
-.sejarah-photo-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 320px;
-  height: 400px;
-  margin: 0 auto;
-}
-.sejarah-arch {
-  width: 280px;
-  height: 350px;
-  border-top-left-radius: 140px;
-  border-top-right-radius: 140px;
-  border: 2px solid #000;
-  overflow: hidden;
-  background-color: #f5d061; /* Kuning */
-  box-shadow: 8px 8px 0px #000;
-  position: relative;
-  z-index: 5;
-}
-.sejarah-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.history-badge {
-  position: absolute;
-  top: 30px;
-  right: -10px;
-  background: #ff9f68; /* Orange */
-  border: 2px solid #000;
-  padding: 8px 14px;
-  transform: rotate(12deg);
-  border-radius: 5px;
-  box-shadow: 3px 3px 0px #000;
-  z-index: 10;
-}
-.history-badge span {
+.kepsek-label h3 {
+  font-size: 1.25rem;
   font-weight: 800;
-  font-size: 0.9rem;
+  color: #0f172a;
+  margin-bottom: 4px;
 }
-
-.sejarah-text h2 { 
-  font-size: 2.3rem; 
-  margin: 0; 
-}
-.sejarah-text p { 
-  color: #1f2937; 
-  line-height: 1.65; 
-  margin-bottom: 15px; 
-}
-
-/* --- VISI & MISI --- */
-#visimisi h2 { font-size: 2.5rem; margin: 0; }
-.visi-box {
-  background-color: #ffdac1; /* Peach */
-  padding: 40px;
-  border-radius: 20px;
-  border: 2px solid #000;
-  box-shadow: 6px 6px 0px #000;
-  max-width: 800px;
-  margin: 0 auto 50px auto;
-}
-.visi-box h3 { 
-  margin: 0 0 15px 0; 
-  font-size: 1.6rem; 
-  letter-spacing: 1.5px; 
-}
-.visi-text { 
-  font-size: 1.35rem; 
-  font-style: italic; 
-  color: #000; 
-  line-height: 1.5; 
+.kepsek-label p {
+  font-size: 0.85rem;
+  color: #64748b;
   font-weight: 700;
 }
 
-.misi-container {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: left;
-  background: #b5e2fa; /* Biru */
-  padding: 45px;
-  border-radius: 20px;
-  border: 2px solid #000;
-  box-shadow: 6px 6px 0px #000;
+.greeting-highlight {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #6366f1;
 }
-.misi-container h3 { 
-  font-size: 1.6rem; 
-  text-align: center; 
-  margin-top: 0; 
-  margin-bottom: 25px; 
-  letter-spacing: 1.5px;
+.kepsek-text p, .sejarah-text p {
+  color: #334155;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  font-size: 1rem;
 }
-.misi-list { padding-left: 20px; }
-.misi-list li { 
-  margin-bottom: 15px; 
-  color: #111111; 
-  line-height: 1.65; 
-  font-size: 1.05rem; 
+
+/* --- VISI & MISI GLASS CARDS --- */
+.visimisi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 35px;
+  margin-top: 20px;
+}
+
+.visi-card-glass, .misi-card-glass {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  border-radius: 28px;
+  padding: 35px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.card-badge {
+  display: inline-block;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 8px 20px;
+  border-radius: 99px;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.btn-yellow-glow {
+  background: #ffc800;
+  color: #0f172a;
+  box-shadow: 0 8px 20px rgba(255, 200, 0, 0.4);
+}
+.btn-purple-glow {
+  background: #a855f7;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(168, 85, 247, 0.4);
+}
+
+.visi-text {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.misi-list {
+  padding-left: 20px;
+  margin: 0;
+}
+.misi-list li {
+  color: #334155;
+  line-height: 1.65;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
   font-weight: 500;
 }
 
-/* --- STRUKTUR --- */
-#struktur h2 { font-size: 2.5rem; margin: 0; }
-.bagan-organisasi {
-  background: #fff;
-  padding: 25px;
-  border-radius: 16px;
-  border: 2px solid #000;
-  box-shadow: 6px 6px 0px #000;
+/* --- STRUKTUR BAGAN --- */
+.bagan-card-glass {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  border-radius: 28px;
+  padding: 20px;
   display: inline-block;
   max-width: 100%;
 }
-.img-fluid { max-width: 100%; height: auto; }
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
 
-/* --- FASILITAS (Kubah Foto Asli) --- */
-#fasilitas h2 { font-size: 2.5rem; margin: 0; }
+/* --- FASILITAS GRID --- */
 .grid-fasilitas {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-  gap: 40px;
-  margin-top: 50px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
 }
-.fasilitas-card {
-  background: transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+
+.fasilitas-card-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.card-border-gradient-0 { border-color: rgba(255, 200, 0, 0.5); }
+.card-border-gradient-1 { border-color: rgba(236, 72, 153, 0.5); }
+.card-border-gradient-2 { border-color: rgba(6, 182, 212, 0.5); }
+
+.fasilitas-card-glass:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
 }
 
 .fasilitas-img-wrapper {
   width: 100%;
-  height: 240px;
-  border-top-left-radius: 120px;
-  border-top-right-radius: 120px;
-  border: 2px solid #000;
+  height: 200px;
   overflow: hidden;
   background-color: #e2e8f0;
-  box-shadow: 4px 4px 0px #000;
-  transition: transform 0.2s, box-shadow 0.2s;
 }
-.fasilitas-card:hover .fasilitas-img-wrapper {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px #000;
-}
-.fasilitas-img { 
-  width: 100%; 
-  height: 100%; 
-  object-fit: cover; 
+.fasilitas-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.fasilitas-info { 
-  padding: 20px 10px; 
+.fasilitas-info {
+  padding: 22px;
 }
-.fasilitas-info h3 { 
-  margin: 0 0 10px 0; 
-  font-size: 1.3rem; 
+.fasilitas-info h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 8px;
 }
-.fasilitas-info p { 
-  margin: 0; 
-  color: #374151; 
-  font-size: 0.95rem; 
-  line-height: 1.5; 
+.fasilitas-info p {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.5;
 }
 
-/* --- RESPONSIVE DESIGN --- */
+/* --- RESPONSIF HP & TABLET --- */
 @media (max-width: 992px) {
-  .grid-2 { 
-    grid-template-columns: 1fr; 
-    gap: 60px; 
+  .grid-2, .visimisi-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
   .reverse-mobile {
     display: flex;
     flex-direction: column-reverse;
   }
-  .profile-nav-wrapper {
-    overflow-x: auto;
+  .grid-fasilitas {
+    grid-template-columns: repeat(2, 1fr);
   }
-  .profile-nav { 
-    justify-content: flex-start; 
-    width: max-content;
-    padding: 0 10px;
-  }
-  .profile-nav a { 
-    padding: 15px 18px; 
-    font-size: 0.85rem; 
-  }
-  .hero-content h1 { font-size: 2.4rem; }
-  .kepsek-text h2, .sejarah-text h2 { font-size: 1.9rem; }
-  .misi-container { padding: 25px; }
-  
-  /* Penyesuaian jarak foto mobile */
-  .kepsek-photo-wrapper, .sejarah-photo-wrapper {
-    margin-bottom: 20px;
-  }
+  .hero-title { font-size: 2.5rem; }
+  .section-heading { font-size: 1.8rem; }
 }
 
 @media (max-width: 640px) {
-  .section-profil { padding: 60px 0; }
-  .hero-content h1 { font-size: 2rem; }
-  #visimisi h2, #struktur h2, #fasilitas h2 { font-size: 1.8rem; }
-  .visi-box h3, .misi-container h3 { font-size: 1.3rem; }
-  .visi-text { font-size: 1.1rem; }
+  .grid-fasilitas {
+    grid-template-columns: 1fr;
+  }
+  .profile-nav-wrapper {
+    overflow-x: auto;
+  }
+  .profile-nav {
+    justify-content: flex-start;
+    padding: 0 10px;
+  }
 }
 </style>

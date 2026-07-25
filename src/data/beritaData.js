@@ -56,6 +56,24 @@ const rawData = [
     ringkasan: 'Guna memperluas akses bahan bacaan berkualitas bagi para siswa, SD Negeri Pucung bekerja sama dengan Dinas Perpustakaan Sleman menggelar layanan Perpustakaan Keliling (Pusling). Kegiatan ini menghadirkan ratusan koleksi buku mulai dari cerita rakyat, sains populer, hingga buku pengetahuan umum. Program jemput bola ini diharapkan dapat mendukung proses belajar mengajar serta menumbuhkan kebiasaan membaca di lingkungan sekolah.',
     foto: ['/images/puslingj1.jpeg', '/images/puslingj2.jpeg','/images/puslingj3.jpeg'],
     waktu_agenda: '15 Juli 2026'
+  },
+   {
+    id: 8,
+    kategori: 'Berita',
+    tanggal: '25 Juli 2026',
+    judul: 'Penilaian Kinerja Kepala Sekolah (PKKS) SD Negeri Pucung',
+    ringkasan: 'Penilaian Kinerja Kepala Sekolah (PKKS) adalah proses evaluasi berkala yang komprehensif untuk menilai efektivitas kepemimpinan, manajerial, dan pengembangan mutu edukasi yang dijalankan oleh Kepala SD Negeri Pucung.',
+    foto: ['/images/pkks1.jpg', '/images/pkks2.jpg'],
+    waktu_agenda: '21 Juni 2026'
+  },
+  {
+    id: 9,
+    kategori: 'Berita',
+    tanggal: '25 Juli 2026',
+    judul: 'Petani Cilik',
+    ringkasan: 'Petani Cilik adalah program unggulan SD Negeri Pucung yang mengajak siswa belajar langsung di luar kelas untuk mengenal dunia pertanian, pelestarian lingkungan, dan ketahanan pangan sejak dini. Melalui pendekatan belajar sambil bermain (learning by doing), para siswa diajak untuk menyentuh tanah, menanam bibit, merawat tanaman, hingga memanen hasilnya sendiri.',
+    foto: ['/images/ptc1.jpg', '/images/ptc2.jpg'],
+    waktu_agenda: '24 Juli 2026'
   }
 ];
 

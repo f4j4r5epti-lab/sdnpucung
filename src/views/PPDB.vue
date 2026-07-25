@@ -1,91 +1,111 @@
 <template>
   <div class="ppdb-container">
     
-    <!-- --- 1. HERO SECTION (Kuning Memphis & Ornamen Geometris) --- -->
+    <!-- BACKGROUND MESH GLOW FLOATING BALLS -->
+    <div class="mesh-background">
+      <div class="glow-ball glow-yellow-1"></div>
+      <div class="glow-ball glow-purple-1"></div>
+      <div class="glow-ball glow-pink-1"></div>
+      <div class="glow-ball glow-cyan-1"></div>
+      <div class="glow-ball glow-yellow-2"></div>
+    </div>
+
+    <!-- --- 1. HERO SECTION --- -->
     <section class="ppdb-hero">
-      <div class="hero-content">
-        <span class="top-tag">PENDAFTARAN SISWA BARU</span>
-        <h1>PPDB Online Tahun Ajaran 2026/2027</h1>
-        <p>Bergabunglah bersama keluarga besar SD Negeri Pucung. Cerdas, Berkarakter, Berakhlak Mulia.</p>
+      <div class="container hero-content text-center">
+        <div class="top-tag-pill">
+          <span class="sparkle">✨</span> PENDAFTARAN SISWA BARU
+        </div>
+        <h1 class="hero-title">
+          PPDB Online Tahun Ajaran <span class="gradient-text-vibrant">2026/2027</span>
+        </h1>
+        <p class="hero-subtitle">
+          Bergabunglah bersama keluarga besar SD Negeri Pucung. Cerdas, Berkarakter, Berakhlak Mulia.
+        </p>
       </div>
-      <!-- Ornamen Gaya Memphis -->
-      <div class="hero-shape shape-circle"></div>
-      <div class="hero-shape shape-triangle">▲</div>
-      <div class="hero-shape shape-zigzag">⚡</div>
     </section>
 
     <!-- --- 2. KETENTUAN & KUOTA SECTION --- -->
-    <section class="section-ppdb krem-bg">
+    <section class="section-ppdb">
       <div class="container grid-2">
+        
+        <!-- Info Syarat (Kiri) -->
         <div class="info-syarat">
-          <span class="section-tag">Ketentuan</span>
-          <h2>Syarat Pendaftaran</h2>
-          <p>Mohon perhatikan persyaratan calon peserta didik baru di bawah ini sebelum melakukan pendaftaran di spmb.slemankab.go.id</p>
+          <span class="sub-heading badge-cyan">KETENTUAN</span>
+          <h2 class="section-heading">Syarat Pendaftaran</h2>
+          <div class="heading-line-vibrant"></div>
+          <p class="desc-text">Mohon perhatikan persyaratan calon peserta didik baru di bawah ini sebelum melakukan pendaftaran.</p>
           
           <ul class="syarat-list">
-            <li><span class="bullet-box">✓</span> Berusia minimal 6 tahun pada tanggal 1 Juli 2026.</li>
-            <li><span class="bullet-box">✓</span> Mengisi Formulir Pendaftaran Online dengan data asli.</li>
-            <li><span class="bullet-box">✓</span> Menyiapkan Akta Kelahiran (Fotokopi & Asli saat verifikasi).</li>
-            <li><span class="bullet-box">✓</span> Menyiapkan Kartu Keluarga (KK) orang tua/wali.</li>
-            <li><span class="bullet-box">✓</span> Pas foto hitam putih/berwarna ukuran 3x4 (2 lembar).</li>
+            <li>
+              <div class="icon-bullet">✓</div> 
+              <p>Berusia minimal 6 tahun pada tanggal 1 Juli 2026.</p>
+            </li>
+            <li>
+              <div class="icon-bullet">✓</div> 
+              <p>Mengisi Formulir Pendaftaran Online dengan data asli.</p>
+            </li>
+            <li>
+              <div class="icon-bullet">✓</div> 
+              <p>Menyiapkan Akta Kelahiran (Fotokopi & Asli saat verifikasi).</p>
+            </li>
+            <li>
+              <div class="icon-bullet">✓</div> 
+              <p>Menyiapkan Kartu Keluarga (KK) orang tua/wali.</p>
+            </li>
+            <li>
+              <div class="icon-bullet">✓</div> 
+              <p>Pas foto hitam putih/berwarna ukuran 3x4 (2 lembar).</p>
+            </li>
           </ul>
         </div>
 
-        <!-- Boks Kuota Bergaya Pop-Art Kontras -->
-        <div class="kuota-box">
-          <div class="kuota-header">Daya Tampung / Kuota</div>
-          <div class="kuota-body">
-            <div class="kuota-number">28</div>
-            <p>Siswa Baru</p>
-            <span class="rombel-tag">1 Rombongan Belajar</span>
+        <!-- Boks Kuota (Kanan) dengan Vibrant Gradient -->
+        <div class="vibrant-card-wrapper kuota-grad">
+          <div class="kuota-box-glass">
+            <div class="kuota-header">DAYA TAMPUNG</div>
+            <div class="kuota-body">
+              <div class="kuota-number">28</div>
+              <p>Siswa Baru</p>
+              <div class="rombel-tag-glass">1 Rombongan Belajar</div>
+            </div>
           </div>
         </div>
+
       </div>
     </section>
-     
+      
     <!-- --- 3. ALUR PENDAFTARAN DARING --- -->
-    <section class="section-ppdb ungu-bg">
+    <section class="section-ppdb">
       <div class="container">
-        <div class="text-center-heading">
-          <span class="section-tag">Panduan</span>
-          <h2>Alur Pendaftaran Daring</h2>
+        <div class="section-title-center text-center">
+          <span class="sub-heading badge-purple">PANDUAN</span>
+          <h2 class="section-heading">Alur Pendaftaran Daring</h2>
+          <div class="heading-line-vibrant center"></div>
         </div>
 
         <div class="grid-alur">
-          <div class="alur-card">
-            <div class="alur-number">1</div>
-            <h3>Kunjungi Laman</h3>
-            <p>Isi data calon siswa secara lengkap pada form online yang tersedia di bawah halaman ini.</p>
-          </div>
-          <div class="alur-card">
-            <div class="alur-number">2</div>
-            <h3>Cetak Bukti</h3>
-            <p>Simpan atau screenshoot notifikasi berhasil sebagai bukti pendaftaran awal.</p>
-          </div>
-          <div class="alur-card">
-            <div class="alur-number">3</div>
-            <h3>Verifikasi Berkas</h3>
-            <p>Bawa dokumen fisik (KK, Akta, Foto) ke ruang sekretariat PPDB sekolah sesuai jadwal.</p>
-          </div>
-          <div class="alur-card">
-            <div class="alur-number">4</div>
-            <h3>Pengumuman</h3>
-            <p>Pantau hasil kelulusan administrasi akhir melalui menu "Layanan & Unduhan" di web ini.</p>
+          <div class="alur-card-glass" v-for="alur in alurPendaftaran" :key="alur.no">
+            <div class="alur-number-vibrant">{{ alur.no }}</div>
+            <h3>{{ alur.judul }}</h3>
+            <p>{{ alur.deskripsi }}</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- --- 4. FORMULIR PENDAFTARAN ELEKTRONIK --- -->
-    <section class="section-ppdb krem-bg" id="form-pendaftaran">
+    <section class="section-ppdb" id="form-pendaftaran">
       <div class="container form-wrapper">
-        <div class="text-center-heading">
-          <span class="section-tag">Form Elektronik</span>
-          <h2>Isi Formulir Calon Siswa Baru</h2>
-          <p class="form-desc">Pastikan data yang Anda masukkan sesuai dengan dokumen resmi (KK / Akta Lahir).</p>
+        <div class="text-center-heading text-center">
+          <span class="sub-heading badge-pink">FORM ELEKTRONIK</span>
+          <h2 class="section-heading">Isi Formulir Calon Siswa</h2>
+          <div class="heading-line-vibrant center"></div>
+          <p class="subtitle form-desc">Pastikan data yang Anda masukkan sesuai dengan dokumen resmi (KK / Akta Lahir).</p>
         </div>
 
-        <form @submit.prevent="submitForm" class="form-ppdb">
+        <!-- Formulir dengan Gaya Glassmorphism -->
+        <form @submit.prevent="submitForm" class="form-ppdb-glass">
           <div class="form-group">
             <label>Nama Lengkap Anak</label>
             <input type="text" v-model="form.nama_lengkap" required placeholder="Contoh: Muhammad Rafli" />
@@ -111,12 +131,13 @@
             <input type="text" v-model="form.asal_tk" required placeholder="Contoh: TK Pembina Kota Jaya" />
           </div>
 
-          <button type="submit" :disabled="submitting" class="btn-submit">
-            <span>{{ submitting ? '⚡ Sedang Mengirim Data...' : 'Kirim Pendaftaran Online ➔' }}</span>
+          <button type="submit" :disabled="submitting" class="btn-submit-vibrant">
+            <span>{{ submitting ? '⚡ Sedang Mengirim...' : 'Kirim Pendaftaran Online ➔' }}</span>
           </button>
         </form>
       </div>
     </section>
+
   </div>
 </template>
 
@@ -126,6 +147,7 @@ import { ref } from 'vue';
 export default {
   name: 'PPDBView',
   setup() {
+    // Ganti dengan URL Web App Google Apps Script Anda yang valid
     const API_URL = "https://script.google.com/macros/s/XXXXXXXXXXXXXX/exec";
 
     const form = ref({
@@ -138,20 +160,28 @@ export default {
     
     const submitting = ref(false);
 
+    const alurPendaftaran = ref([
+      { no: 1, judul: 'Kunjungi Laman', deskripsi: 'Isi data calon siswa secara lengkap pada formulir online di halaman ini.' },
+      { no: 2, judul: 'Konfirmasi', deskripsi: 'Simpan atau screenshot notifikasi berhasil sebagai bukti pendaftaran awal.' },
+      { no: 3, judul: 'Verifikasi Berkas', deskripsi: 'Bawa dokumen fisik (KK, Akta, Foto) ke sekolah sesuai jadwal yang ditentukan.' },
+      { no: 4, judul: 'Pengumuman', deskripsi: 'Pantau hasil seleksi melalui papan pengumuman sekolah atau WhatsApp.' }
+    ]);
+
     const submitForm = async () => {
       submitting.value = true;
       try {
         await fetch(API_URL, {
           method: 'POST',
-          mode: 'no-cors',
+          mode: 'no-cors', // Penting untuk cross-domain request ke GAS
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(form.value)
         });
 
-        alert("Pendaftaran PPDB Berhasil!\nData Anda telah terekam di Google Sheets Sekolah. Silakan tunggu konfirmasi panitia melalui WhatsApp.");
+        alert("Pendaftaran PPDB Berhasil Terkirim!\nData Anda sedang diproses. Panitia akan menghubungi Anda melalui WhatsApp untuk tahap verifikasi berkas.");
         
+        // Reset formulir setelah berhasil
         form.value = {
           nama_lengkap: '',
           nik: '',
@@ -161,7 +191,7 @@ export default {
         };
       } catch (error) {
         console.error("Error pendaftaran:", error);
-        alert("Terjadi gangguan sistem. Silakan periksa koneksi internet Anda dan coba lagi.");
+        alert("Maaf, terjadi gangguan sistem saat mengirim data. Silakan coba beberapa saat lagi atau hubungi kontak sekolah.");
       } finally {
         submitting.value = false;
       }
@@ -170,261 +200,331 @@ export default {
     return {
       form,
       submitting,
-      submitForm
+      submitForm,
+      alurPendaftaran
     };
   }
 }
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
-/* --- LAYOUT DASAR & UTILITIES --- */
+/* --- LAYOUT UTAMA & MESH BACKGROUND --- */
 .ppdb-container {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  color: #111111;
-  background-color: #fffbef; /* Krem hangat */
-  padding-top: 80px;
+  color: #1e293b;
+  position: relative;
+  background: #f8fafc;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 800;
-  color: #000000;
+/* Background Glowing Balls (Khas gaya baru) */
+.mesh-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
 }
 
-.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-.krem-bg { background-color: #fffbef; }
-.ungu-bg { background-color: #dfb2f4; border-top: 3px solid #000000; border-bottom: 3px solid #000000; }
-.section-ppdb { padding: 90px 0; }
+.glow-ball {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.55;
+}
+
+.glow-yellow-1 { width: 450px; height: 450px; background: #ffb703; top: 2%; right: -5%; }
+.glow-purple-1 { width: 500px; height: 500px; background: #a855f7; top: 20%; left: -10%; }
+.glow-pink-1 { width: 400px; height: 400px; background: #ec4899; top: 50%; right: -8%; }
+.glow-cyan-1 { width: 450px; height: 450px; background: #06b6d4; top: 75%; left: -5%; }
+.glow-yellow-2 { width: 400px; height: 400px; background: #fbbf24; bottom: 2%; right: 10%; }
+
+.container { max-width: 1140px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2; }
+.section-ppdb { padding: 80px 0; }
 .grid-2 { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
-.text-center-heading { text-align: center; margin-bottom: 50px; }
-.text-center-heading h2 { font-size: 2.5rem; margin: 10px 0 0 0; }
 
-.section-tag {
-  background-color: #b5e2fa; /* Biru muda */
-  color: #000000;
+/* --- BADGES & HEADINGS VIBRANT --- */
+.sub-heading {
+  font-size: 0.8rem;
   font-weight: 800;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   display: inline-block;
-  padding: 4px 12px;
-  border: 2px solid #000;
-  border-radius: 6px;
-  box-shadow: 2px 2px 0px #000;
+  padding: 6px 16px;
+  border-radius: 99px;
+  margin-bottom: 15px;
 }
 
-/* --- HERO PPDB (Kuning Memphis) --- */
+.badge-cyan { background: #cff4fc; color: #055160; }
+.badge-purple { background: #f3e8ff; color: #6b21a8; }
+.badge-pink { background: #fce7f3; color: #9d174d; }
+
+.section-heading {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.3;
+}
+
+.heading-line-vibrant {
+  width: 80px;
+  height: 5px;
+  background: linear-gradient(90deg, #ffb703, #ec4899, #8b5cf6, #06b6d4);
+  border-radius: 10px;
+  margin: 15px 0 25px 0;
+}
+.heading-line-vibrant.center { margin: 15px auto 25px auto; }
+
+.gradient-text-vibrant {
+  background: linear-gradient(135deg, #ffb703 0%, #ec4899 50%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle { color: #475569; max-width: 600px; margin: 12px auto 0 auto; font-size: 1rem; }
+
+/* --- HERO PPDB --- */
 .ppdb-hero {
   position: relative;
-  background-color: #f5d061;
-  height: 35vh;
-  display: flex;
+  padding: 120px 0 60px 0;
+}
+
+.top-tag-pill {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  color: #000000;
-  text-align: center;
-  border-bottom: 3px solid #000000;
-  overflow: hidden;
-}
-.hero-content { position: relative; z-index: 5; padding: 0 20px; }
-.hero-content h1 { font-size: 3rem; margin: 5px 0 12px 0; }
-.hero-content p { 
-  font-size: 1.1rem; 
-  color: #2b2b2b; 
-  max-width: 650px; 
-  margin: 0 auto;
-  font-weight: 500;
-}
-.top-tag {
-  font-weight: 800;
-  letter-spacing: 2px;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 8px 20px;
+  border-radius: 99px;
   font-size: 0.85rem;
-  display: block;
+  font-weight: 800;
+  color: #4f46e5;
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
-/* Ornamen Mengambang */
-.hero-shape {
-  position: absolute;
-  color: rgba(0, 0, 0, 0.08);
-  font-weight: bold;
-  user-select: none;
-}
-.shape-circle {
-  width: 120px;
-  height: 120px;
-  border: 15px solid rgba(0, 0, 0, 0.04);
-  border-radius: 50%;
-  top: -20px;
-  left: 5%;
-}
-.shape-triangle { font-size: 6rem; bottom: 10px; right: 8%; transform: rotate(15deg); }
-.shape-zigzag { font-size: 5rem; top: 20px; right: 12%; transform: rotate(-15deg); }
+.hero-title { font-size: 3.4rem; font-weight: 800; color: #0f172a; margin-bottom: 15px; }
 
-/* --- INFO SYARAT & BOX KUOTA --- */
-.info-syarat h2 { font-size: 2.5rem; margin: 10px 0 15px 0; }
-.info-syarat p { color: #2b2b2b; margin-bottom: 30px; font-size: 1.05rem; font-weight: 500; }
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: #475569;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- INFO SYARAT & BOX KUOTA GLASS --- */
+.info-syarat .desc-text { color: #475569; margin-bottom: 30px; font-size: 1.05rem; }
+
 .syarat-list { list-style: none; padding: 0; }
-.syarat-list li { margin-bottom: 16px; color: #111111; display: flex; align-items: center; gap: 14px; font-size: 1.05rem; font-weight: 600; }
+.syarat-list li { margin-bottom: 18px; display: flex; align-items: center; gap: 16px; }
+.syarat-list li p { color: #334155; font-size: 1.05rem; font-weight: 600; margin: 0; }
 
-.bullet-box {
-  background-color: #f5d061;
-  color: #000000;
-  border: 2px solid #000000;
-  width: 26px;
-  height: 26px;
+.icon-bullet {
+  background: linear-gradient(135deg, #a855f7 0%, #06b6d4 100%);
+  color: #ffffff;
+  width: 28px;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 900;
-  border-radius: 6px;
-  font-size: 0.85rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
   flex-shrink: 0;
-  box-shadow: 2px 2px 0px #000000;
+  box-shadow: 0 4px 10px rgba(168, 85, 247, 0.25);
 }
 
-/* Kotak Daya Tampung / Kuota */
-.kuota-box {
-  background-color: #ffffff; 
-  color: #000000; 
-  border: 3px solid #000000;
-  border-radius: 24px;
-  overflow: hidden; 
-  text-align: center; 
-  box-shadow: 8px 8px 0px #000000;
+/* Kotak Daya Tampung / Kuota Glassmorphism */
+.vibrant-card-wrapper {
+  padding: 4px;
+  border-radius: 32px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
-.kuota-header { 
-  background-color: #ff9f68; /* Oranye Pastel */
-  padding: 16px; 
-  font-weight: 800; 
-  font-size: 1.2rem; 
-  color: #000000;
-  border-bottom: 3px solid #000000;
+
+.kuota-grad { background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%); }
+
+.vibrant-card-wrapper:hover { transform: translateY(-5px); }
+
+.kuota-box-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border-radius: 28px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.kuota-header {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 16px;
+  font-weight: 800;
+  font-size: 1rem;
+  color: #0f172a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
 }
-.kuota-body { padding: 45px 20px; background-color: #ffffff; }
-.kuota-number { 
-  font-size: 5.5rem; 
-  font-weight: 900; 
-  color: #000000; 
-  line-height: 1; 
+
+.kuota-body { padding: 40px 20px; }
+
+.kuota-number {
+  font-size: 6rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
   margin-bottom: 5px;
-  font-family: 'Playfair Display', serif;
 }
-.kuota-body p { font-size: 1.6rem; font-weight: 800; margin: 0 0 15px 0; text-transform: uppercase; }
-.rombel-tag { 
-  font-size: 0.95rem; 
-  font-weight: 700; 
-  background-color: #fffbef;
-  border: 2px dashed #000;
-  padding: 6px 16px;
-  border-radius: 30px;
+
+.kuota-body p { font-size: 1.5rem; font-weight: 800; color: #1e293b; margin: 0 0 15px 0; text-transform: uppercase; }
+
+.rombel-tag-glass {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #475569;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 8px 20px;
+  border-radius: 99px;
   display: inline-block;
 }
 
-/* --- CARDS ALUR PENDAFTARAN --- */
-.grid-alur { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
-.alur-card {
-  background: #ffffff; 
-  padding: 35px 25px; 
-  border: 2px solid #000000;
-  border-radius: 20px; 
-  text-align: center;
-  box-shadow: 5px 5px 0px #000000; 
-  position: relative;
-  transition: transform 0.15s ease-in-out;
-}
-.alur-card:hover {
-  transform: scale(1.02);
-}
-.alur-number {
-  width: 44px; 
-  height: 44px; 
-  background: #f5d061; /* Kuning Pop */
-  color: #000000; 
-  border: 2px solid #000000;
-  border-radius: 50%;
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  font-weight: 900;
-  margin: 0 auto 20px auto; 
-  font-size: 1.2rem;
-  box-shadow: 2px 2px 0px #000000;
-}
-.alur-card h3 { color: #000000; font-size: 1.3rem; margin: 0 0 12px 0; }
-.alur-card p { color: #2b2b2b; font-size: 0.95rem; line-height: 1.6; margin: 0; font-weight: 500; }
+/* --- CARDS ALUR PENDAFTARAN GLASS --- */
+.grid-alur { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
 
-/* --- ELEMEN FORMULIR --- */
-.form-wrapper { max-width: 750px; }
-.form-desc { color: #2b2b2b; font-weight: 500; margin-top: 8px; }
-.form-ppdb {
-  background-color: #ffffff; 
-  padding: 50px; 
+.alur-card-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  padding: 40px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
   border-radius: 24px;
-  border: 2px solid #000000; 
-  display: grid; 
-  gap: 25px;
-  box-shadow: 8px 8px 0px #000000;
-}
-.form-group { display: flex; flex-direction: column; }
-.form-group label { margin-bottom: 8px; font-weight: 800; color: #000000; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; }
-.form-group input {
-  padding: 14px 18px; 
-  border: 2px solid #000000; 
-  background-color: #fffbef;
-  border-radius: 12px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 1rem; 
-  font-weight: 600;
-  transition: all 0.2s;
-}
-.form-group input:focus { 
-  outline: none; 
-  background-color: #ffffff;
-  box-shadow: 4px 4px 0px #000000; 
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  position: relative;
+  transition: all 0.3s ease;
 }
 
-/* Tombol Submit Pop-Art */
-.btn-submit {
-  background-color: #ff9f68; /* Oranye/Coral */
-  color: #000000; 
-  padding: 16px; 
-  border: 2px solid #000000;
-  border-radius: 14px; 
-  cursor: pointer; 
-  font-weight: 800; 
+.alur-card-glass:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+}
+
+.alur-number-vibrant {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  margin: 0 auto 25px auto;
+  font-size: 1.4rem;
+  box-shadow: 0 8px 20px rgba(168, 85, 247, 0.3);
+}
+
+.alur-card-glass h3 { color: #0f172a; font-size: 1.3rem; margin: 0 0 12px 0; font-weight: 800; }
+.alur-card-glass p { color: #475569; font-size: 0.95rem; line-height: 1.6; margin: 0; }
+
+/* --- ELEMEN FORMULIR GLASS --- */
+.form-wrapper { max-width: 750px; }
+.form-desc { margin-bottom: 30px; }
+
+.form-ppdb-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  padding: 50px;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  display: grid;
+  gap: 25px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+}
+
+.form-group { display: flex; flex-direction: column; }
+
+.form-group label {
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #1e293b;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  padding-left: 5px;
+}
+
+.form-group input {
+  padding: 16px 20px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  border-radius: 14px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem;
+  color: #0f172a;
+  transition: all 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #a855f7;
+  box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.1);
+}
+
+/* Tombol Submit Vibrant */
+.btn-submit-vibrant {
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  color: #ffffff;
+  padding: 18px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: 800;
   font-size: 1.1rem;
-  box-shadow: 4px 4px 0px #000000;
+  box-shadow: 0 10px 25px rgba(168, 85, 247, 0.3);
   margin-top: 15px;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.btn-submit:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 5px 5px 0px #000000;
-  background-color: #f5d061;
+
+.btn-submit-vibrant:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(168, 85, 247, 0.4);
+  opacity: 0.9;
 }
-.btn-submit:disabled { 
-  background-color: #cbd5e1; 
+
+.btn-submit-vibrant:disabled {
+  background: #cbd5e1;
   color: #64748b;
-  cursor: not-allowed; 
+  cursor: not-allowed;
   box-shadow: none;
   transform: none;
+  opacity: 1;
 }
 
 /* --- RESPONSIVE BREAKPOINTS --- */
 @media (max-width: 992px) {
+  .ppdb-hero h1 { font-size: 2.6rem; }
   .grid-2 { grid-template-columns: 1fr; gap: 50px; }
-  .kuota-box { max-width: 400px; margin: 0 auto; width: 100%; }
+  .kuota-box-glass { max-width: 450px; margin: 0 auto; width: 100%; }
 }
 
 @media (max-width: 768px) {
-  .form-ppdb { padding: 30px 20px; border-radius: 16px; }
-  .ppdb-hero h1 { font-size: 2.2rem; }
-  .text-center-heading h2, .info-syarat h2 { font-size: 1.9rem; }
   .section-ppdb { padding: 60px 0; }
+  .ppdb-hero h1 { font-size: 2.2rem; }
+  .section-heading { font-size: 1.8rem; }
+  .form-ppdb-glass { padding: 30px 20px; }
+  .grid-alur { grid-template-columns: 1fr; }
 }
 </style>

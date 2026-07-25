@@ -1,20 +1,30 @@
 <template>
   <div class="berita-container">
     
-    <!-- --- 1. HERO SECTION (Kuning Memphis & Ornamen Geometris) --- -->
+    <!-- BACKGROUND MESH GLOW FLOATING BALLS -->
+    <div class="mesh-background">
+      <div class="glow-ball glow-purple-1"></div>
+      <div class="glow-ball glow-yellow-1"></div>
+      <div class="glow-ball glow-pink-1"></div>
+      <div class="glow-ball glow-cyan-1"></div>
+    </div>
+
+    <!-- HERO SECTION -->
     <section class="berita-hero">
-      <div class="hero-content">
-        <span class="top-tag">KABAR TERKINI</span>
-        <h1>Informasi, Berita & Agenda</h1>
-        <p>Tetap terhubung dengan kabar terbaru dan rangkaian kegiatan di SD Negeri Pucung.</p>
+      <div class="container hero-content text-center">
+        <div class="top-tag-pill">
+          <span class="sparkle">✨</span> KABAR TERKINI
+        </div>
+        <h1 class="hero-title">
+          Informasi, Berita & <span class="gradient-text-vibrant">Agenda</span>
+        </h1>
+        <p class="hero-subtitle">
+          Tetap terhubung dengan kabar terbaru dan rangkaian kegiatan di SD Negeri Pucung.
+        </p>
       </div>
-      <!-- Ornamen Gaya Memphis -->
-      <div class="hero-shape shape-circle"></div>
-      <div class="hero-shape shape-triangle">▲</div>
-      <div class="hero-shape shape-zigzag">⚡</div>
     </section>
 
-    <!-- --- 2. FILTER & SEARCH BAR (Desain Pop-Art Kontras) --- -->
+    <!-- FILTER & SEARCH BAR (GLASSMOPHISM STICKY) -->
     <div class="filter-search-section">
       <div class="container filter-wrapper">
         <div class="category-tabs">
@@ -23,42 +33,44 @@
             :key="cat" 
             :class="{ active: selectedCategory === cat }"
             @click="selectedCategory = cat"
+            class="tab-glass-btn"
           >
             <span>{{ cat }}</span>
           </button>
         </div>
         
-        <div class="search-box">
+        <div class="search-box-glass">
+          <i class="fas fa-search search-icon"></i>
           <input 
             type="text" 
             v-model="searchQuery" 
-            placeholder="🔍 Cari berita atau pengumuman..."
+            placeholder="Cari berita atau pengumuman..."
           />
         </div>
       </div>
     </div>
 
-    <!-- --- 3. MAIN SECTION CONTENT --- -->
+    <!-- MAIN CONTENT SECTION -->
     <section class="section-content">
       <div class="container">
         
         <!-- Kondisi Jika Hasil Pencarian Kosong -->
-        <div v-if="filteredArtikel.length === 0" class="not-found-card">
-          <h3>Hasil Tidak Ditemukan! ❌</h3>
+        <div v-if="filteredArtikel.length === 0" class="not-found-card-glass">
+          <div class="not-found-icon">🔍</div>
+          <h3>Hasil Tidak Ditemukan</h3>
           <p>Tidak ada informasi atau berita yang cocok dengan kata kunci pencarian Anda.</p>
         </div>
 
-        <!-- Grid Kartu Berita -->
+        <!-- Grid Kartu Berita Glassmorphism -->
         <div v-else class="grid-berita">
           <div 
-            class="artikel-card" 
+            class="artikel-card-glass" 
             v-for="artikel in filteredArtikel" 
             :key="artikel.id"
           >
-            <!-- Slider Gambar Utama dengan Bingkai Pop-Art -->
+            <!-- Slider Gambar Utama dengan Overlay Glass -->
             <div class="artikel-img-slider">
-              <!-- Label Kategori dengan Border Tebal -->
-              <span class="badge-kategori" :class="artikel.kategori.toLowerCase()">
+              <span class="badge-kategori-glass" :class="artikel.kategori.toLowerCase()">
                 {{ artikel.kategori }}
               </span>
 
@@ -70,12 +82,12 @@
                 />
               </div>
 
-              <!-- Titik Indikator Slider (Jika foto lebih dari 1) -->
-              <div class="slider-dots" v-if="artikel.foto && artikel.foto.length > 1">
+              <!-- Indikator Slider Dots -->
+              <div class="slider-dots-glass" v-if="artikel.foto && artikel.foto.length > 1">
                 <span 
                   v-for="(gambar, idx) in artikel.foto" 
                   :key="idx"
-                  class="dot"
+                  class="dot-glass"
                   :class="{ active: (artikel.currentSlide || 0) === idx }"
                   @click="setSlide(artikel, idx)"
                 ></span>
@@ -85,15 +97,15 @@
             <!-- Teks Konten Badan Kartu -->
             <div class="artikel-body">
               <div class="artikel-meta">
-                <span class="meta-date">📅 {{ artikel.tanggal }}</span>
-                <span v-if="artikel.waktu_agenda" class="meta-agenda">🕒 {{ artikel.waktu_agenda }}</span>
+                <span class="meta-pill date-pill">📅 {{ artikel.tanggal }}</span>
+                <span v-if="artikel.waktu_agenda" class="meta-pill agenda-pill">🕒 {{ artikel.waktu_agenda }}</span>
               </div>
               
-              <h3>{{ artikel.judul }}</h3>
+              <h3 class="artikel-title">{{ artikel.judul }}</h3>
               <p class="ringkasan-text">{{ artikel.ringkasan }}</p>
               
-              <router-link :to="'/berita/' + artikel.id" class="btn-read">
-                Baca Selengkapnya ➔
+              <router-link :to="'/berita/' + artikel.id" class="btn-read-glass">
+                Baca Selengkapnya &rarr;
               </router-link>
             </div>
           </div>
@@ -169,214 +181,283 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
-/* --- LAYOUT DASAR & IDENTITY SYSTEM --- */
+/* --- LAYOUT UTAMA & MESH BACKGROUND --- */
 .berita-container {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  color: #111111;
-  background-color: #fffbef; /* Krem hangat */
-  padding-top: 80px;
+  color: #1e293b;
+  position: relative;
+  background: #f8fafc;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 800;
-  color: #000000;
+.mesh-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.glow-ball {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.55;
+}
+
+.glow-purple-1 {
+  width: 500px;
+  height: 500px;
+  background: #a855f7;
+  top: 0%;
+  left: -10%;
+}
+
+.glow-yellow-1 {
+  width: 450px;
+  height: 450px;
+  background: #ffb703;
+  top: 25%;
+  right: -5%;
+}
+
+.glow-pink-1 {
+  width: 400px;
+  height: 400px;
+  background: #ec4899;
+  top: 55%;
+  left: -5%;
+}
+
+.glow-cyan-1 {
+  width: 450px;
+  height: 450px;
+  background: #06b6d4;
+  bottom: 5%;
+  right: -5%;
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 0 20px;
+  position: relative;
+  z-index: 2;
 }
 
-/* --- HERO BANNER (Kuning Memphis) --- */
+.text-center { text-align: center; }
+
+/* --- HERO SECTION --- */
 .berita-hero {
   position: relative;
-  background-color: #f5d061;
-  height: 35vh;
-  display: flex;
+  padding: 120px 0 40px 0;
+}
+
+.top-tag-pill {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  color: #000000;
-  text-align: center;
-  border-bottom: 3px solid #000000;
-  overflow: hidden;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 8px 20px;
+  border-radius: 99px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #4f46e5;
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
 }
-.hero-content {
-  position: relative;
-  z-index: 5;
+
+.hero-title {
+  font-size: 3.4rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 15px;
 }
-.hero-content h1 { font-size: 3rem; margin: 0 0 10px 0; }
-.hero-content p { 
-  font-size: 1.1rem; 
-  color: #2b2b2b;
+
+.gradient-text-vibrant {
+  background: linear-gradient(135deg, #ffb703 0%, #ec4899 50%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: #475569;
   max-width: 600px;
   margin: 0 auto;
-  font-weight: 500;
-}
-.top-tag {
-  font-weight: 800;
-  letter-spacing: 2px;
-  font-size: 0.85rem;
-  display: block;
-  margin-bottom: 5px;
 }
 
-/* Ornamen Mengambang */
-.hero-shape {
-  position: absolute;
-  color: rgba(0, 0, 0, 0.08);
-  font-weight: bold;
-  user-select: none;
-}
-.shape-circle {
-  width: 120px;
-  height: 120px;
-  border: 15px solid rgba(0, 0, 0, 0.04);
-  border-radius: 50%;
-  top: -20px;
-  left: 5%;
-}
-.shape-triangle {
-  font-size: 6rem;
-  bottom: 10px;
-  right: 8%;
-  transform: rotate(15deg);
-}
-.shape-zigzag {
-  font-size: 5rem;
-  top: 20px;
-  right: 12%;
-  transform: rotate(-15deg);
-}
-
-/* --- FILTER BAR & SEARCH BOX (Style Memphis Kontras) --- */
+/* --- FILTER & SEARCH BAR GLASSMOPHISM --- */
 .filter-search-section {
-  background-color: #fffbef;
-  padding: 20px 0;
-  border-bottom: 3px solid #000000;
   position: sticky;
-  top: 80px;
+  top: 70px;
   z-index: 90;
+  padding: 15px 0;
+  backdrop-filter: blur(15px);
+  background: rgba(248, 250, 252, 0.75);
+  border-bottom: 1px solid rgba(225, 231, 239, 0.8);
 }
+
 .filter-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
 }
+
 .category-tabs {
   display: flex;
-  gap: 12px;
-}
-.category-tabs button {
-  background-color: #ffffff;
-  border: 2px solid #000000;
-  padding: 10px 22px;
-  border-radius: 30px;
-  font-weight: 700;
-  color: #000000;
-  cursor: pointer;
-  box-shadow: 3px 3px 0px #000000;
-  transition: all 0.15s ease-in-out;
-}
-.category-tabs button:hover {
-  background-color: #f5d061;
-  transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0px #000000;
-}
-.category-tabs button.active {
-  background-color: #dfb2f4; /* Ungu Pastel Aktif */
-  box-shadow: 1px 1px 0px #000000;
-  transform: translate(2px, 2px);
-}
-.search-box input {
-  padding: 12px 18px;
-  width: 320px;
-  border: 2px solid #000000;
-  background-color: #ffffff;
-  border-radius: 12px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 600;
-  box-shadow: 3px 3px 0px #000000;
-}
-.search-box input:focus {
-  outline: none;
-  background-color: #fffbef;
+  gap: 10px;
 }
 
-/* --- GRID LAYOUT KARTU BERITA --- */
+.tab-glass-btn {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  padding: 10px 22px;
+  border-radius: 99px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #475569;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.tab-glass-btn:hover {
+  background: #ffffff;
+  color: #a855f7;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(168, 85, 247, 0.15);
+}
+
+.tab-glass-btn.active {
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 8px 20px rgba(168, 85, 247, 0.3);
+}
+
+/* Search Box Glass */
+.search-box-glass {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-box-glass input {
+  padding: 12px 20px 12px 42px;
+  width: 300px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 99px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0f172a;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+.search-box-glass input:focus {
+  outline: none;
+  background: #ffffff;
+  border-color: #a855f7;
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.2);
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+/* --- MAIN CONTENT & GRID --- */
 .section-content {
-  padding: 80px 0;
-  background-color: #fffbef;
+  padding: 50px 0 80px 0;
   min-height: 50vh;
 }
+
 .grid-berita {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-  gap: 40px;
-}
-.artikel-card {
-  background: #ffffff;
-  border: 2px solid #000000;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 6px 6px 0px #000000;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-.artikel-card:hover {
-  transform: translate(-3px, -3px);
-  box-shadow: 9px 9px 0px #000000;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 }
 
-/* --- AUTOMATIC SLIDESHOW COMPONENT --- */
+.artikel-card-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.artikel-card-glass:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* --- SLIDER GAMBAR CARD --- */
 .artikel-img-slider {
   position: relative;
   width: 100%;
-  height: 230px;
+  height: 220px;
   overflow: hidden;
-  border-bottom: 2px solid #000000;
-  background-color: #e2e8f0;
+  background: #e2e8f0;
 }
+
 .slider-wrapper {
   width: 100%;
   height: 100%;
 }
+
 .foto-slide-aktif {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  transition: transform 0.5s ease;
 }
 
-/* Label Kategori Bergaya Memphis */
-.badge-kategori {
+.artikel-card-glass:hover .foto-slide-aktif {
+  transform: scale(1.05);
+}
+
+.badge-kategori-glass {
   position: absolute;
   top: 15px; 
   left: 15px;
   padding: 6px 14px;
-  border: 2px solid #000000;
-  border-radius: 8px;
+  border-radius: 99px;
   font-size: 0.75rem;
   font-weight: 800;
-  color: #000000;
+  color: #ffffff;
   z-index: 10;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  box-shadow: 2px 2px 0px #000000;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
-.badge-kategori.berita { background-color: #b5e2fa; } /* Biru Pastel */
-.badge-kategori.pengumuman { background-color: #ff9f68; } /* Oranye Pastel */
-.badge-kategori.agenda { background-color: #dfb2f4; } /* Ungu Pastel */
 
-/* Dot Navigasi Slider */
-.slider-dots {
+.badge-kategori-glass.berita { background: rgba(14, 165, 233, 0.85); }
+.badge-kategori-glass.pengumuman { background: rgba(249, 115, 22, 0.85); }
+.badge-kategori-glass.agenda { background: rgba(168, 85, 247, 0.85); }
+
+.slider-dots-glass {
   position: absolute;
   bottom: 12px;
   left: 50%;
@@ -384,99 +465,121 @@ h1, h2, h3 {
   display: flex;
   gap: 6px;
   z-index: 10;
-  background: #ffffff;
-  border: 2px solid #000000;
-  padding: 5px 10px;
-  border-radius: 20px;
-  box-shadow: 2px 2px 0px #000000;
-}
-.dot {
-  width: 8px;
-  height: 8px;
-  background-color: #cbd5e1;
-  border: 1px solid #000;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.dot.active {
-  background-color: #000000;
-  width: 16px;
-  border-radius: 4px;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(10px);
+  padding: 6px 12px;
+  border-radius: 99px;
 }
 
-/* --- BADAN TEKS KARTU --- */
+.dot-glass {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot-glass.active {
+  background: #ffffff;
+  width: 18px;
+  border-radius: 99px;
+}
+
+/* --- BADAN CARD --- */
 .artikel-body {
   padding: 25px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
+
 .artikel-meta {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #4b5563;
-  margin-bottom: 12px;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 8px;
+  margin-bottom: 12px;
 }
-.meta-date {
-  background-color: #ffdac1;
-  padding: 2px 8px;
-  border: 1px solid #000;
-  border-radius: 4px;
+
+.meta-pill {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 99px;
 }
-.meta-agenda {
-  background-color: #fffbef;
-  padding: 2px 8px;
-  border: 1px solid #000;
-  border-radius: 4px;
+
+.date-pill { background: #f3e8ff; color: #7c3aed; }
+.agenda-pill { background: #fef3c7; color: #d97706; }
+
+.artikel-title {
+  color: #0f172a;
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
 }
-.artikel-body h3 {
-  color: #000000;
-  font-size: 1.35rem;
-  margin: 0 0 12px 0;
-  line-height: 1.3;
-}
+
 .ringkasan-text {
-  color: #2b2b2b;
+  color: #475569;
   font-size: 0.95rem;
   line-height: 1.6;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  flex-grow: 1;
 }
-.btn-read {
-  color: #000000;
+
+.btn-read-glass {
+  color: #a855f7;
   text-decoration: none;
   font-weight: 800;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   margin-top: auto;
-  padding: 8px 16px;
-  background-color: #ffffff;
-  border: 2px solid #000000;
-  border-radius: 8px;
-  box-shadow: 3px 3px 0px #000000;
-  align-self: flex-start;
-  transition: all 0.1s ease-in-out;
-}
-.btn-read:hover {
-  background-color: #f5d061;
-  transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0px #000000;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
 }
 
-/* Tampilan Not Found */
-.not-found-card {
-  background-color: #ffffff;
-  border: 2px solid #000;
-  border-radius: 16px;
-  padding: 40px;
+.btn-read-glass:hover {
+  color: #ec4899;
+  transform: translateX(4px);
+}
+
+/* --- NOT FOUND CARD GLASS --- */
+.not-found-card-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 28px;
+  padding: 60px 30px;
   text-align: center;
   max-width: 500px;
-  margin: 0 auto;
-  box-shadow: 5px 5px 0px #000;
+  margin: 40px auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
 }
 
-/* --- RESPONSIVE LAYOUT --- */
+.not-found-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.not-found-card-glass h3 {
+  color: #0f172a;
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.not-found-card-glass p {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 992px) {
+  .grid-berita { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .hero-title { font-size: 2.6rem; }
+}
+
 @media (max-width: 768px) {
   .filter-wrapper {
     flex-direction: column;
@@ -484,15 +587,17 @@ h1, h2, h3 {
   }
   .category-tabs {
     overflow-x: auto;
-    padding-bottom: 8px;
+    padding-bottom: 5px;
   }
-  .category-tabs button {
+  .tab-glass-btn {
     padding: 8px 16px;
     font-size: 0.85rem;
-    flex-shrink: 0;
+    white-space: nowrap;
   }
-  .search-box input { width: 100%; }
+  .search-box-glass input { width: 100%; }
   .grid-berita { grid-template-columns: 1fr; }
-  .berita-hero h1 { font-size: 2.2rem; }
+  .berita-hero { padding: 80px 0 30px 0; }
+  .hero-title { font-size: 2.1rem; }
+  .filter-search-section { top: 60px; }
 }
 </style>

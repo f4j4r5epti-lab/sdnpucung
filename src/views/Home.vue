@@ -1,43 +1,61 @@
 <template>
   <div class="home-container">
     
-    <!-- SECTION 1: HERO BANNER (Murni Ilustrasi Geometris Kuning, Tanpa Foto Orang) -->
+    <!-- BACKGROUND MESH GLOW FLOATING BALLS (Sama seperti Profil.vue) -->
+    <div class="mesh-background">
+      <div class="glow-ball glow-yellow-1"></div>
+      <div class="glow-ball glow-purple-1"></div>
+      <div class="glow-ball glow-pink-1"></div>
+      <div class="glow-ball glow-cyan-1"></div>
+      <div class="glow-ball glow-yellow-2"></div>
+    </div>
+
+    <!-- SECTION 1: HERO BANNER (3D Vibrant Modern) -->
     <section class="hero-section">
       <div class="container grid-hero">
         
-        <!-- Sisi Kiri: Teks & Tombol -->
+        <!-- Sisi Kiri: Teks & Aksi -->
         <div class="hero-text-content">
-          <span class="top-tag">SD NEGERI PUCUNG • BerSiNerGI</span>
-          <h1>
+          <div class="top-tag-pill">
+            <span class="sparkle">✨</span> SD NEGERI PUCUNG • BerSiNerGI
+          </div>
+          <h1 class="hero-title">
             Bersih, Disiplin, <br />
-            <em>Visioner,</em> <br />
-            Religius.
+            <span class="gradient-text-vibrant">Visioner,</span> Religius.
           </h1>
-          <p>Selamat datang di portal resmi informasi, berita, agenda kegiatan, dan pelayanan akademik sekolah kami.</p>
+          <p class="hero-subtitle">
+            Selamat datang di portal resmi informasi, berita, agenda kegiatan, dan pelayanan akademik sekolah kami.
+          </p>
           <div class="hero-buttons">
-            <router-link to="/ppdb" class="btn-purple">Daftar PPDB Online</router-link>
-            <router-link to="/profil" class="btn-outline-dark">Jelajahi Profil</router-link>
+            <router-link to="/ppdb" class="btn-yellow-glow">Daftar PPDB Online</router-link>
+            <router-link to="/profil" class="btn-secondary-glass">Jelajahi Profil</router-link>
           </div>
         </div>
 
-        <!-- Sisi Kanan: Pure CSS Memphis Illustration -->
-        <div class="hero-illustration-wrapper">
-          <div class="illustration-artboard">
-            <!-- Lingkaran Biru Belakang -->
-            <div class="art-circle-blue"></div>
-            <!-- Setengah Lingkaran Ungu -->
-            <div class="art-semicircle-purple"></div>
-            <!-- Smiley Bergerak/Miring -->
-            <div class="art-smiley-badge">🙂</div>
-            <!-- Tangga Orange Bawah -->
-            <div class="art-stairs-orange">
-              <span></span><span></span><span></span>
-            </div>
-            <!-- Kubah Arch Utama (Hanya Warna Krem Solid dengan Border Hitam Tebal) -->
-            <div class="art-arch-solid">
-              <div class="inner-pattern">
-                <span class="star-icon">✦</span>
-                <span class="star-icon large">✦</span>
+        <!-- Sisi Kanan: Visual Modern 3D / Floating Cards dengan Border Gradien -->
+        <div class="hero-visual-wrapper">
+          <div class="vibrant-card-wrapper main-hero-grad">
+            <div class="glass-hero-card">
+              <div class="hero-badge floating-1 badge-grad-1">
+                <span class="badge-icon">🎓</span>
+                <div>
+                  <strong>Berakreditasi A</strong>
+                  <small>Pendidikan Berkualitas</small>
+                </div>
+              </div>
+              
+              <div class="hero-badge floating-2 badge-grad-2">
+                <span class="badge-icon">⭐</span>
+                <div>
+                  <strong>Siswa Berprestasi</strong>
+                  <small>Akademik & Non-Akademik</small>
+                </div>
+              </div>
+
+              <div class="hero-center-illustration">
+                <div class="avatar-3d-placeholder">
+                  <span class="large-emoji">🏫</span>
+                </div>
               </div>
             </div>
           </div>
@@ -46,41 +64,74 @@
       </div>
     </section>
 
-    <!-- SECTION 2: DINAMIKA SEKOLAH (Menggunakan Foto dalam Bingkai Kubah) -->
+    <!-- SECTION 2: DINAMIKA SEKOLAH (BERITA & AGENDA) -->
     <section class="dinamika-section">
       <div class="container">
         <div class="section-title-center">
-          <h2>Dinamika terbaru di SD Negeri Pucung</h2>
-          <hr class="short-line" />
+          <span class="sub-heading badge-purple">KABAR TERKINI</span>
+          <h2 class="section-heading">Dinamika terbaru di SD Negeri Pucung</h2>
+          <div class="heading-line-vibrant center"></div>
         </div>
 
         <div class="news-grid">
-          <div v-for="item in beritaData" :key="item.id" class="news-card">
+          <div 
+            v-for="(item, idx) in beritaData" 
+            :key="item.id" 
+            class="news-card-glass"
+            :class="'card-border-gradient-' + (idx % 3)"
+          >
             
-            <!-- Mengembalikan Tampilan FOTO dengan Bingkai Kubah (Arch Portal) -->
-            <div class="card-arch-wrapper">
+            <!-- SLIDER / CAROUSEL FOTO BERITA & AGENDA -->
+            <div class="card-image-slider">
               <img 
-                :src="item.foto && item.foto.length > 0 ? item.foto[0] : 'https://via.placeholder.com/400x250'" 
+                :src="getSlidePhoto(item)" 
                 :alt="item.judul" 
                 class="card-image"
               />
-            </div>
 
-            <!-- Badge Kategori Bulat -->
-            <div class="category-badge-wrapper">
-              <span :class="['category-badge', getCategoryClass(item.kategori)]">
+              <!-- Tombol Navigasi Carousel -->
+              <template v-if="item.foto && item.foto.length > 1">
+                <button 
+                  @click.stop="prevSlide(item.id, item.foto.length)" 
+                  class="slider-btn btn-left" 
+                  aria-label="Foto Sebelumnya"
+                >
+                  &#10094;
+                </button>
+                <button 
+                  @click.stop="nextSlide(item.id, item.foto.length)" 
+                  class="slider-btn btn-right" 
+                  aria-label="Foto Berikutnya"
+                >
+                  &#10095;
+                </button>
+
+                <!-- Dots Indikator Slide -->
+                <div class="slider-dots">
+                  <span 
+                    v-for="(_, idxDot) in item.foto" 
+                    :key="idxDot"
+                    class="dot"
+                    :class="{ active: getCurrentSlide(item.id) === idxDot }"
+                    @click.stop="setSlide(item.id, idxDot)"
+                  ></span>
+                </div>
+              </template>
+
+              <!-- Badge Kategori Overlay -->
+              <span :class="['category-badge-overlay', getCategoryClass(item.kategori)]">
                 {{ item.kategori }}
               </span>
             </div>
 
             <!-- Konten Tulisan -->
             <div class="card-body">
-              <span class="card-date">{{ item.tanggal }}</span>
+              <span class="card-date">📅 {{ item.tanggal }}</span>
               <h3 class="card-title">{{ item.judul }}</h3>
-              <p class="card-description">{{ truncateText(item.ringkasan, 90) }}</p>
+              <p class="card-description">{{ truncateText(item.ringkasan, 85) }}</p>
               
               <router-link :to="'/berita/' + item.id" class="read-more-link">
-                Selengkapnya <span>&rarr;</span>
+                Baca Selengkapnya <span class="arrow">&rarr;</span>
               </router-link>
             </div>
 
@@ -88,59 +139,46 @@
         </div>
 
         <div class="text-center-action">
-          <router-link to="/berita" class="btn-purple">Lihat Semua Berita & Agenda</router-link>
+          <router-link to="/berita" class="btn-purple-glow">Lihat Semua Berita & Agenda</router-link>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 3: PORTOFOLIO / MOTIVASI -->
-    <section class="portfolio-section">
-      <div class="ornament-flower flower-left">✿</div>
-      <div class="ornament-flower flower-right">✿</div>
-      <div class="container text-center">
-        <span class="top-tag">AKTIVITAS & KREATIVITAS</span>
-        <h2>
-          Lingkungan belajar yang menyenangkan <br />
-          membantu siswa tumbuh aktif dan berprestasi.
-        </h2>
-        <router-link to="/kesiswaan" class="btn-purple">Tengok Kegiatan Siswa</router-link>
-      </div>
-    </section>
-
-    <!-- SECTION 4: CALL TO ACTION -->
+    <!-- SECTION 3: CALL TO ACTION (CENTERED VIBRANT CARD) -->
     <section class="cta-section">
-      <div class="container text-center">
-        <div class="cta-smiley">🙂</div>
-        <h2>Kami senang menyambut Anda bergabung di keluarga besar kami.</h2>
-        <router-link to="/kontak" class="btn-purple-large">Hubungi Kami Sekarang</router-link>
+      <div class="container">
+        <div class="vibrant-card-wrapper cta-grad">
+          <div class="cta-card-glass">
+            <div class="cta-icon-glow">👋</div>
+            <h2>Kami senang menyambut Anda bergabung di keluarga besar kami.</h2>
+            <router-link to="/kontak" class="btn-yellow-glow large">Hubungi Kami Sekarang</router-link>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- SECTION 5: FOOTER PLAYFUL -->
-    <footer class="playful-footer">
+    <!-- SECTION 4: FOOTER SOFT MODERN -->
+    <footer class="modern-footer">
       <div class="container footer-grid">
         <div class="footer-col">
-          <h3>Alamat Sekolah</h3>
+          <h3 class="gradient-text-vibrant">SD Negeri Pucung</h3>
           <p>
-            Pucung, Tamanmartani,<br />
-            Kapanewon Kalasan, Sleman, DIY.
+            Pucung, Tamanmartani, Kapanewon Kalasan, Sleman, DIY.
           </p>
           <p class="copyright">Copyright © 2026 SDN Pucung. All Rights Reserved.</p>
         </div>
 
         <div class="footer-col">
-          <h3>Kontak Kami</h3>
+          <h3>Kontak & Jam Kerja</h3>
           <p>
-            Email: <a href="mailto:sdnpucung@sch.id">sdn.pucung@gmail.com</a><br />
-            Jam Operasional:  <br />
-            Senin - Kamis (07.00 - 15.00 WIB)<br />
-            Jumat (07.00 - 14.00 WIB)
-
+            Email: <a href="mailto:sdn.pucung@gmail.com">sdn.pucung@gmail.com</a><br />
+            Senin - Kamis: 07.00 - 15.00 WIB<br />
+            Jumat: 07.00 - 14.00 WIB
           </p>
         </div>
 
         <div class="footer-col">
-          <h3>Hubungkan Sosial</h3>
+          <h3>Media Sosial</h3>
           <div class="social-links">
             <a href="#">📸 Instagram</a>
             <a href="#">📹 YouTube</a>
@@ -154,16 +192,43 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { daftarArtikelSdn } from '../data/beritaData.js' // Sesuaikan path berkas jika berbeda
+import { computed, ref } from 'vue'
+import { daftarArtikelSdn } from '../data/beritaData.js'
 
+// Menampilkan hingga 6 berita/agenda terkini
 const beritaData = computed(() => {
-  return daftarArtikelSdn.slice(0, 3)
+  return daftarArtikelSdn.slice(0, 6)
 })
+
+const activeSlides = ref({})
+
+const getCurrentSlide = (id) => {
+  return activeSlides.value[id] || 0
+}
+
+const getSlidePhoto = (item) => {
+  if (!item.foto || item.foto.length === 0) return 'https://via.placeholder.com/400x250'
+  const currentIdx = getCurrentSlide(item.id)
+  return item.foto[currentIdx] || item.foto[0]
+}
+
+const nextSlide = (id, total) => {
+  const current = getCurrentSlide(id)
+  activeSlides.value[id] = (current + 1) % total
+}
+
+const prevSlide = (id, total) => {
+  const current = getCurrentSlide(id)
+  activeSlides.value[id] = (current - 1 + total) % total
+}
+
+const setSlide = (id, idx) => {
+  activeSlides.value[id] = idx
+}
 
 const getCategoryClass = (kategori) => {
   if (kategori === 'Pengumuman') return 'badge-pink'
-  if (kategori === 'Berita') return 'badge-blue'
+  if (kategori === 'Berita') return 'badge-cyan'
   if (kategori === 'Agenda') return 'badge-yellow'
   return 'badge-purple'
 }
@@ -175,401 +240,490 @@ const truncateText = (text, length) => {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
-/* --- TEMA GLOBAL --- */
+/* --- LAYOUT UTAMA & MESH BACKGROUND --- */
 .home-container {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  color: #111111;
-  background-color: #fffbef;
+  color: #1e293b;
+  position: relative;
+  background: #f8fafc;
   overflow-x: hidden;
 }
 
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 800;
-  color: #000000;
+/* Background Glowing Balls */
+.mesh-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.glow-ball {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.55;
+}
+
+.glow-yellow-1 {
+  width: 450px;
+  height: 450px;
+  background: #ffb703;
+  top: 2%;
+  right: -5%;
+}
+
+.glow-purple-1 {
+  width: 500px;
+  height: 500px;
+  background: #a855f7;
+  top: 20%;
+  left: -10%;
+}
+
+.glow-pink-1 {
+  width: 400px;
+  height: 400px;
+  background: #ec4899;
+  top: 50%;
+  right: -8%;
+}
+
+.glow-cyan-1 {
+  width: 450px;
+  height: 450px;
+  background: #06b6d4;
+  top: 75%;
+  left: -5%;
+}
+
+.glow-yellow-2 {
+  width: 400px;
+  height: 400px;
+  background: #fbbf24;
+  bottom: 2%;
+  right: 10%;
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 0 20px;
+  position: relative;
+  z-index: 2;
 }
 
-/* --- TOMBOL PASTEL MEMPHIS --- */
-.btn-purple {
-  background-color: #dfb2f4;
-  color: #111;
-  padding: 12px 28px;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  text-decoration: none;
-  display: inline-block;
-  border: 2px solid #000;
-  box-shadow: 3px 3px 0px #000;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.btn-purple:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0px #000;
-}
-
-.btn-purple-large {
-  background-color: #dfb2f4;
-  color: #111;
-  padding: 16px 36px;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: 1.1rem;
-  text-decoration: none;
-  display: inline-block;
-  border: 2px solid #000;
-  box-shadow: 4px 4px 0px #000;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.btn-purple-large:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px #000;
-}
-
-.btn-outline-dark {
-  background-color: transparent;
-  color: #111;
-  padding: 12px 28px;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  text-decoration: none;
-  display: inline-block;
-  border: 2px solid #000;
-  transition: background-color 0.2s;
-}
-.btn-outline-dark:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.top-tag {
+/* --- BADGES & HEADINGS VIBRANT --- */
+.sub-heading {
   font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: #4b5563;
-  display: block;
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 99px;
   margin-bottom: 15px;
 }
 
-/* --- 1. HERO SECTION (Kuning Hangat Tanpa Foto) --- */
-.hero-section {
-  background-color: #f5d061;
-  padding: 100px 0 120px 0;
-  border-bottom: 2px solid #000;
+.badge-cyan { background: #cff4fc; color: #055160; }
+.badge-pink { background: #fce7f3; color: #9d174d; }
+.badge-purple { background: #f3e8ff; color: #6b21a8; }
+.badge-yellow { background: #fef3c7; color: #92400e; }
+
+.section-heading {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.3;
 }
+
+.heading-line-vibrant {
+  width: 80px;
+  height: 5px;
+  background: linear-gradient(90deg, #ffb703, #ec4899, #8b5cf6, #06b6d4);
+  border-radius: 10px;
+  margin: 15px 0 25px 0;
+}
+.heading-line-vibrant.center {
+  margin: 15px auto 0 auto;
+}
+
+.gradient-text-vibrant {
+  background: linear-gradient(135deg, #ffb703 0%, #ec4899 50%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- TOMBOL-TOMBOL VIBRANT --- */
+.btn-yellow-glow {
+  background: #ffc800;
+  color: #0f172a;
+  padding: 12px 28px;
+  border-radius: 99px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 8px 20px rgba(255, 200, 0, 0.4);
+  transition: all 0.3s ease;
+  border: none;
+}
+.btn-yellow-glow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(255, 200, 0, 0.6);
+}
+.btn-yellow-glow.large {
+  padding: 16px 36px;
+  font-size: 1.05rem;
+}
+
+.btn-purple-glow {
+  background: #a855f7;
+  color: #ffffff;
+  padding: 12px 28px;
+  border-radius: 99px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 8px 20px rgba(168, 85, 247, 0.4);
+  transition: all 0.3s ease;
+  border: none;
+}
+.btn-purple-glow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(168, 85, 247, 0.6);
+}
+
+.btn-secondary-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  color: #334155;
+  padding: 12px 28px;
+  border-radius: 99px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+.btn-secondary-glass:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* --- 1. HERO SECTION --- */
+.hero-section {
+  position: relative;
+  padding: 120px 0 80px 0;
+}
+
 .grid-hero {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 40px;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
   align-items: center;
 }
-.hero-text-content h1 {
-  font-size: 3.5rem;
-  line-height: 1.15;
+
+.top-tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 8px 20px;
+  border-radius: 99px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #4f46e5;
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.hero-title {
+  font-size: 3.4rem;
+  line-height: 1.2;
+  font-weight: 800;
+  color: #0f172a;
   margin-bottom: 20px;
 }
-.hero-text-content h1 em {
-  font-style: italic;
-  font-weight: 600;
-}
-.hero-text-content p {
+
+.hero-subtitle {
   font-size: 1.15rem;
   line-height: 1.6;
-  color: #1f2937;
+  color: #475569;
   margin-bottom: 35px;
-  max-width: 540px;
 }
+
 .hero-buttons {
   display: flex;
   gap: 15px;
 }
 
-/* --- ILUSTRASI CSS BELAKANG KANAN (HERO) --- */
-.hero-illustration-wrapper {
-  display: flex;
-  justify-content: center;
+/* VIBRANT CARD WRAPPERS */
+.vibrant-card-wrapper {
+  padding: 4px;
+  border-radius: 32px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
 }
-.illustration-artboard {
+.vibrant-card-wrapper:hover {
+  transform: translateY(-5px);
+}
+
+.main-hero-grad {
+  background: linear-gradient(135deg, #ffc800 0%, #ec4899 50%, #8b5cf6 100%);
+}
+.cta-grad {
+  background: linear-gradient(135deg, #06b6d4 0%, #a855f7 50%, #ffc800 100%);
+}
+
+.glass-hero-card {
   position: relative;
-  width: 320px;
-  height: 440px;
-}
-
-.art-arch-solid {
-  position: absolute;
-  bottom: 0;
-  left: 10px;
-  width: 280px;
+  width: 100%;
   height: 380px;
-  border-top-left-radius: 140px;
-  border-top-right-radius: 140px;
-  border: 2px solid #000;
-  background-color: #fffbef;
-  box-shadow: 8px 8px 0px #000;
-  z-index: 5;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border-radius: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.inner-pattern {
+
+.hero-center-illustration {
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  border-radius: 50%;
   display: flex;
-  gap: 15px;
   align-items: center;
+  justify-content: center;
+  box-shadow: 0 15px 30px rgba(168, 85, 247, 0.3);
 }
-.star-icon {
-  font-size: 2.5rem;
-  color: #dfb2f4;
-  text-shadow: 2px 2px 0px #000;
-  -webkit-text-stroke: 1.5px #000;
-}
-.star-icon.large {
-  font-size: 4rem;
-  color: #ff9f68;
+.large-emoji {
+  font-size: 5rem;
 }
 
-.art-circle-blue {
+.hero-badge {
   position: absolute;
-  top: 10px;
-  left: -20px;
-  width: 95px;
-  height: 95px;
-  border-radius: 50%;
-  border: 2px solid #000;
-  background-color: #b5e2fa;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 12px 18px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 12px;
   z-index: 2;
+  border: 2px solid transparent;
 }
+.badge-grad-1 { border-color: rgba(255, 200, 0, 0.6); }
+.badge-grad-2 { border-color: rgba(168, 85, 247, 0.6); }
 
-.art-semicircle-purple {
-  position: absolute;
-  bottom: 40px;
-  right: -15px;
-  width: 70px;
-  height: 35px;
-  background-color: #dfb2f4;
-  border-top-left-radius: 70px;
-  border-top-right-radius: 70px;
-  border: 2px solid #000;
-  transform: rotate(40deg);
-  z-index: 6;
-}
+.hero-badge strong { display: block; font-size: 0.9rem; color: #0f172a; }
+.hero-badge small { font-size: 0.75rem; color: #64748b; font-weight: 600; }
+.badge-icon { font-size: 1.5rem; }
 
-.art-smiley-badge {
-  position: absolute;
-  top: 70px;
-  right: -10px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: 2px solid #000;
-  background-color: #f5d061;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.2rem;
-  box-shadow: 3px 3px 0px #000;
-  transform: rotate(15deg);
-  z-index: 6;
-}
+.floating-1 { top: 20px; left: -20px; }
+.floating-2 { bottom: 30px; right: -20px; }
 
-.art-stairs-orange {
-  position: absolute;
-  bottom: -10px;
-  left: -15px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  z-index: 6;
-}
-.art-stairs-orange span {
-  height: 25px;
-  border: 2px solid #000;
-  background-color: #ff9f68;
-  display: block;
-}
-.art-stairs-orange span:nth-child(1) { width: 35px; border-bottom: none; }
-.art-stairs-orange span:nth-child(2) { width: 70px; border-bottom: none; }
-.art-stairs-orange span:nth-child(3) { width: 105px; }
-
-
-/* --- 2. DINAMIKA SECTION (Kubah Isi Foto Asli) --- */
+/* --- 2. DINAMIKA SECTION (BERITA) --- */
 .dinamika-section {
-  background-color: #fffbef;
-  padding: 100px 0;
-  border-bottom: 2px solid #000;
+  padding: 80px 0;
 }
+
 .section-title-center {
   text-align: center;
-  margin-bottom: 60px;
-}
-.section-title-center h2 {
-  font-size: 2.5rem;
-}
-.short-line {
-  width: 80px;
-  height: 4px;
-  background-color: #dfb2f4;
-  border: 2px solid #000;
-  border-radius: 10px;
-  margin: 15px auto 0 auto;
+  margin-bottom: 50px;
 }
 
-/* Grid Kartu Berita */
 .news-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  gap: 30px;
   margin-bottom: 50px;
 }
-.news-card {
-  background: transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+
+.news-card-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent;
 }
 
-/* Kubah yang Membungkus Foto Asli */
-.card-arch-wrapper {
+.card-border-gradient-0 { border-color: rgba(255, 200, 0, 0.5); }
+.card-border-gradient-1 { border-color: rgba(236, 72, 153, 0.5); }
+.card-border-gradient-2 { border-color: rgba(6, 182, 212, 0.5); }
+
+.news-card-glass:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+}
+
+/* SLIDER / CAROUSEL */
+.card-image-slider {
+  position: relative;
   width: 100%;
-  height: 300px;
-  border-top-left-radius: 150px;
-  border-top-right-radius: 150px;
-  border: 2px solid #000;
+  height: 220px;
   overflow: hidden;
   background-color: #e2e8f0;
-  box-shadow: 4px 4px 0px #000;
-  transition: transform 0.2s, box-shadow 0.2s;
 }
-.news-card:hover .card-arch-wrapper {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px #000;
-}
+
 .card-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: opacity 0.3s ease;
 }
 
-/* Badge Kategori Bulat */
-.category-badge-wrapper {
-  margin-top: -18px;
-  z-index: 10;
-}
-.category-badge {
-  padding: 6px 18px;
-  border-radius: 45px;
-  border: 2px solid #000;
-  font-weight: 700;
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 0.8rem;
-  display: inline-block;
-  box-shadow: 2px 2px 0px #000;
+  color: #0f172a;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: background 0.2s;
+  z-index: 5;
 }
-.badge-pink { background-color: #ffb7b2; }
-.badge-blue { background-color: #b5e2fa; }
-.badge-yellow { background-color: #ffdac1; }
-.badge-purple { background-color: #e8aeff; }
+.slider-btn:hover { background: #ffffff; }
+.btn-left { left: 10px; }
+.btn-right { right: 10px; }
+
+.slider-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 5;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.dot.active {
+  background: #ffffff;
+  width: 18px;
+  border-radius: 10px;
+}
+
+.category-badge-overlay {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 5px 14px;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 
 .card-body {
-  padding: 20px 10px;
+  padding: 22px;
 }
 .card-date {
   font-size: 0.8rem;
+  color: #64748b;
   font-weight: 600;
-  color: #4b5563;
   display: block;
   margin-bottom: 8px;
 }
 .card-title {
-  font-size: 1.3rem;
-  margin: 0 0 10px 0;
-  line-height: 1.35;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.4;
+  margin-bottom: 10px;
 }
 .card-description {
   font-size: 0.9rem;
-  color: #374151;
+  color: #475569;
   line-height: 1.5;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 .read-more-link {
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: #000;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #8b5cf6;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  transition: gap 0.2s;
 }
-.read-more-link:hover {
-  gap: 10px;
+.read-more-link:hover .arrow {
+  transform: translateX(4px);
 }
+.arrow { transition: transform 0.2s; }
+
 .text-center-action {
   text-align: center;
 }
 
-/* --- 3. PORTFOLIO SECTION --- */
-.portfolio-section {
-  background-color: #d0e1f9;
-  padding: 100px 0;
-  position: relative;
-  border-bottom: 2px solid #000;
-}
-.portfolio-section h2 {
-  font-size: 2.5rem;
-  line-height: 1.3;
-  margin: 15px 0 35px 0;
-}
-.ornament-flower {
-  position: absolute;
-  font-size: 3rem;
-  color: #fff;
-  font-family: sans-serif;
-  z-index: 1;
-}
-.flower-left { top: 60px; left: 8%; transform: rotate(-15deg); }
-.flower-right { bottom: 60px; right: 8%; transform: rotate(20deg); }
-
-/* --- 4. CALL TO ACTION --- */
+/* --- 3. CALL TO ACTION --- */
 .cta-section {
-  background-color: #fffbef;
-  padding: 90px 0;
-  border-bottom: 2px solid #000;
+  padding: 80px 0;
 }
-.cta-smiley {
-  font-size: 3.5rem;
-  background-color: #f5d061;
-  width: 80px;
-  height: 80px;
-  border: 2px solid #000;
-  border-radius: 50%;
+.cta-card-glass {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  padding: 50px 30px;
+  border-radius: 28px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 25px auto;
-  box-shadow: 3px 3px 0 #000;
 }
-.cta-section h2 {
-  font-size: 2.2rem;
-  max-width: 650px;
-  margin: 0 auto 40px auto;
+.cta-icon-glow {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+}
+.cta-card-glass h2 {
+  font-size: 2rem;
+  color: #0f172a;
+  font-weight: 800;
+  margin-bottom: 30px;
   line-height: 1.3;
 }
 
-/* --- 5. FOOTER --- */
-.playful-footer {
-  background-color: #cbe896;
-  padding: 70px 0;
-  border-bottom: 6px solid #111;
-  color: #111;
+/* --- 4. FOOTER --- */
+.modern-footer {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  padding: 60px 0 30px 0;
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
+  color: #475569;
+  position: relative;
+  z-index: 2;
 }
 .footer-grid {
   display: grid;
@@ -577,21 +731,24 @@ h1, h2, h3 {
   gap: 40px;
 }
 .footer-col h3 {
-  font-size: 1.30rem;
-  margin: 0 0 15px 0;
+  font-size: 1.1rem;
+  color: #0f172a;
+  font-weight: 800;
+  margin-bottom: 15px;
 }
 .footer-col p {
   font-size: 0.9rem;
   line-height: 1.6;
 }
 .footer-col a {
-  color: #000;
-  font-weight: 700;
+  color: #8b5cf6;
+  text-decoration: none;
+  font-weight: 600;
 }
 .copyright {
-  margin-top: 25px;
+  margin-top: 20px;
   font-size: 0.8rem;
-  opacity: 0.8;
+  color: #94a3b8;
 }
 .social-links {
   display: flex;
@@ -599,35 +756,33 @@ h1, h2, h3 {
   gap: 10px;
 }
 .social-links a {
+  font-size: 0.9rem;
+  color: #475569;
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.9rem;
 }
 .social-links a:hover {
-  text-decoration: underline;
+  color: #ec4899;
 }
 
-/* --- MEDIA QUERIES --- */
+/* --- RESPONSIF HP & TABLET --- */
 @media (max-width: 992px) {
   .grid-hero {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  .hero-text-content h1 { font-size: 2.8rem; }
-  .hero-text-content p { margin-left: auto; margin-right: auto; }
   .hero-buttons { justify-content: center; }
-  .hero-illustration-wrapper { margin-top: 50px; }
+  .hero-title { font-size: 2.5rem; }
+  .floating-1 { left: 0; }
+  .floating-2 { right: 0; }
   .news-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr; text-align: center; }
-  .social-links { align-items: center; }
-  .ornament-flower { display: none; }
 }
 
 @media (max-width: 640px) {
   .news-grid { grid-template-columns: 1fr; }
-  .hero-text-content h1 { font-size: 2.2rem; }
-  .section-title-center h2 { font-size: 1.8rem; }
-  .portfolio-section h2 { font-size: 1.6rem; }
-  .cta-section h2 { font-size: 1.4rem; }
+  .hero-title { font-size: 2rem; }
+  .section-heading { font-size: 1.6rem; }
+  .cta-card-glass h2 { font-size: 1.3rem; }
 }
 </style>
