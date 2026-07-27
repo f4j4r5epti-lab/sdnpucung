@@ -74,7 +74,25 @@ const rawData = [
     ringkasan: 'Petani Cilik adalah program unggulan SD Negeri Pucung yang mengajak siswa belajar langsung di luar kelas untuk mengenal dunia pertanian, pelestarian lingkungan, dan ketahanan pangan sejak dini. Melalui pendekatan belajar sambil bermain (learning by doing), para siswa diajak untuk menyentuh tanah, menanam bibit, merawat tanaman, hingga memanen hasilnya sendiri.',
     foto: ['/images/ptc1.jpg', '/images/ptc2.jpg'],
     waktu_agenda: '24 Juli 2026'
-  }
+  },
+  {
+    id: 10,
+    kategori: 'Berita',
+    tanggal: '27 Juli 2026',
+    judul: 'Sosialisasi Visi Misi Sekolah dan Draf Kurikulum Tahun Ajaran 2026/2027',
+    ringkasan: 'Dalam rangka menyambut Tahun Ajaran Baru 2026/2027, [Nama Sekolah] menggelar kegiatan Sosialisasi Visi Misi Sekolah dan Draf Kurikulum Operasional. Acara ini berlangsung di ruang kelas 2 dan dihadiri oleh kepala sekolah, dewan guru, komite sekolah, serta perwakilan orang tua/wali murid.',
+    foto: ['/images/soskur1.jpg', '/images/soskur2.jpg', '/images/soskur3.jpg', '/images/soskur4.jpg'],
+    waktu_agenda: '24 Juli 2026'
+  },
+  {  
+  id: 11,
+    kategori: 'Berita',
+    tanggal: '27 Juli 2026',
+    judul: 'Ekstrakurikuler Hadroh',
+    ringkasan: ' Ekstrakurikuler Hadroh SD Negeri Pucung merupakan wadah kreativitas seni Islami yang bertujuan untuk mengasah minat dan bakat siswa di bidang musik tradisional religius. Melalui kegiatan ini, para anggota dibekali dengan keterampilan menabuh instrumen (terbang, bass, keprak) serta teknik vokal shalawat.',
+    foto: ['/images/hadroh1.jpg', '/images/hadroh2.jpg', '/images/hadroh3.jpg'],
+    waktu_agenda: '27 Juli 2026'
+    }
 ];
 
 // // Mengurutkan otomatis berdasarkan ID dari yang terbesar (terbaru) ke terkecil
