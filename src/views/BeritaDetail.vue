@@ -58,9 +58,9 @@
         </template>
       </div>
 
-      <!-- Konten Artikel -->
+      <!-- Konten Artikel (Metode 2: Menggunakan class ringkasan-berita dengan white-space: pre-line) -->
       <div class="artikel-konten">
-        <p class="paragraf-isi ringkasan-highlight">{{ artikel.ringkasan }}</p>
+        <p class="paragraf-isi ringkasan-highlight ringkasan-berita">{{ artikel.ringkasan }}</p>
       </div>
 
     </div>
@@ -370,19 +370,22 @@ export default {
 
 .paragraf-isi {
   margin-bottom: 20px;
-  text-align: justify;
 }
 
 .ringkasan-highlight {
   font-size: 1.15rem;
-  font-weight: 600;
+  font-weight: 500;
   color: #0f172a;
-  line-height: 1.7;
   border-left: 4px solid #a855f7;
-  padding-left: 20px;
   background: rgba(243, 232, 255, 0.4);
-  padding: 15px 20px;
+  padding: 20px;
   border-radius: 0 16px 16px 0;
+}
+
+/* Kunci Metode 2: CSS membaca baris baru dari JS */
+.ringkasan-berita {
+  white-space: pre-line;
+  line-height: 1.7;
 }
 
 /* --- ERROR PANEL STATE GLASS --- */

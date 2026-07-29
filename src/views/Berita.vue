@@ -525,6 +525,14 @@ export default {
   line-height: 1.6;
   margin-bottom: 20px;
   flex-grow: 1;
+
+  /* --- PENYESUAIAN MEMBACA ENTER & MEMBATASI BARIS --- */
+  white-space: pre-line;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3; /* Standar CSS untuk menghilangkan warning Linter */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .btn-read-glass {
