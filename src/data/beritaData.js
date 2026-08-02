@@ -103,7 +103,44 @@ const rawData = [
 Melalui kegiatan ini, para siswa tidak hanya belajar menghafal ragam gerak tari, tetapi juga diajak untuk memahami makna tersirat di balik setiap ritme, keharmonisan musik pengiring, serta keindahan busana daerah. Kami percaya bahwa pendidikan seni tari sejak usia sekolah dasar berperan penting dalam membentuk kepribadian yang santun, disiplin, dan menghargai warisan budaya bangsa di era modernisasi.`,
     foto: ['/images/tari.jpg'],
     waktu_agenda: '29 Juli 2026'
+  },
+  {
+    id: 13,
+    kategori: 'Berita',
+    tanggal: '02 Agustus 2026',
+    judul: 'Kegiatan Senam',
+    ringkasan: `Menerapkan nilai KAIH, SDN Pucung secara konsisten melatih pola hidup sehat lewat kegiatan senam bersama setiap hari Jumat pagi. Kegiatan ini bertujuan untuk menjaga kebugaran fisik seluruh warga sekolah sekaligus membangun keceriaan dan kebersamaan di lingkungan sekolah.`,
+    foto: ['/images/senam.jpg'],
+    waktu_agenda: '31 Agustus 2026'
+  },
+  {
+    id: 14,
+    kategori: 'Berita',
+    tanggal: '02 Agustus 2026',
+    judul: 'Pramuka',
+    ringkasan: `Sebagai upaya membangun karakter siswa yang mandiri, berakhlak mulia, dan berjiwa kepemimpinan, SDN Pucung melaksanakan kegiatan ekstrakurikuler Pramuka secara rutin. Kegiatan ini menjadi sarana belajar yang menyenangkan melalui berbagai keterampilan kepramukaan dan kerja sama tim.`,
+    foto: ['/images/pramuka.jpg'],
+    waktu_agenda: '31 Agustus 2026'
+  },
+   {
+    id: 15,
+    kategori: 'Berita',
+    tanggal: '02 Agustus 2026',
+    judul: 'Pemakaian Baju Adat',
+    ringkasan: `Suasana belajar di SDN Pucung terasa jauh lebih istimewa setiap tibanya hari Kamis Pon. Ruang-ruang kelas dan halaman sekolah diwarnai dengan keindahan ragam busana tradisional. Para siswa putra tampak gagah mengenakan surjan dan lurik lengkap dengan blangkon, sementara siswa putri tampil anggun balutan kebaya. Tradisi rutin Kamis Pon ini menjadi cara yang indah dan menyenangkan bagi anak-anak untuk merawat tradisi, sekaligus menciptakan lingkungan sekolah yang penuh dengan nuansa kebersamaan dan kesopanan ala budaya Jawa.`,
+    foto: ['/images/bajuadat.jpg'],
+    waktu_agenda: '30 Agustus 2026'
+  },
+  {
+    id: 16,
+    kategori: 'Berita',
+    tanggal: '02 Agustus 2026',
+    judul: 'Sambut Kemerdekan 17 Agustus 2026',
+    ringkasan: `Menyambut Hari Ulang Tahun (HUT) Ke-81 Republik Indonesia tanggal 17 Agustus 2026, SDN Pucung mempercantik lingkungan sekolah dengan memasang berbagai atribut kemerdekaan. Halaman sekolah kini tampil semarak dengan lambaian umbul-umbul merah putih, bendera, serta pernak-pernik khas kemerdekaan yang dipasang oleh para guru, staf, dan siswa secara gotong royong. Pemasangan atribut ini menjadi momentum untuk menghidupkan semangat nasionalisme, menanamkan rasa cinta tanah air, serta menumbuhkan jiwa patriotisme di kalangan para siswa sejak dini.`,
+    foto: ['/images/sambut17.jpg'],
+    waktu_agenda: '31 Agustus 2026'
   }
+
 ];
 
 // Mengurutkan otomatis berdasarkan ID dari yang terbesar (terbaru) ke terkecil
