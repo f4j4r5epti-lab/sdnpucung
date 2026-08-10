@@ -111,7 +111,7 @@ Melalui kegiatan ini, para siswa tidak hanya belajar menghafal ragam gerak tari,
     judul: 'Kegiatan Senam',
     ringkasan: `Menerapkan nilai KAIH, SDN Pucung secara konsisten melatih pola hidup sehat lewat kegiatan senam bersama setiap hari Jumat pagi. Kegiatan ini bertujuan untuk menjaga kebugaran fisik seluruh warga sekolah sekaligus membangun keceriaan dan kebersamaan di lingkungan sekolah.`,
     foto: ['/images/senam.jpg'],
-    waktu_agenda: '31 Agustus 2026'
+    waktu_agenda: '31 Juli 2026'
   },
   {
     id: 14,
@@ -120,7 +120,7 @@ Melalui kegiatan ini, para siswa tidak hanya belajar menghafal ragam gerak tari,
     judul: 'Pramuka',
     ringkasan: `Sebagai upaya membangun karakter siswa yang mandiri, berakhlak mulia, dan berjiwa kepemimpinan, SDN Pucung melaksanakan kegiatan ekstrakurikuler Pramuka secara rutin. Kegiatan ini menjadi sarana belajar yang menyenangkan melalui berbagai keterampilan kepramukaan dan kerja sama tim.`,
     foto: ['/images/pramuka.jpg'],
-    waktu_agenda: '31 Agustus 2026'
+    waktu_agenda: '31 Juli 2026'
   },
    {
     id: 15,
@@ -129,7 +129,7 @@ Melalui kegiatan ini, para siswa tidak hanya belajar menghafal ragam gerak tari,
     judul: 'Pemakaian Baju Adat',
     ringkasan: `Suasana belajar di SDN Pucung terasa jauh lebih istimewa setiap tibanya hari Kamis Pon. Ruang-ruang kelas dan halaman sekolah diwarnai dengan keindahan ragam busana tradisional. Para siswa putra tampak gagah mengenakan surjan dan lurik lengkap dengan blangkon, sementara siswa putri tampil anggun balutan kebaya. Tradisi rutin Kamis Pon ini menjadi cara yang indah dan menyenangkan bagi anak-anak untuk merawat tradisi, sekaligus menciptakan lingkungan sekolah yang penuh dengan nuansa kebersamaan dan kesopanan ala budaya Jawa.`,
     foto: ['/images/bajuadat.jpg'],
-    waktu_agenda: '30 Agustus 2026'
+    waktu_agenda: '30 Juli 2026'
   },
   {
     id: 16,
@@ -138,9 +138,62 @@ Melalui kegiatan ini, para siswa tidak hanya belajar menghafal ragam gerak tari,
     judul: 'Sambut Kemerdekan 17 Agustus 2026',
     ringkasan: `Menyambut Hari Ulang Tahun (HUT) Ke-81 Republik Indonesia tanggal 17 Agustus 2026, SDN Pucung mempercantik lingkungan sekolah dengan memasang berbagai atribut kemerdekaan. Halaman sekolah kini tampil semarak dengan lambaian umbul-umbul merah putih, bendera, serta pernak-pernik khas kemerdekaan yang dipasang oleh para guru, staf, dan siswa secara gotong royong. Pemasangan atribut ini menjadi momentum untuk menghidupkan semangat nasionalisme, menanamkan rasa cinta tanah air, serta menumbuhkan jiwa patriotisme di kalangan para siswa sejak dini.`,
     foto: ['/images/sambut17.jpg'],
-    waktu_agenda: '31 Agustus 2026'
+    waktu_agenda: '31 Juli 2026'
+  },
+{
+    id: 17,
+    kategori: 'Berita',
+    tanggal: '10 Agustus 2026',
+    judul: 'Upacara Bendera Hari Senin',
+    ringkasan: `SD Negeri Pucung kembali melaksanakan kegiatan rutin Upacara Bendera Hari Senin di halaman sekolah dengan hikmat dan tertib. Upacara diikuti oleh seluruh siswa, guru, serta staf karyawan sekolah sebagai bentuk penghormatan kepada para pahlawan dan penguatan nilai-nilai nasionalisme sejak dini.
+    Melalui amanat yang disampaikan oleh pembina upacara, para siswa diingatkan kembali tentang pentingnya kedisiplinan, semangat belajar, menjaga kebersihan lingkungan, serta saling menghargai antar sesama teman. Petugas upacara yang bergantian dari setiap kelas juga dilatih untuk bertanggung jawab, tampil percaya diri, dan memimpin jalannya barisan dengan baik.
+    Kegiatan rutin ini tidak hanya menjadi awal pembuka semangat pembelajaran di minggu yang baru, tetapi juga membentuk karakter peserta didik yang berakhlak mulia, berjiwa patriotik, dan berdisiplin tinggi.`,
+    foto: ['/images/upacara.jpg'],
+    waktu_agenda: '10 Agustus 2026'
+  },
+  {
+    id: 18,
+    kategori: 'Berita',
+    tanggal: '10 Agustus 2026',
+    judul: 'Ekstrakurikuler TIK',
+    ringkasan: `Di era digital yang berkembang pesat, penguasaan teknologi menjadi salah satu keterampilan penting bagi anak sejak dini. Ekstrakurikuler TIK (Teknologi Informasi dan Komunikasi) di SD Negeri Pucung hadir sebagai wadah bagi para siswa untuk mengenal, mempelajari, dan memanfaatkan teknologi secara bijak, aman, dan kreatif.
+    `,
+    foto: ['/images/tik.jpg'],
+    waktu_agenda: '10 Agustus 2026'
+  },
+  {
+    id: 19,
+    kategori: 'Berita',
+    tanggal: '10 Agustus 2026',
+    judul: 'Latihan Gerak Jalan dalamm rangka HUT RI ke 81 Kapanewon Kalasan',
+    ringkasan: `Dalam rangka menyambut dan memeriahkan Hari Ulang Tahun (HUT) ke-81 Kemerdekaan Republik Indonesia, peserta perwakilan siap memberikan penampilan terbaiknya pada lomba gerak jalan tingkat Kapanewon Kalasan.
+    Guna memantapkan kekompakan, ketahanan fisik, dan keselarasan langkah, seluruh peserta secara rutin melaksanakan latihan intensif gerak jalan. Latihan ini tidak hanya berfokus pada ketepatan baris-berbaris dan variasi formasi, tetapi juga menanamkan nilai kedisiplinan, semangat gotong royong, serta jiwa nasionalisme.
+    Dengan semangat yang membara di bawah bimbingan para pelatih, diharapkan kontingen dapat tampil maksimal, menjaga keutuhan barisan, serta mengharumkan nama sekolah/instansi pada ajang lomba gerak jalan Kapanewon Kalasan tahun ini.`,
+    foto: ['/images/gerakjalan.jpg'],
+    waktu_agenda: '10 Agustus 2026'
+  },
+  {
+    id: 20,
+    kategori: 'Berita',
+    tanggal: '10 Agustus 2026',
+    judul: 'Perdana Ekstrakurikuler Seni Lukis',
+    ringkasan: `SD Negeri Pucung dengan bangga menghadirkan wadah baru untuk menyalurkan bakat dan imajinasi peserta didik melalui Ekstrakurikuler Seni Lukis Perdana. Kegiatan ini dirancang khusus untuk memfasilitasi minat anak-anak dalam dunia seni rupa, sekaligus mengasah kemampuan motorik halus, konsentrasi, dan rasa percaya diri mereka.
+    Pada pertemuan perdana ini, para siswa diajak mengenal dasar-dasar menggambar, teknik pengenalan warna, serta mengekspresikan ide-ide kreatif mereka di atas kertas. Suasana antusias dan penuh warna terpancar dari wajah para peserta yang semangat menggoreskan warna-warni pertama mereka.
+    Melalui ekstrakurikuler seni lukis ini, SD Negeri Pucung berharap dapat melahirkan generasi muda yang tidak hanya unggul secara akademis, tetapi juga memiliki kepekaan estetika, daya imajinasi yang luas, dan keberanian untuk berkarya.`,
+    foto: ['/images/lukis.jpg'],
+    waktu_agenda: '10 Agustus 2026'
+  },
+  {
+    id: 21,
+    kategori: 'Berita',
+    tanggal: '10 Agustus 2026',
+    judul: 'edugame',
+    ringkasan: `SD Negeri Pucung terus berkomitmen menghadirkan inovasi dalam pembelajaran melalui kegiatan Edugame (Game Edukasi). Kegiatan ini dirancang khusus untuk memadukan konsep belajar sambil bermain (learning through play), sehingga para siswa dapat memahami materi pelajaran dengan cara yang menyenangkan, kreatif, dan interaktif.
+    Melalui berbagai media permainan edukatif—mulai dari kuis digital berbasis interaktif hingga permainan ketangkasan logika dan tebak kata—siswa diajak untuk mengasah kemampuan berpikir kritis, meningkatkan daya ingat, serta melatih kerja sama tim.
+    Dengan terlaksananya kegiatan Edugame ini, diharapkan suasana belajar di SD Negeri Pucung menjadi lebih hidup, meningkatkan motivasi belajar siswa, dan membuktikan bahwa proses belajar-mengajar dapat berlangsung secara ceria tanpa mengurangi bobot materi pelajaran.`,
+    foto: ['/images/edugame.jpg'],
+    waktu_agenda: '10 Agustus 2026'
   }
-
 ];
 
 // Mengurutkan otomatis berdasarkan ID dari yang terbesar (terbaru) ke terkecil
