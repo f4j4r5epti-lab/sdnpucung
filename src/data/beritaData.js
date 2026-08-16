@@ -193,7 +193,40 @@ Melalui kegiatan ini, para siswa tidak hanya belajar menghafal ragam gerak tari,
     Dengan terlaksananya kegiatan Edugame ini, diharapkan suasana belajar di SD Negeri Pucung menjadi lebih hidup, meningkatkan motivasi belajar siswa, dan membuktikan bahwa proses belajar-mengajar dapat berlangsung secara ceria tanpa mengurangi bobot materi pelajaran.`,
     foto: ['/images/edugame.jpg'],
     waktu_agenda: '10 Agustus 2026'
-  }
+  },
+{
+    id: 22,
+    kategori: 'Berita',
+    tanggal: '16 Agustus 2026',
+    judul: 'Lomba Gerak Jalan Kapanewon Kalasan',
+    ringkasan: `SD Negeri Pucung turut serta memeriahkan peringatan Hari Ulang Tahun (HUT) ke-81 Kemerdekaan Republik Indonesia dengan mengirimkan kontingen terbaiknya dalam ajang Lomba Gerak Jalan yang diselenggarakan oleh Kapanewon Kalasan.
+    
+    Dengan penuh semangat, para siswa baris-membaris melangkah mantap menyusuri rute perlombaan. Kostum yang rapi, ketepatan tempo, serta variasi formasi yang disiapkan secara matang menjadi bukti kesiapan dan kedisiplinan kontingen SD Negeri Pucung. Di sepanjang jalan, antusiasme dan sorak semangat dari para peserta terpancar jelas, mencerminkan jiwa nasionalisme serta gotong royong yang tinggi.
+    
+    Melalui keikutsertaan dalam kegiatan ini, SD Negeri Pucung tidak hanya bertujuan meraih prestasi, tetapi juga membina mental pantang menyerah, melatih kerja sama tim, dan menanamkan rasa cinta Tanah Air kepada para peserta didik sejak dini.`,
+    foto: ['/images/lomakapkalasan.jpg'],
+    waktu_agenda: '13 Agustus 2026'
+  },
+  {
+    id: 23,
+    kategori: 'Berita',
+    tanggal: '16 Agustus 2026',
+    judul: 'Upacara Peringatan Hari Pramuka',
+    ringkasan: `SD Negeri Pucung melaksanakan upacara bendera dalam rangka memperingati Hari Pramuka. Kegiatan ini berlangsung dengan khidmat sebagai bentuk pembinaan karakter peserta didik agar tumbuh menjadi pribadi yang tangguh, disiplin, mandiri, dan berjiwa gotong royong sesuai dengan dasardasra kepramukaan.`,
+    foto: ['/images/upharipramuka.jpg'],
+    waktu_agenda: '14 Agustus 2026'
+  },
+  {
+    id: 23,
+    kategori: 'Berita',
+    tanggal: '16 Agustus 2026',
+    judul: 'Lomba 17 Agustus',
+    ringkasan: `Menyambut HUT ke-81 Republik Indonesia, SD Negeri Pucung mengadakan berbagai perlombaan interaktif bagi seluruh siswa. Kegiatan ini berlangsung meriah dengan menjunjung tinggi nilai gotong royong, kebersamaan, dan rasa kebanggaan sebagai anak Indonesia.`,
+    foto: ['/images/lomba17gel1.jpg'],
+    waktu_agenda: '14 Agustus 2026'
+  },
+  
+
 ];
 
 // Mengurutkan otomatis berdasarkan ID dari yang terbesar (terbaru) ke terkecil
