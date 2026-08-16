@@ -204,7 +204,7 @@ Melalui kegiatan ini, para siswa tidak hanya belajar menghafal ragam gerak tari,
     Dengan penuh semangat, para siswa baris-membaris melangkah mantap menyusuri rute perlombaan. Kostum yang rapi, ketepatan tempo, serta variasi formasi yang disiapkan secara matang menjadi bukti kesiapan dan kedisiplinan kontingen SD Negeri Pucung. Di sepanjang jalan, antusiasme dan sorak semangat dari para peserta terpancar jelas, mencerminkan jiwa nasionalisme serta gotong royong yang tinggi.
     
     Melalui keikutsertaan dalam kegiatan ini, SD Negeri Pucung tidak hanya bertujuan meraih prestasi, tetapi juga membina mental pantang menyerah, melatih kerja sama tim, dan menanamkan rasa cinta Tanah Air kepada para peserta didik sejak dini.`,
-    foto: ['/images/lomakapkalasan.jpg'],
+    foto: ['/images/lomakapkalasan.jpeg'],g
     waktu_agenda: '13 Agustus 2026'
   },
   {
@@ -217,7 +217,7 @@ Melalui kegiatan ini, para siswa tidak hanya belajar menghafal ragam gerak tari,
     waktu_agenda: '14 Agustus 2026'
   },
   {
-    id: 23,
+    id: 24,
     kategori: 'Berita',
     tanggal: '16 Agustus 2026',
     judul: 'Lomba 17 Agustus',
