@@ -225,6 +225,60 @@ Melalui kegiatan ini, para siswa tidak hanya belajar menghafal ragam gerak tari,
     foto: ['/images/lomba17gel1.jpg'],
     waktu_agenda: '14 Agustus 2026'
   },
+  {
+    id: 25,
+    kategori: 'Berita',
+    tanggal: '28 Agustus 2026',
+    judul: 'Upacara HUT Kemerdekaan RI ke-81',
+    ringkasan: `Dalam rangka memperingati HUT ke-81 Kemerdekaan Republik Indonesia, SD Negeri Pucung mengirimkan perwakilan siswa dan jajaran pendidik untuk mengikuti Upacara Bendera di Lapangan Kapanewon Kalasan. Kegiatan berlangsung dengan khidmat sebagai wujud rasa syukur atas kemerdekaan serta komitmen sekolah dalam membina karakter patriotik generasi muda.`,
+    foto: ['/images/upacara17.jpeg'],
+    waktu_agenda: '17 Agustus 2026'
+  },
+  {
+    id: 26,
+    kategori: 'Berita',
+    tanggal: '28 Agustus 2026',
+    judul: 'Lomba Voli PTK',
+    ringkasan: `SD Negeri Pucung menggelar Lomba Voli Guru yang berlangsung meriah dan penuh semangat. Diwarnai gelak tawa dan antusiasme tinggi dari para siswa yang menonton, kegiatan ini menjadi sarana menyegarkan pikiran, menjaga kesehatan fisik, serta mempererat kebersamaan seluruh bapak/ibu guru dan staf sekolah.`,
+    foto: ['/images/lombaseru.jpeg'],
+    waktu_agenda: '18 Agustus 2026'
+  },
+  {
+    id: 27,
+    kategori: 'Berita',
+    tanggal: '28 Agustus 2026',
+    judul: 'KKN UNY Kenalkan Literasi Finansial Sejak Dini untuk Siswa SD Negeri Pucung',
+    ringkasan: `KKN UNY Kenalkan Literasi Finansial Sejak Dini untuk Siswa SD Negeri PucungTim KKN UNY menggelar program kerja Literasi Finansial di SD Negeri Pucung. Lewat sesi interaktif dan simulasi menabung yang menyenangkan, para siswa dibekali pemahaman mendasar tentang pengelolaan uang saku, skala prioritas kebutuhan, serta pentingnya membiasakan hidup hemat dan gemar menabung sejak kecil.`,
+    foto: ['/images/kknuny.jpeg'],
+    waktu_agenda: '19 Agustus 2026'
+  },
+  {
+    id: 28,
+    kategori: 'Berita',
+    tanggal: '28 Agustus 2026',
+    judul: 'Melatih Keberanian dan Kepercayaan Diri Siswa Lewat Program "Pagi Ceria"',
+    ringkasan: `Program Pagi Ceria di SD Negeri Pucung hadir sebagai ruang berekspresi bagi seluruh siswa. Melalui penampilan bakat dan unjuk keberanian di depan teman-teman serta guru, kegiatan ini efektif membiasakan anak-anak untuk tampil percaya diri, melatih kemampuan berbicara di depan umum (public speaking), dan mengeksplorasi potensi diri secara positif.`,
+    foto: ['/images/pagiceria.jpeg'],
+    waktu_agenda: '20 Agustus 2026'
+  },
+  {
+    id: 29,
+    kategori: 'Berita',
+    tanggal: '28 Agustus 2026',
+    judul: 'Optimalkan Kualitas Pembelajaran melalui Reviu Kurikulum SD Negeri Pucung',
+    ringkasan: `SD Negeri Pucung melaksanakan evaluasi dan Reviu Kurikulum secara berkala. Langkah ini dilakukan untuk menilai efektivitas proses belajar-mengajar, memperbarui strategi pembelajaran sesuai kebutuhan siswa, serta memastikan kurikulum sekolah tetap relevan, inovatif, dan berstandar mutu tinggi.`,
+    foto: ['/images/reviu.jpeg'],
+    waktu_agenda: '27 Agustus 2026'
+  },
+   {
+    id: 30,
+    kategori: 'Berita',
+    tanggal: '28 Agustus 2026',
+    judul: 'SD Negeri Pucung dan Puskesmas Kalasan Gelar Pelaksanaan Bulan Imunisasi Anak Sekolah (BIAS)',
+    ringkasan: `Wujudkan generasi sekolah yang sehat dan tangguh, SD Negeri Pucung memfasilitasi pelaksanaan kegiatan BIAS bersama tim tenaga kesehatan Puskesmas Kalasan. Melalui imunisasi berkala ini, para siswa mendapatkan daya tahan tubuh ekstra demi mencegah penyakit menular dan mendukung tumbuh kembang anak sejak dini.`,
+    foto: ['/images/bias.jpeg'],
+    waktu_agenda: '28 Agustus 2026'
+  },
   
 
 ];
